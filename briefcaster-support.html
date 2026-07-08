@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Briefcaster — Support</title>
+  <meta name="description" content="Help and support for the Briefcaster mobile app by Data Concept Studio." />
+  <meta property="og:title" content="Briefcaster — Support" />
+  <meta property="og:description" content="Get help with Briefcaster: feeds, playback, account, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dataconceptstudio.com/briefcaster/support" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #030712;
+      --surface: #0b1220;
+      --line: #1f2937;
+      --ink: #f3f4f6;
+      --ink-muted: #9ca3af;
+      --ink-dim: #6b7280;
+      --brand: #34d399;
+      --brand-deep: #10b981;
+    }
+    * { box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+    body {
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        linear-gradient(rgba(16,185,129,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 56px 22px 96px; }
+    .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .logo {
+      width: 40px; height: 40px; border-radius: 11px;
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #030712; font-size: 20px;
+      box-shadow: 0 0 24px rgba(16,185,129,0.25);
+    }
+    .brand-name { font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+    .brand-sub { font-size: 12px; color: var(--ink-dim); }
+    h1 {
+      font-size: 34px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em;
+      margin: 8px 0 6px;
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 55%, #8b5cf6 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .updated { color: var(--ink-dim); font-size: 13px; margin-bottom: 34px; }
+    h2 {
+      font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+      margin: 40px 0 12px; padding-top: 10px;
+      border-top: 1px solid var(--line); color: var(--ink);
+    }
+    h2:first-of-type { border-top: none; padding-top: 0; }
+    h3 { font-size: 15px; font-weight: 600; margin: 22px 0 8px; color: var(--ink); }
+    p, li { color: var(--ink-muted); font-size: 15px; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 20px; margin: 10px 0; }
+    li { margin: 6px 0; }
+    strong { color: var(--ink); font-weight: 600; }
+    .callout {
+      background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--brand);
+      border-radius: 10px; padding: 14px 16px; margin: 18px 0;
+    }
+    .callout p { margin: 0; }
+    .contact-btn {
+      display: inline-block; margin-top: 6px; padding: 11px 18px; border-radius: 10px;
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); color: #030712;
+      font-weight: 700; font-size: 15px;
+    }
+    .contact-btn:hover { text-decoration: none; opacity: 0.92; }
+    footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 13px; }
+    footer a { color: var(--ink-muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="brand-row">
+      <div class="logo">B</div>
+      <div>
+        <div class="brand-name">Briefcaster</div>
+        <div class="brand-sub">by Data Concept Studio</div>
+      </div>
+    </div>
+
+    <h1>Support</h1>
+    <p class="updated">We're here to help.</p>
+
+    <p>
+      Briefcaster turns news topics, RSS feeds, and YouTube channels into short, personalized audio
+      briefs delivered on your schedule. If something isn't working or you have a question, the fastest
+      way to reach us is by email.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Contact us:</strong>
+        <a href="mailto:dataconceptstudio@gmail.com">dataconceptstudio@gmail.com</a> — we usually reply
+        within 2 business days.
+      </p>
+    </div>
+
+    <p>
+      <a class="contact-btn" href="mailto:dataconceptstudio@gmail.com?subject=Briefcaster%20support">Email support</a>
+    </p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>How do I create a brief?</h3>
+    <p>
+      Tap <strong>New feed</strong>, add a topic (and optionally RSS or website sources or YouTube
+      channels), choose a schedule, length, and voice, then generate your first brief. New briefs then
+      arrive automatically on the schedule you set.
+    </p>
+
+    <h3>Why is my brief late or still generating?</h3>
+    <p>
+      Briefs are produced in the background. Scheduled morning briefs are delivered in batches, so the
+      first ones arrive around your chosen time and the rest follow within a few minutes. If a brief
+      shows an error, tap <strong>Try again</strong>.
+    </p>
+
+    <h3>How do I change the voice, schedule, or length?</h3>
+    <p>
+      Open the feed and use its settings to change the voice, delivery time, format, and depth. Some
+      settings lock once a feed has generated its first episode.
+    </p>
+
+    <h3>How do I manage notifications?</h3>
+    <p>
+      Turn push notifications on or off from the <strong>Account</strong> screen. You can also control
+      them in your device settings under Notifications → Briefcaster.
+    </p>
+
+    <h3>How do I report a brief?</h3>
+    <p>
+      Open the brief and tap <strong>Report this brief</strong>. We review reports and can hide or
+      remove content that breaks our rules.
+    </p>
+
+    <h3>How do I delete my account?</h3>
+    <p>
+      Go to <strong>Account → Delete account</strong> and confirm. This permanently deletes your
+      account, feeds, sources, and generated briefs. To request a copy of your data instead, email us.
+    </p>
+
+    <h3>What does it cost?</h3>
+    <p>
+      Briefcaster is free to use with a monthly allowance of briefs. There are no paid subscriptions;
+      an optional, opt-in ad may let you unlock an extra brief when you reach your limit.
+    </p>
+
+    <h2>Privacy &amp; terms</h2>
+    <p>
+      See our <a href="https://dataconceptstudio.com/briefcaster/privacy">Privacy Policy</a> and
+      <a href="https://dataconceptstudio.com/briefcaster/terms">Terms of Service</a>.
+    </p>
+
+    <footer>
+      © 2026 Data Concept Studio · <a href="https://dataconceptstudio.com">dataconceptstudio.com</a>
+    </footer>
+  </main>
+</body>
+</html>

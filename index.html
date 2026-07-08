@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Concept Studio — AI Trading Intelligence</title>
+  <meta name="description" content="Multi-agent AI platform for institutional-grade trading decisions. Four specialized AI agents. Real risk management. Human oversight.">
+  <meta property="og:title" content="Data Concept Studio — AI Trading Intelligence">
+  <meta property="og:description" content="Four AI agents. One trading decision. Human approved.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dataconceptstudio.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: grad 8s ease infinite;
+    }
+    @keyframes grad {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(16,185,129,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    .glow-emerald { box-shadow: 0 0 32px rgba(16,185,129,0.25); }
+
+    .card-hover {
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .card-hover:hover {
+      border-color: rgba(16,185,129,0.3);
+      box-shadow: 0 0 24px rgba(16,185,129,0.08);
+    }
+
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.35; }
+    }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+    .nav-blur {
+      background: rgba(3,7,18,0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Connector between process steps */
+    .step-connector {
+      position: absolute;
+      top: 36px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(16,185,129,0.3) 30%, rgba(139,92,246,0.3) 70%, transparent);
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white antialiased overflow-x-hidden">
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-sm tracking-wide">Data Concept Studio</span>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors">How it works</a>
+        <a href="#features"     class="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
+        <a href="#technology"   class="text-sm text-gray-400 hover:text-white transition-colors">Technology</a>
+        <a href="/about"        class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
+        <a href="#beta"
+           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25
+                  text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all">
+          Request access
+        </a>
+      </div>
+
+      <!-- Mobile -->
+      <div class="md:hidden flex items-center gap-3">
+        <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
+        <a href="#beta"
+           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
+          Access
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="relative min-h-screen flex items-center grid-bg pt-24">
+    <!-- Ambient orbs -->
+    <div class="absolute top-1/3 left-1/5 w-[700px] h-[500px] bg-emerald-500/4 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[400px] bg-blue-500/4 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-2/3 left-2/3 w-[300px] h-[300px] bg-purple-500/4 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 py-28 relative">
+      <div class="max-w-4xl">
+
+        <!-- Status badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full
+                    bg-gray-900 border border-gray-700/60 text-sm mb-10">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+          <span class="text-gray-300">Live in production</span>
+          <span class="w-px h-3 bg-gray-700"></span>
+          <span class="text-gray-500">Private beta · US equities + crypto</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6">
+          Trading intelligence<br>
+          <span class="gradient-text">powered by AI agents</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-400 leading-relaxed mb-10 max-w-2xl">
+          MATHS orchestrates four specialized AI agents — Technical, Fundamentals,
+          Sentiment, and Macro — to generate institutional-grade trading decisions
+          with full audit trails, adaptive risk management, and human approval before
+          every order.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap items-center gap-8 mb-10">
+          <div>
+            <div class="text-3xl font-bold">4</div>
+            <div class="text-xs text-gray-500 mt-1">AI agents in consensus</div>
+          </div>
+          <div class="w-px h-8 bg-gray-800"></div>
+          <div>
+            <div class="text-3xl font-bold">100+</div>
+            <div class="text-xs text-gray-500 mt-1">signals per scan</div>
+          </div>
+          <div class="w-px h-8 bg-gray-800"></div>
+          <div>
+            <div class="text-3xl font-bold">&lt;30s</div>
+            <div class="text-xs text-gray-500 mt-1">scan-to-decision</div>
+          </div>
+          <div class="w-px h-8 bg-gray-800"></div>
+          <div>
+            <div class="text-3xl font-bold">0</div>
+            <div class="text-xs text-gray-500 mt-1">unreviewed trades</div>
+          </div>
+        </div>
+
+        <!-- CTA form -->
+        <form id="hero-form" onsubmit="submitForm(event,'hero-form','hero-success')"
+              class="flex flex-col sm:flex-row gap-3 max-w-md">
+          <input type="email" placeholder="your@email.com" required
+            class="flex-1 px-4 py-3 rounded-xl bg-gray-900 border border-gray-700
+                   text-white placeholder-gray-500 text-sm
+                   focus:outline-none focus:border-emerald-500/60 transition-colors">
+          <button type="submit"
+            class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95
+                   text-gray-950 font-semibold text-sm transition-all glow-emerald whitespace-nowrap">
+            Request beta access
+          </button>
+        </form>
+        <p id="hero-success" class="hidden text-emerald-400 text-sm mt-3">
+          ✓ You're on the list. We'll be in touch soon.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+  <section id="how-it-works" class="py-28 border-t border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="text-xs mono text-emerald-400 tracking-widest mb-4 uppercase">Process</div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">From data to decision in seconds</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Four independent agents run in parallel, combine into a consensus with learned weights,
+          then pass through a multi-layer risk gate before a human approves execution.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+        <div class="step-connector hidden md:block"></div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+            </svg>
+          </div>
+          <div class="text-xs mono text-emerald-400 mb-2">01 · DATA</div>
+          <h3 class="font-semibold mb-2">Multi-source ingestion</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Price data, SEC filings, short interest, analyst ratings, VIX, and macro indicators —
+            fetched in parallel in under 10 seconds.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <div class="text-xs mono text-blue-400 mb-2">02 · AGENTS</div>
+          <h3 class="font-semibold mb-2">4-way agent consensus</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Technical, Fundamentals, Sentiment, and Macro agents score independently.
+            Sharpe-optimised learned weights combine their conviction into one decision.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div class="text-xs mono text-purple-400 mb-2">03 · RISK</div>
+          <h3 class="font-semibold mb-2">Multi-layer risk gate</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Every signal clears a series of independent safety checks before any capital is
+            committed. Hard rules activate automatically under adverse conditions —
+            no model can override them.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div class="text-xs mono text-amber-400 mb-2">04 · EXECUTE</div>
+          <h3 class="font-semibold mb-2">Human-approved execution</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Signals arrive on your phone with full reasoning attached. One tap approves.
+            Bracket orders — entry, stop-loss, and take-profit — are routed to your
+            broker instantly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURES ═══════════════ -->
+  <section id="features" class="py-28 border-t border-gray-800/40 grid-bg">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="text-xs mono text-blue-400 tracking-widest mb-4 uppercase">Capabilities</div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">Built for real markets</h2>
+        <p class="text-gray-400">
+          Not a backtesting toy. MATHS executes live trades with institutional-grade
+          safeguards on every order.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5
+                   m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3
+                   m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6.75v6.75"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Adaptive position sizing</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Position sizes adapt dynamically to market conditions, portfolio concentration,
+            and signal quality. Capital is always sized relative to actual edge —
+            never over-committed.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2
+                   M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Full audit trail</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Every scan decision — each agent's individual score and reasoning — is
+            permanently logged. Complete traceability from signal to fill, always available.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992
+                   m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7
+                   M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Self-learning ensemble</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            The system continuously learns from closed trades, automatically reweighting
+            agents based on what actually works in current market conditions.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71
+                   c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0
+                   L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Hard risk veto gate</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Hard-coded rules halt new positions automatically when market conditions turn
+            adverse — volatility spikes, upcoming events, or unfavourable liquidity.
+            No signal can override them.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9
+                   M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75
+                   H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Portfolio construction</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Positions are sized relative to each other, not just individually. Correlated
+            trades share a risk budget — capital flows where the edge is highest,
+            with cross-strategy concentration limits enforced automatically.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 card-hover">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.348 14.651a3.75 3.75 0 010-5.303m5.304 0a3.75 3.75 0 010 5.303
+                   m-7.425 2.122a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546
+                   M5.106 18.894c-3.808-3.808-3.808-9.98 0-13.789
+                   m13.788 0c3.808 3.809 3.808 9.981 0 13.79
+                   M12 12h.008v.008H12V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold mb-2">Triple-barrier exits</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Exit decisions adapt as trades develop. Partial profits can be taken early
+            when elevated risk is detected. Stops tighten automatically as positions
+            move in your favour.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TECHNOLOGY ═══════════════ -->
+  <section id="technology" class="py-28 border-t border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+          <div class="text-xs mono text-purple-400 tracking-widest mb-4 uppercase">Infrastructure</div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Cloud-native from day one</h2>
+          <p class="text-gray-400 mb-10 leading-relaxed">
+            Built entirely on Google Cloud with fully IaC-managed infrastructure via Terraform.
+            Every component is observable, reproducible, and independently scalable.
+          </p>
+
+          <div class="space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 mt-1.5 rounded-full bg-emerald-400 flex-shrink-0"></div>
+              <div>
+                <div class="font-medium text-sm">Serverless compute & event-driven orchestration</div>
+                <div class="text-xs text-gray-500 mt-1">Scales to zero between scans, to full capacity in milliseconds. Every pipeline is fault-tolerant with automatic retries.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 mt-1.5 rounded-full bg-blue-400 flex-shrink-0"></div>
+              <div>
+                <div class="font-medium text-sm">State-of-the-art AI · document retrieval</div>
+                <div class="text-xs text-gray-500 mt-1">Leading language models synthesise qualitative signals. Retrieval-augmented generation grounds conclusions in real financial documents.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 mt-1.5 rounded-full bg-purple-400 flex-shrink-0"></div>
+              <div>
+                <div class="font-medium text-sm">Multi-tier persistence</div>
+                <div class="text-xs text-gray-500 mt-1">Real-time event store, relational analytics, and a model-training warehouse — each purpose-built for its workload.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 mt-1.5 rounded-full bg-amber-400 flex-shrink-0"></div>
+              <div>
+                <div class="font-medium text-sm">Full-stack observability</div>
+                <div class="text-xs text-gray-500 mt-1">Distributed tracing across every service. Latency, error rates, and scan metrics monitored continuously — issues surface before they affect trades.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 mt-1.5 rounded-full bg-rose-400 flex-shrink-0"></div>
+              <div>
+                <div class="font-medium text-sm">Security & reproducibility</div>
+                <div class="text-xs text-gray-500 mt-1">Secrets managed centrally, infrastructure defined as code, build artefacts immutable and versioned. Auditable from day one.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal mockup -->
+        <div class="rounded-2xl bg-gray-900 border border-gray-800 overflow-hidden">
+          <div class="flex items-center gap-2 px-5 py-3.5 border-b border-gray-800">
+            <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/70"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/70"></div>
+            <span class="text-gray-500 text-xs ml-2 mono">maths-api · scan decision</span>
+          </div>
+          <div class="p-6 mono text-xs space-y-1 leading-relaxed">
+            <div class="text-gray-500">// scanning <span class="text-emerald-400">NVDA</span> · direction=SHORT · horizon=intraday</div>
+            <div class="mt-3 text-gray-500">// agents scoring in parallel...</div>
+            <div class="mt-2">
+              <span class="text-blue-300">technical   </span>
+              <span class="text-red-400">-0.74</span>
+              <span class="text-gray-600">  price_structure · momentum</span>
+            </div>
+            <div>
+              <span class="text-blue-300">fundamentals</span>
+              <span class="text-gray-600"> </span>
+              <span class="text-red-400">-0.61</span>
+              <span class="text-gray-600">  valuation · earnings_quality</span>
+            </div>
+            <div>
+              <span class="text-blue-300">sentiment   </span>
+              <span class="text-red-400">-0.55</span>
+              <span class="text-gray-600">  insider_flow · positioning</span>
+            </div>
+            <div>
+              <span class="text-blue-300">macro       </span>
+              <span class="text-amber-400">-0.48</span>
+              <span class="text-gray-600">  regime · risk_appetite</span>
+            </div>
+            <div class="mt-3 pt-3 border-t border-gray-800">
+              <span class="text-purple-300">conviction  </span>
+              <span class="text-white font-bold">0.82</span>
+              <span class="text-gray-500">  → SHORT ✓</span>
+            </div>
+            <div>
+              <span class="text-purple-300">size_mult   </span>
+              <span class="text-white">0.91×</span>
+            </div>
+            <div>
+              <span class="text-purple-300">position    </span>
+              <span class="text-white">$4,200</span>
+              <span class="text-gray-500">  (1.4% NAV)</span>
+            </div>
+            <div class="mt-3 pt-3 border-t border-gray-800">
+              <span class="text-gray-500">// risk gate: </span>
+              <span class="text-emerald-400">PASS</span>
+              <span class="text-gray-500"> · volatility=ok · liquidity=ok · events=clear</span>
+            </div>
+            <div class="mt-1">
+              <span class="text-emerald-400 font-bold">→ SLACK SENT</span>
+              <span class="text-gray-500">  awaiting human approval</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BETA CTA ═══════════════ -->
+  <section id="beta" class="py-28 border-t border-gray-800/40 grid-bg relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[900px] h-[500px] bg-emerald-500/4 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full
+                  bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs mb-8">
+        <span class="w-2 h-2 rounded-full bg-amber-400 pulse-dot"></span>
+        Private beta · Limited spots available
+      </div>
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Ready to trade smarter?</h2>
+      <p class="text-gray-400 mb-10 leading-relaxed">
+        Join the waitlist for early access to MATHS. We're onboarding a small group of
+        traders before public launch. No commitment required.
+      </p>
+
+      <form id="beta-form" onsubmit="submitForm(event,'beta-form','beta-success')"
+            class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="email" placeholder="your@email.com" required
+          class="flex-1 px-4 py-3 rounded-xl bg-gray-900 border border-gray-700
+                 text-white placeholder-gray-500 text-sm
+                 focus:outline-none focus:border-emerald-500/60 transition-colors">
+        <button type="submit"
+          class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95
+                 text-gray-950 font-semibold text-sm transition-all glow-emerald whitespace-nowrap">
+          Join waitlist
+        </button>
+      </form>
+      <p id="beta-success" class="hidden text-emerald-400 text-sm mt-3">
+        ✓ You're on the list. We'll reach out with early access details.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="py-10 border-t border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+          </svg>
+        </div>
+        <span class="text-sm text-gray-400 font-medium">Data Concept Studio</span>
+      </div>
+      <a href="mailto:michal.szarek@dataconceptstudio.com"
+         class="text-sm text-gray-500 hover:text-gray-300 transition-colors">
+        michal.szarek@dataconceptstudio.com
+      </a>
+      <div class="text-xs text-gray-700">© 2026 Data Concept Studio. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    function submitForm(e, formId, successId) {
+      e.preventDefault();
+      const email = document.querySelector('#' + formId + ' input[type="email"]').value;
+      // Emails are logged to console for now; wire to Formspree / Cloud Function when ready
+      console.log('Beta signup:', email);
+      document.getElementById(formId).style.display = 'none';
+      document.getElementById(successId).classList.remove('hidden');
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
