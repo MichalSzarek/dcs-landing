@@ -89,6 +89,7 @@
         <a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors">How it works</a>
         <a href="#features"     class="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
         <a href="#technology"   class="text-sm text-gray-400 hover:text-white transition-colors">Technology</a>
+        <a href="/about"        class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
         <a href="#beta"
            class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25
                   text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all">
@@ -97,10 +98,13 @@
       </div>
 
       <!-- Mobile -->
-      <a href="#beta"
-         class="md:hidden text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
-        Access
-      </a>
+      <div class="md:hidden flex items-center gap-3">
+        <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
+        <a href="#beta"
+           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
+          Access
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -234,8 +238,9 @@
           <div class="text-xs mono text-purple-400 mb-2">03 · RISK</div>
           <h3 class="font-semibold mb-2">Multi-layer risk gate</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            VIX veto, borrow availability, squeeze risk score, earnings blackout,
-            Kelly fraction sizing, correlation-aware capital allocation. Zero exceptions.
+            Every signal clears a series of independent safety checks before any capital is
+            committed. Hard rules activate automatically under adverse conditions —
+            no model can override them.
           </p>
         </div>
 
@@ -248,8 +253,9 @@
           <div class="text-xs mono text-amber-400 mb-2">04 · EXECUTE</div>
           <h3 class="font-semibold mb-2">Human-approved execution</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            Signals arrive via Slack with full reasoning attached. One tap approves.
-            Bracket orders (entry + stop-loss + take-profit) are sent instantly to IBKR.
+            Signals arrive on your phone with full reasoning attached. One tap approves.
+            Bracket orders — entry, stop-loss, and take-profit — are routed to your
+            broker instantly.
           </p>
         </div>
       </div>
@@ -281,8 +287,9 @@
           </div>
           <h3 class="font-semibold mb-2">Adaptive position sizing</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            Kelly-fraction sizing adjusted for VIX regime, portfolio heat, pair correlation,
-            and realised transaction costs. Capital is never over-committed.
+            Position sizes adapt dynamically to market conditions, portfolio concentration,
+            and signal quality. Capital is always sized relative to actual edge —
+            never over-committed.
           </p>
         </div>
 
@@ -296,8 +303,8 @@
           </div>
           <h3 class="font-semibold mb-2">Full audit trail</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            Every scan decision — each agent's individual score and reasoning — persists to
-            Firestore. Complete traceability from signal to fill, forever.
+            Every scan decision — each agent's individual score and reasoning — is
+            permanently logged. Complete traceability from signal to fill, always available.
           </p>
         </div>
 
@@ -312,8 +319,8 @@
           </div>
           <h3 class="font-semibold mb-2">Self-learning ensemble</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            Weekly Sharpe-optimised weight refit from closed trades. The system learns which
-            agents outperform in each market regime and adjusts accordingly.
+            The system continuously learns from closed trades, automatically reweighting
+            agents based on what actually works in current market conditions.
           </p>
         </div>
 
@@ -328,8 +335,9 @@
           </div>
           <h3 class="font-semibold mb-2">Hard risk veto gate</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            VIX &gt; 35 kills all new positions. Earnings blackout ±5 days. Squeeze risk scorer.
-            Borrow availability check. No model can override these rules.
+            Hard-coded rules halt new positions automatically when market conditions turn
+            adverse — volatility spikes, upcoming events, or unfavourable liquidity.
+            No signal can override them.
           </p>
         </div>
 
@@ -344,8 +352,9 @@
           </div>
           <h3 class="font-semibold mb-2">Portfolio construction</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            Ledoit-Wolf covariance, HRP clustering, cross-sleeve pod allocator with
-            Sharpe-weighted risk budgets. Correlation-aware capital deployment.
+            Positions are sized relative to each other, not just individually. Correlated
+            trades share a risk budget — capital flows where the edge is highest,
+            with cross-strategy concentration limits enforced automatically.
           </p>
         </div>
 
@@ -362,8 +371,9 @@
           </div>
           <h3 class="font-semibold mb-2">Triple-barrier exits</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            ML model predicts TP/SL/timeout probabilities per open position.
-            Partial profits taken dynamically. ATR trailing stops tighten as R-multiple grows.
+            Exit decisions adapt as trades develop. Partial profits can be taken early
+            when elevated risk is detected. Stops tighten automatically as positions
+            move in your favour.
           </p>
         </div>
 
@@ -388,36 +398,36 @@
             <div class="flex items-start gap-4">
               <div class="w-2 h-2 mt-1.5 rounded-full bg-emerald-400 flex-shrink-0"></div>
               <div>
-                <div class="font-medium text-sm">Cloud Run · Pub/Sub · Cloud Scheduler</div>
-                <div class="text-xs text-gray-500 mt-1">Serverless services, durable event streaming with DLQs, 17 scheduled jobs</div>
+                <div class="font-medium text-sm">Serverless compute & event-driven orchestration</div>
+                <div class="text-xs text-gray-500 mt-1">Scales to zero between scans, to full capacity in milliseconds. Every pipeline is fault-tolerant with automatic retries.</div>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <div class="w-2 h-2 mt-1.5 rounded-full bg-blue-400 flex-shrink-0"></div>
               <div>
-                <div class="font-medium text-sm">Vertex AI Gemini 2.5 Flash · Discovery Engine</div>
-                <div class="text-xs text-gray-500 mt-1">LLM-powered thesis synthesis, RAG over financial documents</div>
+                <div class="font-medium text-sm">State-of-the-art AI · document retrieval</div>
+                <div class="text-xs text-gray-500 mt-1">Leading language models synthesise qualitative signals. Retrieval-augmented generation grounds conclusions in real financial documents.</div>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <div class="w-2 h-2 mt-1.5 rounded-full bg-purple-400 flex-shrink-0"></div>
               <div>
-                <div class="font-medium text-sm">Firestore · Cloud SQL · BigQuery</div>
-                <div class="text-xs text-gray-500 mt-1">Event-sourced state, relational analytics, ML training warehouse</div>
+                <div class="font-medium text-sm">Multi-tier persistence</div>
+                <div class="text-xs text-gray-500 mt-1">Real-time event store, relational analytics, and a model-training warehouse — each purpose-built for its workload.</div>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <div class="w-2 h-2 mt-1.5 rounded-full bg-amber-400 flex-shrink-0"></div>
               <div>
-                <div class="font-medium text-sm">Cloud Monitoring · OpenTelemetry tracing</div>
-                <div class="text-xs text-gray-500 mt-1">Full distributed tracing, uptime checks, custom scan-plan metrics</div>
+                <div class="font-medium text-sm">Full-stack observability</div>
+                <div class="text-xs text-gray-500 mt-1">Distributed tracing across every service. Latency, error rates, and scan metrics monitored continuously — issues surface before they affect trades.</div>
               </div>
             </div>
             <div class="flex items-start gap-4">
               <div class="w-2 h-2 mt-1.5 rounded-full bg-rose-400 flex-shrink-0"></div>
               <div>
-                <div class="font-medium text-sm">Secret Manager · SOPS · Artifact Registry</div>
-                <div class="text-xs text-gray-500 mt-1">30+ secrets, encrypted IaC, immutable Docker image storage</div>
+                <div class="font-medium text-sm">Security & reproducibility</div>
+                <div class="text-xs text-gray-500 mt-1">Secrets managed centrally, infrastructure defined as code, build artefacts immutable and versioned. Auditable from day one.</div>
               </div>
             </div>
           </div>
@@ -437,23 +447,23 @@
             <div class="mt-2">
               <span class="text-blue-300">technical   </span>
               <span class="text-red-400">-0.74</span>
-              <span class="text-gray-600">  bearish_engulfing · rsi_overbought</span>
+              <span class="text-gray-600">  price_structure · momentum</span>
             </div>
             <div>
               <span class="text-blue-300">fundamentals</span>
               <span class="text-gray-600"> </span>
               <span class="text-red-400">-0.61</span>
-              <span class="text-gray-600">  pe_expansion · revenue_miss</span>
+              <span class="text-gray-600">  valuation · earnings_quality</span>
             </div>
             <div>
               <span class="text-blue-300">sentiment   </span>
               <span class="text-red-400">-0.55</span>
-              <span class="text-gray-600">  insider_sell · si_rising</span>
+              <span class="text-gray-600">  insider_flow · positioning</span>
             </div>
             <div>
               <span class="text-blue-300">macro       </span>
               <span class="text-amber-400">-0.48</span>
-              <span class="text-gray-600">  vix_elevated · qqq_weak</span>
+              <span class="text-gray-600">  regime · risk_appetite</span>
             </div>
             <div class="mt-3 pt-3 border-t border-gray-800">
               <span class="text-purple-300">conviction  </span>
@@ -461,7 +471,7 @@
               <span class="text-gray-500">  → SHORT ✓</span>
             </div>
             <div>
-              <span class="text-purple-300">kelly_mult  </span>
+              <span class="text-purple-300">size_mult   </span>
               <span class="text-white">0.91×</span>
             </div>
             <div>
@@ -472,7 +482,7 @@
             <div class="mt-3 pt-3 border-t border-gray-800">
               <span class="text-gray-500">// risk gate: </span>
               <span class="text-emerald-400">PASS</span>
-              <span class="text-gray-500"> · vix=18.4 · borrow=ok · earnings=clear</span>
+              <span class="text-gray-500"> · volatility=ok · liquidity=ok · events=clear</span>
             </div>
             <div class="mt-1">
               <span class="text-emerald-400 font-bold">→ SLACK SENT</span>

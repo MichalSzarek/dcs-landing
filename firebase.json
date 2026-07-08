@@ -9,6 +9,18 @@
     ],
     "rewrites": [
       {
+        "source": "/briefcaster/privacy",
+        "destination": "/briefcaster-privacy.html"
+      },
+      {
+        "source": "/briefcaster/terms",
+        "destination": "/briefcaster-terms.html"
+      },
+      {
+        "source": "/briefcaster/support",
+        "destination": "/briefcaster-support.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
