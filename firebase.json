@@ -9,6 +9,22 @@
     ],
     "rewrites": [
       {
+        "source": "/about",
+        "destination": "/about.html"
+      },
+      {
+        "source": "/briefcaster",
+        "destination": "/briefcaster.html"
+      },
+      {
+        "source": "/maths",
+        "destination": "/maths.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
         "source": "/briefcaster/privacy",
         "destination": "/briefcaster-privacy.html"
       },
@@ -19,10 +35,6 @@
       {
         "source": "/briefcaster/support",
         "destination": "/briefcaster-support.html"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
       }
     ],
     "headers": [
