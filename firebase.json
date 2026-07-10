@@ -25,6 +25,14 @@
         "destination": "/contact.html"
       },
       {
+        "source": "/briefcaster/pl",
+        "destination": "/briefcaster-pl.html"
+      },
+      {
+        "source": "/press",
+        "destination": "/press.html"
+      },
+      {
         "source": "/briefcaster/privacy",
         "destination": "/briefcaster-privacy.html"
       },
