@@ -11,6 +11,7 @@ COPY index.html about.html briefcaster.html briefcaster-pl.html press.html maths
 COPY briefcaster-privacy.html briefcaster-terms.html briefcaster-support.html /usr/share/nginx/html/
 COPY robots.txt sitemap.xml favicon.svg /usr/share/nginx/html/
 COPY me.PNG logo.png /usr/share/nginx/html/
+COPY screens/ /usr/share/nginx/html/screens/
 
 # Cloud Run requires port 8080
 EXPOSE 8080
