@@ -215,9 +215,12 @@
       border: 1px solid rgba(55,65,81,.6);
       color: var(--ink);
       font-size: 16px; /* keeps iOS from zooming on focus */
+      /* Shows the canonical (upper-case) form the id is stored and hashed as,
+         without rewriting the value mid-typing and jumping the caret. */
+      text-transform: uppercase;
       transition: border-color .2s;
     }
-    .field input::placeholder { color: var(--faint); }
+    .field input::placeholder { color: var(--faint); text-transform: none; }
     .field input:focus { outline: none; border-color: rgba(59,130,246,.6); }
     .field input[aria-invalid="true"] { border-color: rgba(251,146,60,.6); }
 
@@ -582,7 +585,8 @@
           <input id="participant" autocomplete="off" autocapitalize="characters"
                  autocorrect="off" spellcheck="false" inputmode="text" maxlength="40" placeholder="np. P01">
           <p class="hint" id="participant-hint">
-            Kolejność A/B jest losowana na podstawie Twojego ID, dlatego wpisz je przed pierwszym odsłuchem.
+            Kolejność A/B jest losowana na podstawie Twojego ID, dlatego wpisz je przed pierwszym
+            odsłuchem. Wielkość liter nie ma znaczenia.
           </p>
         </div>
       </div>
@@ -644,6 +648,12 @@
     const scoreLabels = { 1: "słabo", 2: "poniżej oczekiwań", 3: "poprawnie", 4: "dobrze", 5: "bardzo dobrze" };
     const preferenceLabels = { a: "Głos A", b: "Głos B", tie: "Bez preferencji" };
     const ID_PATTERN = /^[A-Za-z0-9_-]{2,40}$/;
+
+    /* The A/B order is hashed from the participant id, so "p01" and "P01" would otherwise
+       be two different assignments for the same tester (mobile keyboards auto-capitalise,
+       desktop ones don't). Canonicalise once, then hash and store that exact string —
+       hashing participant_id as stored always reproduces the assignment. */
+    const normalizeId = value => String(value).trim().toUpperCase();
 
     const root = document.getElementById("study");
     const participant = document.getElementById("participant");
@@ -833,7 +843,7 @@
     /* ── A/B assignment (unchanged contract) ───────────── */
 
     function updateAssignments() {
-      const participantId = participant.value.trim();
+      const participantId = normalizeId(participant.value);
       document.querySelectorAll(".comparison").forEach(section => {
         const comparisonId = section.dataset.comparison;
         section.querySelectorAll("audio[data-file]").forEach(audio => {
@@ -868,7 +878,7 @@
 
     function stepComplete(index) {
       const step = steps[index];
-      if (step.dataset.step === "intro") return ID_PATTERN.test(participant.value.trim());
+      if (step.dataset.step === "intro") return ID_PATTERN.test(normalizeId(participant.value));
       if (step.dataset.step !== "comparison") return true;
       const id = step.dataset.comparison;
       const hasPreference = Boolean(step.querySelector(`input[name="preference-${id}"]:checked`));
@@ -932,7 +942,7 @@
     /* ── Collect / submit (payload contract unchanged) ── */
 
     function collect() {
-      const participantId = participant.value.trim();
+      const participantId = normalizeId(participant.value);
       if (!ID_PATTERN.test(participantId)) {
         throw new Error("Wpisz anonimowy identyfikator: 2–40 liter, cyfr, podkreśleń lub myślników.");
       }
@@ -1023,7 +1033,8 @@
     /* ── Wiring ────────────────────────────────────────── */
 
     participant.addEventListener("input", () => {
-      participant.setAttribute("aria-invalid", participant.value.trim() && !ID_PATTERN.test(participant.value.trim()) ? "true" : "false");
+      const id = normalizeId(participant.value);
+      participant.setAttribute("aria-invalid", id && !ID_PATTERN.test(id) ? "true" : "false");
       updateAssignments();
     });
     backBtn.addEventListener("click", () => showStep(current - 1));
