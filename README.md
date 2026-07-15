@@ -30,6 +30,31 @@ Cloud Run service.
 protected by server-side Basic Auth, not a client-side password. Submitted answers are validated by
 `POST /voice-study/api/votes` and written to GCS as JSON.
 
+#### Language tracks — PL and EN are never mixed
+
+PL (Google Chirp3-HD) and EN (Kokoro) are judged by **different cohorts**: Polish testers rate PL,
+while EN needs native / working-English raters. A Polish group must not decide EN naturalness, so
+**one session rates exactly one track** and the two are never aggregated into a single
+profile-promotion result.
+
+| Track | Comparisons | Cohort | Entry |
+|---|---|---|---|
+| `pl` | `pl-single-01`, `pl-dialogue-01` | `pl-native` | default |
+| `en` | `en-single-01`, `en-dialogue-01` | `en-native` | picker, or `?track=en` |
+
+The intro step asks the rater to self-declare which language they judge (PL preselected). The
+declaration is recorded on the vote as `track` + `cohort` — it is **self-declared, not verified**,
+so aggregation should treat `cohort` as an auditable claim rather than ground truth.
+
+Separation is enforced in three places:
+
+- **Client** — only the active track's comparisons are rendered.
+- **Server** (`validateVote`) — rejects `unknown_track`, `cohort_track_mismatch`,
+  `comparison_outside_track`, and a wrong answer count.
+- **Storage** — votes are partitioned by track, so globbing one track can never pick up the other.
+
+⚠️ The EN track's UI is still Polish. Localise it before sending `?track=en` to native speakers.
+
 Required runtime configuration:
 
 | Variable | Example | Purpose |
@@ -37,7 +62,7 @@ Required runtime configuration:
 | `VOICE_STUDY_USERNAME` | `briefcaster` | Basic Auth username |
 | `VOICE_STUDY_PASSWORD` | Secret Manager value | Basic Auth password |
 | `VOICE_STUDY_BUCKET` | `briefcaster-audio` | GCS bucket for vote JSON |
-| `VOICE_STUDY_VOTE_PREFIX` | `voice-study/votes/voice-profiles-v1` | GCS object prefix |
+| `VOICE_STUDY_VOTE_PREFIX` | `voice-study/votes/voice-profiles-v1` | GCS object prefix (track is appended) |
 
 The Cloud Run runtime service account needs `roles/secretmanager.secretAccessor` on the password
 secret and `roles/storage.objectCreator` on the target bucket.
@@ -49,11 +74,17 @@ gcloud run deploy dcs-landing --source . --project data-concept-studio --region 
   --set-secrets VOICE_STUDY_PASSWORD=dcs-landing-voice-study-password:latest
 ```
 
-Votes are saved under:
+Votes are saved under a **track-partitioned** prefix — aggregate one track by globbing its own
+path, never the shared parent:
 
 ```text
-gs://briefcaster-audio/voice-study/votes/voice-profiles-v1/YYYY-MM-DD/
+gs://briefcaster-audio/voice-study/votes/voice-profiles-v1/pl/YYYY-MM-DD/
+gs://briefcaster-audio/voice-study/votes/voice-profiles-v1/en/YYYY-MM-DD/
 ```
+
+Vote payload is `schema_version: 3` (`track` + `cohort` added, `answers` cover one track only).
+Each answer carries its own `display_map`, and `participant_id` is stored canonicalised
+(trim + upper-case) — so `hash(participant_id as stored)` reproduces the `fnv1a-v1` A/B assignment.
 
 ### Deploy
 

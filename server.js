@@ -40,7 +40,16 @@ const staticFiles = new Map([
   ["/logo-background.png", "logo-background.png"]
 ]);
 
-const comparisonIds = new Set(["pl-single-01", "en-single-01", "pl-dialogue-01", "en-dialogue-01"]);
+// PL and EN are rated by different cohorts and must never be aggregated into one
+// profile-promotion result: Polish testers judge PL (Chirp3-HD), while EN (Kokoro) needs
+// native/working-English raters. A vote therefore covers exactly one language track, and
+// the cohort is pinned to that track so a PL group cannot submit EN ratings.
+const TRACKS = new Map([
+  ["pl", { cohort: "pl-native", comparisons: ["pl-single-01", "pl-dialogue-01"] }],
+  ["en", { cohort: "en-native", comparisons: ["en-single-01", "en-dialogue-01"] }]
+]);
+
+const comparisonIds = new Set([...TRACKS.values()].flatMap(track => track.comparisons));
 const dimensions = new Set(["naturalness", "intelligibility", "pronunciation", "pacing", "clean_audio"]);
 const reasonIds = new Set(["robotic_voice", "pronunciation", "pace", "artifact", "emphasis"]);
 
@@ -199,7 +208,7 @@ async function saveVote(req, res) {
 
   const receivedAt = new Date();
   const participantId = req.body.participant_id;
-  const objectName = voteObjectName(participantId, receivedAt);
+  const objectName = voteObjectName(participantId, req.body.track, receivedAt);
   const storedVote = {
     ...req.body,
     server_received_at: receivedAt.toISOString(),
@@ -226,22 +235,33 @@ async function saveVote(req, res) {
 
 function validateVote(vote) {
   if (!vote || typeof vote !== "object" || Array.isArray(vote)) return invalid("body_must_be_object");
-  if (vote.schema_version !== 2) return invalid("unsupported_schema_version");
+  if (vote.schema_version !== 3) return invalid("unsupported_schema_version");
   if (vote.study_id !== STUDY_ID) return invalid("unexpected_study_id");
   if (vote.assignment_version !== "fnv1a-v1") return invalid("unexpected_assignment_version");
   if (!/^[A-Za-z0-9_-]{2,40}$/.test(vote.participant_id || "")) return invalid("invalid_participant_id");
   if (!isIsoDate(vote.created_at)) return invalid("invalid_created_at");
-  if (!Array.isArray(vote.answers) || vote.answers.length !== comparisonIds.size) return invalid("invalid_answer_count");
+
+  const track = TRACKS.get(vote.track);
+  if (!track) return invalid("unknown_track");
+  // The cohort is pinned to the track it rated, so a vote can never claim to be
+  // PL-native judgement of the EN voices (or vice versa).
+  if (vote.cohort !== track.cohort) return invalid("cohort_track_mismatch");
+
+  if (!Array.isArray(vote.answers) || vote.answers.length !== track.comparisons.length) {
+    return invalid("invalid_answer_count");
+  }
 
   const seen = new Set();
   for (const answer of vote.answers) {
     const result = validateAnswer(answer);
     if (!result.ok) return result;
+    // Reject answers belonging to a different language track than the one declared.
+    if (!track.comparisons.includes(answer.comparison_id)) return invalid("comparison_outside_track");
     if (seen.has(answer.comparison_id)) return invalid("duplicate_comparison_id");
     seen.add(answer.comparison_id);
   }
 
-  for (const id of comparisonIds) {
+  for (const id of track.comparisons) {
     if (!seen.has(id)) return invalid("missing_comparison_id");
   }
 
@@ -289,11 +309,13 @@ function isIsoDate(value) {
   return typeof value === "string" && !Number.isNaN(Date.parse(value));
 }
 
-function voteObjectName(participantId, receivedAt) {
+// Votes are partitioned by language track, so aggregating one track can never
+// pick up the other's ratings by globbing a shared prefix.
+function voteObjectName(participantId, track, receivedAt) {
   const day = receivedAt.toISOString().slice(0, 10);
   const timestamp = receivedAt.toISOString().replace(/[:.]/g, "-");
   const safeParticipant = participantId.replace(/[^A-Za-z0-9_-]/g, "_");
-  return `${VOICE_STUDY_VOTE_PREFIX}/${day}/${safeParticipant}-${timestamp}-${crypto.randomUUID()}.json`;
+  return `${VOICE_STUDY_VOTE_PREFIX}/${track}/${day}/${safeParticipant}-${timestamp}-${crypto.randomUUID()}.json`;
 }
 
 function cleanPrefix(prefix) {
