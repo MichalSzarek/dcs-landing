@@ -224,6 +224,33 @@
     .field input:focus { outline: none; border-color: rgba(59,130,246,.6); }
     .field input[aria-invalid="true"] { border-color: rgba(251,146,60,.6); }
 
+    /* ── Track picker ────────────────────────────────────── */
+    .track-picker { display: grid; gap: 8px; }
+    @media (min-width: 560px) { .track-picker { grid-template-columns: 1fr 1fr; } }
+    .track-picker label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-height: 60px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--panel-solid);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color .2s, background .2s;
+    }
+    .track-picker label:has(input:checked) {
+      background: var(--blue-soft);
+      border-color: rgba(59,130,246,.55);
+    }
+    .track-picker label:has(input:focus-visible) { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .track-picker input { position: absolute; opacity: 0; pointer-events: none; }
+    .track-name { font-size: 15px; font-weight: 600; }
+    .track-picker label:has(input:checked) .track-name { color: #93c5fd; }
+    .track-note { font-size: 12px; color: var(--faint); line-height: 1.4; }
+    .track-hint { margin-top: 12px; font-size: 12px; color: var(--faint); line-height: 1.5; }
+
     /* ── Clips / players ─────────────────────────────────── */
     .clip + .clip { margin-top: 12px; }
     .clip-label {
@@ -548,7 +575,7 @@
         </div>
         <div>
           <span class="brand-name">Briefcaster</span>
-          <span class="brand-sub">Badanie głosów</span>
+          <span class="brand-sub" id="brand-sub">Badanie głosów</span>
         </div>
       </div>
       <div class="stepper">
@@ -568,8 +595,28 @@
       <h1>Porównanie<br><span class="gradient-text">głosów Briefcaster</span></h1>
       <p class="lede">
         Usłyszysz dwie wersje tego samego nagrania — Głos A i Głos B. Oceń je i wskaż,
-        która brzmi lepiej. Cztery porównania, jedno po drugim. Zajmie to około 10 minut.
+        która brzmi lepiej. <span id="intro-count">Dwa porównania</span>, jedno po drugim.
       </p>
+
+      <div class="card block">
+        <h3>W jakim języku oceniasz?</h3>
+        <div class="track-picker" id="track-picker" role="radiogroup" aria-label="Język oceniania">
+          <label>
+            <input type="radio" name="track" value="pl" checked>
+            <span class="track-name">Polski</span>
+            <span class="track-note">mój język natywny</span>
+          </label>
+          <label>
+            <input type="radio" name="track" value="en">
+            <span class="track-name">English</span>
+            <span class="track-note">native lub pracuję zawodowo po angielsku</span>
+          </label>
+        </div>
+        <p class="track-hint">
+          Oceniaj wyłącznie język, którym realnie władasz — wyniki PL i EN są liczone osobno
+          i nie są łączone.
+        </p>
+      </div>
 
       <div class="notice">
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -633,6 +680,14 @@
   </div>
 
   <script>
+    /* PL (Chirp3-HD) and EN (Kokoro) are judged by different cohorts and are never merged
+       into one profile-promotion result, so a session rates exactly one track. The track
+       and the self-declared cohort travel with the vote and partition it in storage. */
+    const TRACKS = {
+      pl: { id: "pl", label: "PL", cohort: "pl-native", comparisons: ["pl-single-01", "pl-dialogue-01"] },
+      en: { id: "en", label: "EN", cohort: "en-native", comparisons: ["en-single-01", "en-dialogue-01"] }
+    };
+
     const study = {
       id: "briefcaster-voice-profiles-v1",
       comparisons: [
@@ -671,6 +726,19 @@
     let latestVote = null;
     let saved = false;
 
+    // ?track=en pre-selects the EN track, so the future native-speaker cohort can be sent a
+    // direct link instead of relying on the picker.
+    const urlTrack = new URLSearchParams(location.search).get("track");
+    let activeTrack = TRACKS[urlTrack] ? urlTrack : "pl";
+
+    const trackPicker = document.getElementById("track-picker");
+    const introCount = document.getElementById("intro-count");
+    const activeComparisons = () =>
+      TRACKS[activeTrack].comparisons.map(id => study.comparisons.find(c => c.id === id));
+
+    const countWord = n => (n === 1 ? "porównanie" : n >= 2 && n <= 4 ? "porównania" : "porównań");
+    const countPhrase = n => `${["Zero", "Jedno", "Dwa", "Trzy", "Cztery"][n] || n} ${countWord(n)}`;
+
     const escapeHtml = value => String(value).replace(/[&<>"]/g, char => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;"}[char]));
 
     /* ── Rendering ─────────────────────────────────────── */
@@ -697,7 +765,10 @@
     }
 
     function render() {
-      root.innerHTML = study.comparisons.map((comparison, index) => {
+      const comparisons = activeComparisons();
+      introCount.textContent = countPhrase(comparisons.length);
+      document.getElementById("brand-sub").textContent = `Badanie głosów · ${TRACKS[activeTrack].label}`;
+      root.innerHTML = comparisons.map((comparison, index) => {
         const clips = comparison.clips.map(([label, file]) => `
           <div class="clip">
             <div class="clip-label">${escapeHtml(label)}</div>
@@ -737,7 +808,7 @@
         return `
           <section class="step comparison" data-step="comparison" data-comparison="${comparison.id}"
                    aria-label="${escapeHtml(comparison.title)}">
-            <p class="eyebrow">Porównanie ${index + 1} z ${study.comparisons.length}</p>
+            <p class="eyebrow">Porównanie ${index + 1} z ${comparisons.length}</p>
             <h2>${escapeHtml(comparison.title)}</h2>
             <p class="lede">Odsłuchaj obie wersje przed oceną.</p>
 
@@ -771,7 +842,6 @@
       dots.innerHTML = steps.map(() => `<span class="dot"></span>`).join("");
       wireAudio();
       updateAssignments();
-      document.addEventListener("change", () => { saved = false; updateNav(); });
       showStep(0);
     }
 
@@ -929,7 +999,7 @@
     /* ── Review ────────────────────────────────────────── */
 
     function renderReview() {
-      reviewList.innerHTML = study.comparisons.map(comparison => {
+      reviewList.innerHTML = activeComparisons().map(comparison => {
         const checked = document.querySelector(`input[name="preference-${comparison.id}"]:checked`);
         return `
           <div class="review-row">
@@ -976,10 +1046,14 @@
       });
 
       return {
-        schema_version: 2,
+        schema_version: 3,
         assignment_version: "fnv1a-v1",
         study_id: study.id,
         participant_id: participantId,
+        // track = which language was rated; cohort = the rater's self-declared competence.
+        // Kept as separate fields so aggregation can audit the declaration, not just trust it.
+        track: activeTrack,
+        cohort: TRACKS[activeTrack].cohort,
         created_at: new Date().toISOString(),
         answers
       };
@@ -1019,7 +1093,7 @@
         const blob = new Blob([JSON.stringify(vote, null, 2) + "\n"], { type: "application/json" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = `${study.id}-${vote.participant_id}.json`;
+        link.download = `${study.id}-${vote.track}-${vote.participant_id}.json`;
         link.click();
         URL.revokeObjectURL(link.href);
         status.textContent = "Kopia JSON pobrana lokalnie.";
@@ -1032,6 +1106,20 @@
 
     /* ── Wiring ────────────────────────────────────────── */
 
+    // Bound once, outside render(), so switching track doesn't stack duplicate listeners.
+    document.addEventListener("change", () => { saved = false; updateNav(); });
+
+    trackPicker.addEventListener("change", event => {
+      const next = event.target.value;
+      if (!TRACKS[next] || next === activeTrack) return;
+      // Switching track swaps the whole comparison set, so any answers for the previous
+      // track are dropped rather than silently submitted under the new one.
+      activeTrack = next;
+      latestVote = null;
+      saved = false;
+      render();
+    });
+
     participant.addEventListener("input", () => {
       const id = normalizeId(participant.value);
       participant.setAttribute("aria-invalid", id && !ID_PATTERN.test(id) ? "true" : "false");
@@ -1043,6 +1131,10 @@
       else showStep(current + 1);
     });
     document.getElementById("download").addEventListener("click", downloadVote);
+
+    // Reflect ?track=en in the picker before the first render.
+    const preselect = trackPicker.querySelector(`input[value="${activeTrack}"]`);
+    if (preselect) preselect.checked = true;
     render();
   </script>
 </body>
