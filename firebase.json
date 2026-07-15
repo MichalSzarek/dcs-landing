@@ -5,7 +5,11 @@
       "firebase.json",
       ".firebaserc",
       ".git/**",
-      ".gitignore"
+      ".gitignore",
+      "node_modules/**",
+      "server.js",
+      "package*.json",
+      "voice-study/**"
     ],
     "rewrites": [
       {

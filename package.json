@@ -1,0 +1,17 @@
+{
+  "name": "dcs-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Data Concept Studio landing site and private Briefcaster voice study.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
