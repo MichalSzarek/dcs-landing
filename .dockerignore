@@ -1,6 +1,6 @@
-.firebase/
-.firebaserc.local
-node_modules/
+.git
+.firebase
+node_modules
 npm-debug.log
 .voice-study.htpasswd
 .voice-study.htpasswd.*

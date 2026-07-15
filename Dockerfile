@@ -1,17 +1,19 @@
-FROM nginx:alpine
+FROM node:22-alpine
 
-# Remove default nginx config
-RUN rm /etc/nginx/conf.d/default.conf
+WORKDIR /app
+ENV NODE_ENV=production
+ENV PORT=8080
 
-# Copy custom nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Copy static site files
-COPY index.html about.html briefcaster.html briefcaster-pl.html press.html maths.html contact.html 404.html /usr/share/nginx/html/
-COPY briefcaster-privacy.html briefcaster-terms.html briefcaster-support.html /usr/share/nginx/html/
-COPY robots.txt sitemap.xml favicon.svg /usr/share/nginx/html/
-COPY me.PNG logo.png /usr/share/nginx/html/
-COPY screens/ /usr/share/nginx/html/screens/
+COPY server.js ./
+COPY index.html about.html briefcaster.html briefcaster-pl.html press.html maths.html contact.html 404.html ./
+COPY briefcaster-privacy.html briefcaster-terms.html briefcaster-support.html ./
+COPY robots.txt sitemap.xml favicon.svg ./
+COPY me.PNG logo.png logo-background.png ./
+COPY screens/ ./screens/
+COPY voice-study/ ./voice-study/
 
-# Cloud Run requires port 8080
 EXPOSE 8080
+CMD ["node", "server.js"]

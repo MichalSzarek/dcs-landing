@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="referrer" content="no-referrer">
+  <title>Briefcaster - badanie glosow</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14201d;
+      --muted: #62706b;
+      --line: #d6ddd9;
+      --paper: #f7f9f7;
+      --panel: #ffffff;
+      --soft: #edf4ef;
+      --accent: #007f5f;
+      --accent-dark: #005f46;
+      --warn: #a45315;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(100% - 32px, 1040px);
+      margin: 0 auto;
+      padding: 30px 0 108px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: start;
+      padding: 16px 0 26px;
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+    h2 { margin: 0; font-size: 21px; line-height: 1.2; }
+    h3 { margin: 24px 0 10px; font-size: 14px; }
+    p { margin: 0; }
+    .lede { max-width: 680px; margin-top: 12px; color: var(--muted); }
+    .brand {
+      padding: 8px 10px;
+      border: 1px solid #b8cbc2;
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .notice,
+    .participant-panel {
+      margin: 24px 0;
+      padding: 14px 16px;
+      background: var(--soft);
+      border-left: 3px solid var(--accent);
+      color: #245244;
+      font-size: 14px;
+    }
+    .notice strong { color: var(--ink); }
+    .participant-panel {
+      display: grid;
+      grid-template-columns: minmax(220px, 320px) minmax(160px, 1fr);
+      gap: 14px 22px;
+      align-items: end;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+    }
+    .field { display: grid; gap: 6px; }
+    .field label { font-size: 13px; font-weight: 800; color: var(--ink); }
+    .field input {
+      min-height: 42px;
+      padding: 9px 10px;
+      border: 1px solid #aab9b2;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .progress { color: var(--muted); font-size: 13px; }
+    .comparison { padding: 34px 0; border-top: 1px solid var(--line); }
+    .comparison:first-of-type { border-top: 0; }
+    .meta { margin-top: 7px; color: var(--muted); font-size: 14px; }
+    .clips {
+      width: 100%;
+      margin-top: 18px;
+      border-collapse: collapse;
+      background: var(--panel);
+    }
+    .clips th,
+    .clips td {
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+    }
+    .clips th {
+      color: var(--muted);
+      background: #f1f5f2;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .clips td:first-child { width: 24%; color: var(--muted); font-size: 13px; }
+    audio { width: min(100%, 330px); height: 38px; }
+    .choice { display: flex; flex-wrap: wrap; gap: 12px; }
+    .choice label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 9px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .choice label:has(input:checked) {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 16px;
+      height: 16px;
+    }
+    .ratings,
+    .reasons {
+      display: grid;
+      grid-template-columns: minmax(150px, 1fr) 124px 124px;
+      gap: 6px;
+      max-width: 660px;
+      align-items: center;
+    }
+    .ratings > *,
+    .reasons > * {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+    }
+    .ratings .heading,
+    .reasons .heading {
+      justify-content: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    select {
+      width: 100%;
+      min-height: 36px;
+      padding: 6px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      font: inherit;
+    }
+    .reason-choice { justify-content: center; gap: 7px; font-size: 13px; }
+    .action-bar {
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 32px;
+      padding: 16px;
+      background: rgba(247,249,247,.97);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    button {
+      min-height: 42px;
+      padding: 10px 16px;
+      border: 0;
+      color: #fff;
+      background: var(--accent);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    button:hover { background: var(--accent-dark); }
+    button.secondary {
+      color: var(--accent-dark);
+      background: #fff;
+      border: 1px solid #9dbbb1;
+    }
+    button.secondary:hover { background: #edf4ef; }
+    button:disabled { opacity: .62; cursor: wait; }
+    #status { flex: 1 1 100%; min-height: 20px; color: var(--muted); font-size: 13px; }
+    #status.error { color: var(--warn); }
+    #status.success { color: var(--accent-dark); font-weight: 700; }
+    @media (max-width: 720px) {
+      main { width: min(100% - 24px, 1040px); padding-top: 18px; }
+      header { grid-template-columns: 1fr; gap: 14px; }
+      .brand { justify-self: start; }
+      .participant-panel { grid-template-columns: 1fr; }
+      .clips th,
+      .clips td { padding: 10px 7px; }
+      .clips td:first-child { width: 20%; }
+      audio { width: 100%; }
+      .ratings,
+      .reasons { grid-template-columns: minmax(112px, 1fr) 94px 94px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Badanie wewnetrzne</p>
+        <h1>Porownanie glosow Briefcaster</h1>
+        <p class="lede">Ocen dwie wersje tego samego nagrania. Kolejnosc A/B jest przypisana do Twojego identyfikatora, dlatego wpisz go przed pierwszym odsluchem.</p>
+      </div>
+      <div class="brand">BRIEFCASTER</div>
+    </header>
+
+    <div class="notice">
+      <p><strong>Prosba:</strong> sluchaj na sluchawkach, w spokojnym miejscu. Uzupelnij wszystkie porownania, a na koncu zapisz wynik online. Strona nie pokazuje nazw glosow ani ustawien.</p>
+    </div>
+
+    <section class="participant-panel" aria-label="Identyfikator testera">
+      <div class="field">
+        <label for="participant">Anonimowy identyfikator testera</label>
+        <input id="participant" autocomplete="off" inputmode="text" maxlength="40" placeholder="np. P01">
+      </div>
+      <p id="progress" class="progress">Wpisz ID, zeby przypisac kolejnosc probek.</p>
+    </section>
+
+    <section id="study" aria-live="polite"></section>
+
+    <section class="action-bar" aria-label="Zapis odpowiedzi">
+      <button id="submit" type="button">Zapisz wynik</button>
+      <button id="download" class="secondary" type="button">Pobierz kopie JSON</button>
+      <p id="status" role="status"></p>
+    </section>
+  </main>
+
+  <script>
+    const study = {
+      id: "briefcaster-voice-profiles-v1",
+      comparisons: [
+        { id: "pl-single-01", title: "Polski: glos pojedynczy", clips: [["Tekst 1", "pl-single-01_t1_finanse"], ["Tekst 2", "pl-single-01_t2_nazwy"], ["Tekst 3", "pl-single-01_t4_narracja"]] },
+        { id: "en-single-01", title: "Angielski: glos pojedynczy", clips: [["Tekst 1", "en-single-01_t1_business"], ["Tekst 2", "en-single-01_t2_names"], ["Tekst 3", "en-single-01_t4_narrative"], ["Tekst 4", "en-single-01_t6_spoken_numbers"]] },
+        { id: "pl-dialogue-01", title: "Polski: rozmowa", clips: [["Rozmowa", "pl-dialogue-01_pl_business_dialogue_v1"]] },
+        { id: "en-dialogue-01", title: "Angielski: rozmowa", clips: [["Rozmowa", "en-dialogue-01_en_tech_dialogue_v1"]] }
+      ],
+      dimensions: [["naturalness", "Naturalnosc"], ["intelligibility", "Zrozumialosc"], ["pronunciation", "Wymowa"], ["pacing", "Tempo"], ["clean_audio", "Czystosc dzwieku"]],
+      reasons: [["robotic_voice", "Brzmi mechanicznie"], ["pronunciation", "Problem z wymowa"], ["pace", "Nieodpowiednie tempo"], ["artifact", "Artefakty dzwiekowe"], ["emphasis", "Nienaturalny akcent"]]
+    };
+
+    const scoreLabels = { 1: "slabo", 2: "ponizej oczekiwan", 3: "poprawnie", 4: "dobrze", 5: "bardzo dobrze" };
+    const root = document.getElementById("study");
+    const participant = document.getElementById("participant");
+    const status = document.getElementById("status");
+    const submit = document.getElementById("submit");
+    const download = document.getElementById("download");
+    let latestVote = null;
+
+    const escapeHtml = value => String(value).replace(/[&<>"]/g, char => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;"}[char]));
+
+    function render() {
+      root.innerHTML = study.comparisons.map(comparison => {
+        const rows = comparison.clips.map(([label, file]) => `<tr><td>${escapeHtml(label)}</td><td><audio controls preload="metadata" data-file="${escapeHtml(file)}" data-display-side="a"></audio></td><td><audio controls preload="metadata" data-file="${escapeHtml(file)}" data-display-side="b"></audio></td></tr>`).join("");
+        const ratings = study.dimensions.map(([id, label]) => `<span>${escapeHtml(label)}</span><select data-side="a" data-dimension="${id}" aria-label="${escapeHtml(label)} - Glos A"><option value="">-</option>${[1,2,3,4,5].map(value => `<option value="${value}">${value} - ${scoreLabels[value]}</option>`).join("")}</select><select data-side="b" data-dimension="${id}" aria-label="${escapeHtml(label)} - Glos B"><option value="">-</option>${[1,2,3,4,5].map(value => `<option value="${value}">${value} - ${scoreLabels[value]}</option>`).join("")}</select>`).join("");
+        const reasons = study.reasons.map(([id, label]) => `<span>${escapeHtml(label)}</span><label class="reason-choice"><input type="checkbox" data-side="a" data-reason="${id}" aria-label="${escapeHtml(label)} - Glos A"> A</label><label class="reason-choice"><input type="checkbox" data-side="b" data-reason="${id}" aria-label="${escapeHtml(label)} - Glos B"> B</label>`).join("");
+        return `<section class="comparison" data-comparison="${comparison.id}"><h2>${escapeHtml(comparison.title)}</h2><p class="meta">Odslychaj obie wersje przed ocena.</p><table class="clips"><thead><tr><th>Fragment</th><th>Glos A</th><th>Glos B</th></tr></thead><tbody>${rows}</tbody></table><h3>Ktora wersja jest lepsza ogolnie?</h3><div class="choice"><label><input type="radio" name="preference-${comparison.id}" value="a"> Glos A</label><label><input type="radio" name="preference-${comparison.id}" value="b"> Glos B</label><label><input type="radio" name="preference-${comparison.id}" value="tie"> Bez preferencji</label></div><h3>Oceny</h3><div class="ratings"><span></span><span class="heading">Glos A</span><span class="heading">Glos B</span>${ratings}</div><h3>Zauwazone problemy</h3><div class="reasons"><span></span><span class="heading">Glos A</span><span class="heading">Glos B</span>${reasons}</div></section>`;
+      }).join("");
+      updateAssignments();
+      root.addEventListener("change", updateProgress);
+    }
+
+    function collect() {
+      const participantId = participant.value.trim();
+      if (!/^[A-Za-z0-9_-]{2,40}$/.test(participantId)) {
+        throw new Error("Wpisz anonimowy identyfikator: 2-40 liter, cyfr, podkreslen lub myslnikow.");
+      }
+
+      const answers = [...document.querySelectorAll(".comparison")].map(section => {
+        const id = section.dataset.comparison;
+        const title = section.querySelector("h2").textContent;
+        const preference = section.querySelector(`input[name="preference-${id}"]:checked`);
+        if (!preference) throw new Error("Wybierz ogolna preferencje w sekcji: " + title + ".");
+
+        const ratings = { a: {}, b: {} };
+        section.querySelectorAll("select[data-side]").forEach(select => {
+          if (!select.value) throw new Error("Uzupelnij wszystkie oceny w sekcji: " + title + ".");
+          ratings[select.dataset.side][select.dataset.dimension] = Number(select.value);
+        });
+
+        const reasons = { a: [], b: [] };
+        section.querySelectorAll("input[data-reason]:checked").forEach(input => reasons[input.dataset.side].push(input.dataset.reason));
+        return {
+          comparison_id: id,
+          preference: preference.value,
+          display_map: {
+            a: rawSideFor(participantId, id, "a"),
+            b: rawSideFor(participantId, id, "b")
+          },
+          ratings,
+          reasons
+        };
+      });
+
+      return {
+        schema_version: 2,
+        assignment_version: "fnv1a-v1",
+        study_id: study.id,
+        participant_id: participantId,
+        created_at: new Date().toISOString(),
+        answers
+      };
+    }
+
+    function updateAssignments() {
+      const participantId = participant.value.trim();
+      document.querySelectorAll(".comparison").forEach(section => {
+        const comparisonId = section.dataset.comparison;
+        section.querySelectorAll("audio[data-file]").forEach(audio => {
+          const displaySide = audio.dataset.displaySide;
+          const rawSide = rawSideFor(participantId, comparisonId, displaySide);
+          const nextSrc = `audio/${audio.dataset.file}_${rawSide}.wav`;
+          if (!audio.getAttribute("src") || !audio.getAttribute("src").endsWith(nextSrc)) {
+            audio.setAttribute("src", nextSrc);
+          }
+        });
+      });
+      updateProgress();
+    }
+
+    function rawSideFor(participantId, comparisonId, displaySide) {
+      if (!/^[A-Za-z0-9_-]{2,40}$/.test(participantId)) return displaySide;
+      const flip = fnv1a(`${study.id}|${participantId}|${comparisonId}`) % 2 === 1;
+      if (!flip) return displaySide;
+      return displaySide === "a" ? "b" : "a";
+    }
+
+    function fnv1a(input) {
+      let hash = 0x811c9dc5;
+      for (let i = 0; i < input.length; i += 1) {
+        hash ^= input.charCodeAt(i);
+        hash = Math.imul(hash, 0x01000193) >>> 0;
+      }
+      return hash >>> 0;
+    }
+
+    function updateProgress() {
+      const total = study.comparisons.length;
+      const done = [...document.querySelectorAll(".comparison")].filter(section => {
+        const id = section.dataset.comparison;
+        const hasPreference = Boolean(section.querySelector(`input[name="preference-${id}"]:checked`));
+        const selects = [...section.querySelectorAll("select[data-side]")];
+        return hasPreference && selects.every(select => select.value);
+      }).length;
+      document.getElementById("progress").textContent = `${done} / ${total} porownania gotowe.`;
+    }
+
+    async function submitVote() {
+      status.className = "";
+      submit.disabled = true;
+      try {
+        const vote = collect();
+        const response = await fetch("api/votes", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(vote)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) {
+          throw new Error("Nie udalo sie zapisac wyniku online. Sprobuj ponownie albo pobierz kopie JSON.");
+        }
+        latestVote = vote;
+        status.textContent = `Zapisano wynik. Receipt: ${result.receipt}`;
+        status.className = "success";
+      } catch (error) {
+        status.textContent = error.message;
+        status.className = "error";
+      } finally {
+        submit.disabled = false;
+      }
+    }
+
+    function downloadVote() {
+      status.className = "";
+      try {
+        const vote = latestVote || collect();
+        latestVote = vote;
+        const blob = new Blob([JSON.stringify(vote, null, 2) + "\n"], { type: "application/json" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `${study.id}-${vote.participant_id}.json`;
+        link.click();
+        URL.revokeObjectURL(link.href);
+        status.textContent = "Kopia JSON pobrana lokalnie.";
+        status.className = "success";
+      } catch (error) {
+        status.textContent = error.message;
+        status.className = "error";
+      }
+    }
+
+    participant.addEventListener("input", updateAssignments);
+    submit.addEventListener("click", submitVote);
+    download.addEventListener("click", downloadVote);
+    render();
+  </script>
+</body>
+</html>
