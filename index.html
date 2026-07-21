@@ -100,6 +100,36 @@
       box-shadow: 0 24px 60px rgba(0,0,0,0.55);
       background: #030712;
     }
+
+    /* ── Living hero (creative-director 2026-07-21): motion layer over real screenshots ── */
+    .bc-stage{position:relative;}
+    .bc-bloom{position:absolute;inset:-6% -4%;z-index:0;pointer-events:none;filter:blur(46px);opacity:.85;}
+    .bc-bloom span{position:absolute;display:block;border-radius:50%;}
+    .bc-bloom .bc-b-em{width:46%;height:46%;left:6%;top:24%;background:radial-gradient(circle,rgba(16,185,129,.30),transparent 68%);animation:bc-drift1 13s ease-in-out infinite;}
+    .bc-bloom .bc-b-bl{width:54%;height:54%;right:2%;top:8%;background:radial-gradient(circle,rgba(59,130,246,.26),transparent 68%);animation:bc-drift2 17s ease-in-out infinite;}
+    .bc-bloom .bc-b-vi{width:42%;height:42%;right:14%;bottom:6%;background:radial-gradient(circle,rgba(139,92,246,.22),transparent 68%);animation:bc-drift3 15s ease-in-out infinite;}
+    .bc-phone-wrap{position:relative;z-index:1;}
+    .bc-phone-wrap img{display:block;width:100%;height:auto;}
+    .bc-phone-wrap.bc-player{animation:bc-floatA 6.5s ease-in-out infinite;}
+    .bc-phone-wrap.bc-home{animation:bc-floatB 8s ease-in-out infinite;}
+    .bc-ov{position:absolute;pointer-events:none;}
+    .bc-waveband{left:8%;width:84%;top:23.6%;height:6%;overflow:hidden;border-radius:3px;}
+    .bc-scan{position:absolute;top:-10%;height:120%;width:2px;left:0;background:linear-gradient(180deg,transparent,#10b981,transparent);box-shadow:0 0 10px 2px rgba(16,185,129,.7);animation:bc-scan 4s linear infinite;}
+    .bc-played{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,rgba(16,185,129,0),rgba(16,185,129,.28));mix-blend-mode:screen;animation:bc-played 4s linear infinite;}
+    .bc-playring{left:50%;top:34%;width:15%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid rgba(16,185,129,.7);animation:bc-ring 4s ease-out infinite;}
+    .bc-playring.b{animation-delay:2s;}
+    @keyframes bc-floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes bc-floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+    @keyframes bc-scan{0%{left:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:100%;opacity:0}}
+    @keyframes bc-played{0%{width:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{width:100%;opacity:0}}
+    @keyframes bc-ring{0%{transform:translate(-50%,-50%) scale(.55);opacity:.75}70%{opacity:0}100%{transform:translate(-50%,-50%) scale(1.5);opacity:0}}
+    @keyframes bc-drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(8%,-6%) scale(1.12)}}
+    @keyframes bc-drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7%,7%) scale(1.08)}}
+    @keyframes bc-drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,-8%) scale(1.14)}}
+    @media(prefers-reduced-motion:reduce){
+      .bc-phone-wrap,.bc-bloom span,.bc-scan,.bc-played,.bc-playring{animation:none!important;}
+      .bc-scan{left:40%;opacity:.6;} .bc-played{width:40%;opacity:.5;} .bc-playring{opacity:.4;}
+    }
   </style>
 </head>
 <body class="bg-gray-950 text-white antialiased overflow-x-hidden">
@@ -192,14 +222,20 @@
           </p>
         </div>
 
-        <!-- Screenshots -->
-        <div class="relative flex justify-center lg:justify-end items-end gap-4">
-          <img src="/screens/bc-player.png" width="230" height="498"
-               alt="Briefcaster audio player screen"
-               class="phone w-[38%] max-w-[210px] mb-8 hidden sm:block" loading="lazy">
-          <img src="/screens/bc-home.png" width="260" height="562"
-               alt="Briefcaster home feed of personalized audio briefings"
-               class="phone w-[52%] max-w-[280px]" loading="eager">
+        <!-- Screenshots (living hero — motion layer overlaid on real screens) -->
+        <div class="bc-stage relative flex justify-center lg:justify-end items-end gap-4">
+          <div class="bc-bloom" aria-hidden="true"><span class="bc-b-em"></span><span class="bc-b-bl"></span><span class="bc-b-vi"></span></div>
+          <div class="bc-phone-wrap bc-player w-[38%] max-w-[210px] mb-8 hidden sm:block">
+            <img src="/screens/bc-player.png" width="462" height="1000"
+                 alt="Briefcaster audio player screen" class="phone" loading="lazy">
+            <div class="bc-ov bc-waveband" aria-hidden="true"><i class="bc-played"></i><i class="bc-scan"></i></div>
+            <span class="bc-ov bc-playring" aria-hidden="true"></span>
+            <span class="bc-ov bc-playring b" aria-hidden="true"></span>
+          </div>
+          <div class="bc-phone-wrap bc-home w-[52%] max-w-[280px]">
+            <img src="/screens/bc-home.png" width="462" height="1000"
+                 alt="Briefcaster home feed of personalized audio briefings" class="phone" loading="eager">
+          </div>
         </div>
 
       </div>
