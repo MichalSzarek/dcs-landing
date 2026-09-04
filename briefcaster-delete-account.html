@@ -93,7 +93,7 @@
     </div>
 
     <h1>Delete your account</h1>
-    <p class="updated">Briefcaster · Data Concept Studio Michał Szarek · Kraków, Poland</p>
+    <p class="updated">Last updated: 4 September 2026 · Data Concept Studio Michał Szarek · Kraków, Poland</p>
 
     <p>
       You can delete your <strong>Briefcaster</strong> account and its data at any time. There are two
@@ -137,7 +137,7 @@
     <ul>
       <li><strong>Your account</strong> — email address, profile details, sign-in identities (including Google or Apple sign-in links) and all active sessions.</li>
       <li><strong>Your feeds</strong> and every source in them (topics, RSS/website sources, connected YouTube channels).</li>
-      <li><strong>Your briefs</strong> — all generated episodes, including their audio files and show notes.</li>
+      <li><strong>Your briefs</strong> — every generated episode: its entry, its show notes and its transcript. (The audio file itself is removed separately, on storage retention — see below.)</li>
       <li><strong>Generation history</strong> for those feeds, and the record of which articles had already been used.</li>
       <li><strong>Usage counters</strong> and any unlocked-brief grants tied to your account.</li>
       <li><strong>Subscription records</strong> held for your account.</li>
@@ -156,10 +156,27 @@
         account data.
       </li>
       <li>
-        <strong>Anonymised usage telemetry.</strong> Some product analytics — for example playback and
-        feedback events — are retained in a form that is no longer linked to you or your account. We
-        keep it to understand how the product is used overall; it cannot be traced back to you and
-        cannot be used to rebuild your account.
+        <strong>Product usage events.</strong> Playback and rating events are kept for aggregate
+        product analytics. They carry an internal account identifier rather than your name or e-mail,
+        and once the account is deleted that identifier no longer resolves to any person — there is
+        nothing left to join it to. We do not use these events to reconstruct a deleted account. If
+        you want them erased as well, say so in your deletion e-mail and we will remove them.
+      </li>
+      <li>
+        <strong>Audio files, for up to 180 days.</strong> The episode entries go immediately, but the
+        MP3 files themselves sit in encrypted object storage and are erased by an automatic retention
+        rule 180 days after they were produced. They are no longer reachable from the app or from any
+        share link once the account is gone. If you need them erased sooner, ask in your deletion
+        e-mail.
+      </li>
+      <li>
+        <strong>Short-lived generation diagnostics.</strong> Traces we keep to debug failed brief
+        generation, tied to a feed rather than to you, are swept automatically within days.
+      </li>
+      <li>
+        <strong>A newsletter/waitlist sign-up, if you made one.</strong> That is a separate list from
+        your account and is not removed by deleting the account — reply to any of those e-mails, or
+        ask us, and we will take you off it.
       </li>
       <li>
         <strong>Records we are legally required to keep.</strong> Where the law requires us to retain
@@ -184,7 +201,7 @@
     <div class="lang-divider"></div>
 
     <h1 lang="pl">Usunięcie konta</h1>
-    <p class="updated" lang="pl">Briefcaster · Data Concept Studio Michał Szarek · Kraków, Polska</p>
+    <p class="updated" lang="pl">Ostatnia aktualizacja: 4 września 2026 · Data Concept Studio Michał Szarek · Kraków, Polska</p>
 
     <div lang="pl">
       <p>
@@ -229,7 +246,7 @@
       <ul>
         <li><strong>Konto</strong> — adres e-mail, dane profilu, powiązania logowania (w tym Google i Apple) oraz wszystkie aktywne sesje.</li>
         <li><strong>Kanały</strong> i wszystkie ich źródła (tematy, źródła RSS/strony WWW, podpięte kanały YouTube).</li>
-        <li><strong>Briefy</strong> — wszystkie wygenerowane odcinki wraz z plikami audio i notatkami.</li>
+        <li><strong>Briefy</strong> — każdy wygenerowany odcinek: wpis, notatki i transkrypt. (Sam plik audio jest usuwany osobno, na retencji magazynu — patrz niżej.)</li>
         <li><strong>Historię generowania</strong> tych kanałów oraz zapis, które artykuły zostały już wykorzystane.</li>
         <li><strong>Liczniki wykorzystania</strong> i przyznane dodatkowe briefy.</li>
         <li><strong>Zapisy subskrypcji</strong> przypisane do konta.</li>
@@ -248,10 +265,27 @@
           dane konta.
         </li>
         <li>
-          <strong>Zanonimizowana telemetria.</strong> Część danych produktowych — na przykład zdarzenia
-          odtwarzania i oceny — zostaje w postaci niepowiązanej z Tobą ani z Twoim kontem. Służy do
-          rozumienia, jak używany jest produkt jako całość; nie da się jej powiązać z Tobą ani odtworzyć
-          z niej konta.
+          <strong>Zdarzenia użycia produktu.</strong> Zdarzenia odtwarzania i ocen zostają na potrzeby
+          zbiorczej analityki produktowej. Niosą wewnętrzny identyfikator konta, a nie Twoje imię czy
+          adres e-mail — a po usunięciu konta ten identyfikator nie wskazuje już na żadną osobę, bo nie
+          ma go z czym powiązać. Nie używamy tych zdarzeń do odtworzenia usuniętego konta. Jeśli chcesz,
+          żeby zniknęły również one, napisz o tym w mailu z żądaniem usunięcia — usuniemy je.
+        </li>
+        <li>
+          <strong>Pliki audio, do 180 dni.</strong> Wpisy odcinków znikają natychmiast, ale same pliki
+          MP3 leżą w zaszyfrowanym magazynie obiektów i są kasowane automatyczną regułą retencji 180 dni
+          od wytworzenia. Po usunięciu konta nie są już osiągalne ani z aplikacji, ani z żadnego linku
+          do udostępniania. Jeśli potrzebujesz ich usunięcia wcześniej — napisz o tym w mailu.
+        </li>
+        <li>
+          <strong>Krótkotrwała diagnostyka generowania.</strong> Ślady, które trzymamy do debugowania
+          nieudanych generacji briefów, powiązane z kanałem a nie z Tobą, są sprzątane automatycznie
+          w ciągu kilku dni.
+        </li>
+        <li>
+          <strong>Zapis na listę oczekujących, jeśli go zrobiłaś/zrobiłeś.</strong> To lista odrębna od
+          konta i usunięcie konta jej nie czyści — odpisz na dowolną z tych wiadomości albo napisz do
+          nas, a wypiszemy Cię z niej.
         </li>
         <li>
           <strong>Dane, które musimy zachować z mocy prawa.</strong> Jeżeli przepisy wymagają zachowania
