@@ -28,7 +28,11 @@ const pageRoutes = new Map([
   ["/contact", "contact.html"],
   ["/briefcaster/privacy", "briefcaster-privacy.html"],
   ["/briefcaster/terms", "briefcaster-terms.html"],
-  ["/briefcaster/support", "briefcaster-support.html"]
+  ["/briefcaster/support", "briefcaster-support.html"],
+  // Google Play requires a publicly reachable account-deletion page BEFORE the
+  // first app upload, so this route has to exist on whichever of the two
+  // serving paths is live — keep it in sync with firebase.json's rewrites.
+  ["/briefcaster/delete-account", "briefcaster-delete-account.html"]
 ]);
 
 const staticFiles = new Map([
