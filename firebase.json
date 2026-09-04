@@ -48,6 +48,10 @@
       {
         "source": "/briefcaster/support",
         "destination": "/briefcaster-support.html"
+      },
+      {
+        "source": "/briefcaster/delete-account",
+        "destination": "/briefcaster-delete-account.html"
       }
     ],
     "headers": [
