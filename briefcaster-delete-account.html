@@ -145,6 +145,7 @@
       <li><strong>In-app notifications</strong> in your inbox.</li>
       <li><strong>Reports you filed</strong> about briefs.</li>
       <li><strong>Saved sources</strong> — the show-note sources you bookmarked.</li>
+      <li><strong>Anything else holding your e-mail address</strong> — a waitlist sign-up made from our website, and any pending verification tokens.</li>
     </ul>
 
     <h2>What is kept, and for how long</h2>
@@ -156,11 +157,12 @@
         account data.
       </li>
       <li>
-        <strong>Product usage events.</strong> Playback and rating events are kept for aggregate
-        product analytics. They carry an internal account identifier rather than your name or e-mail,
-        and once the account is deleted that identifier no longer resolves to any person — there is
-        nothing left to join it to. We do not use these events to reconstruct a deleted account. If
-        you want them erased as well, say so in your deletion e-mail and we will remove them.
+        <strong>Product usage events, anonymised.</strong> Playback and rating events are kept for
+        aggregate product analytics — they tell us which voices, formats and lengths work. As part of
+        deleting your account we replace the account reference on those rows with a random identifier
+        that is never recorded anywhere else, in the same transaction that removes your account, so
+        the events remain usable as statistics and cannot be linked back to you or to each other's
+        owner. If you would rather they were deleted outright, say so in your deletion e-mail.
       </li>
       <li>
         <strong>Audio files, for up to 180 days.</strong> The episode entries go immediately, but the
@@ -172,11 +174,6 @@
       <li>
         <strong>Short-lived generation diagnostics.</strong> Traces we keep to debug failed brief
         generation, tied to a feed rather than to you, are swept automatically within days.
-      </li>
-      <li>
-        <strong>A newsletter/waitlist sign-up, if you made one.</strong> That is a separate list from
-        your account and is not removed by deleting the account — reply to any of those e-mails, or
-        ask us, and we will take you off it.
       </li>
       <li>
         <strong>Records we are legally required to keep.</strong> Where the law requires us to retain
@@ -254,6 +251,7 @@
         <li><strong>Powiadomienia w aplikacji</strong> z Twojej skrzynki.</li>
         <li><strong>Zgłoszenia</strong>, które wysłałaś/wysłałeś w sprawie briefów.</li>
         <li><strong>Zapisane źródła</strong> — zakładki do źródeł z notatek do odcinków.</li>
+        <li><strong>Wszystko inne, co trzyma Twój adres e-mail</strong> — zapis na listę oczekujących z naszej strony i niewykorzystane tokeny weryfikacyjne.</li>
       </ul>
 
       <h2>Co zostaje i na jak długo</h2>
@@ -265,11 +263,12 @@
           dane konta.
         </li>
         <li>
-          <strong>Zdarzenia użycia produktu.</strong> Zdarzenia odtwarzania i ocen zostają na potrzeby
-          zbiorczej analityki produktowej. Niosą wewnętrzny identyfikator konta, a nie Twoje imię czy
-          adres e-mail — a po usunięciu konta ten identyfikator nie wskazuje już na żadną osobę, bo nie
-          ma go z czym powiązać. Nie używamy tych zdarzeń do odtworzenia usuniętego konta. Jeśli chcesz,
-          żeby zniknęły również one, napisz o tym w mailu z żądaniem usunięcia — usuniemy je.
+          <strong>Zdarzenia użycia produktu, zanonimizowane.</strong> Zdarzenia odtwarzania i ocen
+          zostają na potrzeby zbiorczej analityki — mówią nam, które głosy, formaty i długości się
+          sprawdzają. W ramach usuwania konta podmieniamy w tych wierszach odniesienie do konta na
+          losowy identyfikator, którego nie zapisujemy nigdzie indziej, w tej samej transakcji, która
+          usuwa konto. Zdarzenia zostają więc użyteczne jako statystyka i nie da się ich powiązać ani
+          z Tobą, ani ze sobą nawzajem. Jeśli wolisz, żeby zostały skasowane — napisz o tym w mailu.
         </li>
         <li>
           <strong>Pliki audio, do 180 dni.</strong> Wpisy odcinków znikają natychmiast, ale same pliki
@@ -281,11 +280,6 @@
           <strong>Krótkotrwała diagnostyka generowania.</strong> Ślady, które trzymamy do debugowania
           nieudanych generacji briefów, powiązane z kanałem a nie z Tobą, są sprzątane automatycznie
           w ciągu kilku dni.
-        </li>
-        <li>
-          <strong>Zapis na listę oczekujących, jeśli go zrobiłaś/zrobiłeś.</strong> To lista odrębna od
-          konta i usunięcie konta jej nie czyści — odpisz na dowolną z tych wiadomości albo napisz do
-          nas, a wypiszemy Cię z niej.
         </li>
         <li>
           <strong>Dane, które musimy zachować z mocy prawa.</strong> Jeżeli przepisy wymagają zachowania
