@@ -25,6 +25,8 @@ const pageRoutes = new Map([
   ["/briefcaster/pl", "briefcaster-pl.html"],
   ["/press", "press.html"],
   ["/maths", "maths.html"],
+  ["/pricing", "pricing.html"],
+  ["/news", "news.html"],
   ["/contact", "contact.html"],
   ["/briefcaster/privacy", "briefcaster-privacy.html"],
   ["/briefcaster/terms", "briefcaster-terms.html"],

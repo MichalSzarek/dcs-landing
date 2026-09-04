@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing &amp; business model — Data Concept Studio</title>
+  <meta name="description" content="How Data Concept Studio makes money: Briefcaster is free today with a planned premium subscription, MATHS moves to subscription access after private beta. Bootstrapped, founder-funded, built on Google Cloud.">
+  <link rel="canonical" href="https://dataconceptstudio.com/pricing">
+  <meta property="og:title" content="Pricing & business model — Data Concept Studio">
+  <meta property="og:description" content="Briefcaster is free today. Here is how our products are priced and how the company makes money.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dataconceptstudio.com/pricing">
+  <meta property="og:site_name" content="Data Concept Studio">
+  <meta property="og:image" content="https://dataconceptstudio.com/logo.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Data Concept Studio",
+    "legalName": "Data Concept Studio Michał Szarek",
+    "url": "https://dataconceptstudio.com",
+    "logo": "https://dataconceptstudio.com/logo.png",
+    "foundingDate": "2025",
+    "address": { "@type": "PostalAddress", "addressLocality": "Kraków", "addressCountry": "PL" }
+  }
+  </script>
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: grad 8s ease infinite;
+    }
+    @keyframes grad { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(16,185,129,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .nav-blur { background: rgba(3,7,18,0.82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .card-hover { transition: border-color .3s, box-shadow .3s; }
+    .card-hover:hover { border-color: rgba(16,185,129,0.3); box-shadow: 0 0 24px rgba(16,185,129,0.08); }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-gray-950 text-white antialiased overflow-x-hidden">
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-sm tracking-wide">Data Concept Studio</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/briefcaster" class="text-sm text-gray-400 hover:text-white transition-colors">Briefcaster</a>
+        <a href="/maths" class="text-sm text-gray-400 hover:text-white transition-colors">MATHS</a>
+        <a href="/pricing" class="text-sm text-white font-medium">Pricing</a>
+        <a href="/news" class="text-sm text-gray-400 hover:text-white transition-colors">News</a>
+        <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
+        <a href="/contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <div class="md:hidden flex items-center gap-3">
+        <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
+        <a href="mailto:michal.szarek@dataconceptstudio.com"
+           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
+          Contact
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <section class="relative grid-bg pt-32 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full
+                  bg-gray-900 border border-gray-700/60 text-sm mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
+        <span class="text-gray-300">Pricing &amp; business model</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.08] tracking-tight mb-6">
+        How our products are priced —<br>
+        and <span class="gradient-text">how we make money</span>
+      </h1>
+      <p class="text-lg text-gray-400 leading-relaxed max-w-2xl">
+        Data Concept Studio is a product company: we earn from the software we build and operate
+        ourselves, sold directly to the people who use it. No client work, no consulting, no
+        agency retainers. This page states exactly where that stands today — including the parts
+        that are still free.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BRIEFCASTER ═══════════════ -->
+  <section class="py-16 border-t border-gray-800/40">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="flex items-baseline justify-between flex-wrap gap-3 mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold">Briefcaster</h2>
+        <span class="text-sm text-gray-500">Consumer iOS app · live on the App Store</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Free -->
+        <div class="rounded-2xl border border-emerald-500/30 bg-emerald-500/[0.03] p-7 card-hover">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Available now</span>
+          </div>
+          <div class="text-4xl font-extrabold mb-2">Free</div>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">
+            Briefcaster is free to download and free to use. There is no paywall in the app today —
+            you can create your feeds and listen to your briefings without paying anything.
+          </p>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Personalized audio briefings from your own topics, RSS feeds, and YouTube channels</li>
+            <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> AI-written scripts, narrated with natural voices</li>
+            <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> Multiple languages, including English and Polish</li>
+            <li class="flex gap-3"><span class="text-emerald-400 mt-0.5">✓</span> A monthly usage allowance that covers everyday listening</li>
+          </ul>
+          <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-pricing&amp;mt=8"
+             class="mt-7 inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400
+                    text-gray-950 font-semibold text-sm transition-all">
+            Download on the App Store
+          </a>
+        </div>
+
+        <!-- Premium (planned) -->
+        <div class="rounded-2xl border border-gray-800 bg-gray-900/40 p-7 card-hover">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Planned</span>
+          </div>
+          <div class="text-4xl font-extrabold mb-2 text-gray-400">Premium</div>
+          <p class="text-sm text-gray-400 leading-relaxed mb-6">
+            Our planned revenue stream for Briefcaster is a consumer subscription. It is
+            <strong class="text-gray-300">not live yet</strong> and no prices have been set — we are
+            growing the free product first and will publish the tiers here before anything is charged.
+          </p>
+          <ul class="space-y-3 text-sm text-gray-500">
+            <li class="flex gap-3"><span class="text-gray-600 mt-0.5">→</span> A higher monthly allowance for heavy listeners</li>
+            <li class="flex gap-3"><span class="text-gray-600 mt-0.5">→</span> More sources per feed and longer briefings</li>
+            <li class="flex gap-3"><span class="text-gray-600 mt-0.5">→</span> Additional voices and delivery options</li>
+          </ul>
+          <div class="mt-7 px-6 py-3 rounded-xl border border-gray-800 text-center text-sm text-gray-600">
+            Not yet available
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MATHS ═══════════════ -->
+  <section class="py-16 border-t border-gray-800/40 grid-bg">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="flex items-baseline justify-between flex-wrap gap-3 mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold">MATHS</h2>
+        <span class="text-sm text-gray-500">Multi-agent AI trading platform · private beta</span>
+      </div>
+      <div class="rounded-2xl border border-gray-800 bg-gray-900/40 p-7">
+        <p class="text-gray-400 leading-relaxed mb-5">
+          MATHS is our second product and is currently in private beta, running in production for
+          internal use. It is not sold today. When it opens beyond the beta, access will be offered
+          as a <strong class="text-white">subscription to the platform</strong> — systematic,
+          auditable trading intelligence delivered as a service rather than as bespoke software.
+        </p>
+        <p class="text-sm text-gray-500 leading-relaxed">
+          MATHS is a research and decision-support platform. It is not investment advice, and we do
+          not manage money for third parties.
+        </p>
+        <a href="/maths" class="inline-flex items-center gap-2 mt-6 text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+          Read more about MATHS
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW THE COMPANY IS FUNDED ═══════════════ -->
+  <section class="py-16 border-t border-gray-800/40">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8">How the company is funded</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-gray-800 bg-gray-900/40 p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Today</div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Bootstrapped and founder-funded. We have taken no institutional investment, no venture
+            capital, and no outside equity.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gray-800 bg-gray-900/40 p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Cost base</div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Fully digital. Our largest running cost is cloud infrastructure and AI inference on
+            Google Cloud — there is no physical product and no inventory.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gray-800 bg-gray-900/40 p-6">
+          <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">Path to revenue</div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Consumer subscriptions for Briefcaster, platform subscriptions for MATHS. Recurring
+            digital revenue from software we own — not billable hours.
+          </p>
+        </div>
+      </div>
+
+      <p class="text-sm text-gray-500 leading-relaxed mt-10 max-w-3xl">
+        We keep this page honest rather than aspirational: if something is free, it says free; if
+        something is planned, it says planned. When Briefcaster premium launches, its tiers and
+        prices will be published here and in the App Store listing before any charge is made.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT CTA ═══════════════ -->
+  <section class="py-24 border-t border-gray-800/40 grid-bg">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-5">Questions about our model?</h2>
+      <p class="text-gray-400 leading-relaxed mb-8">
+        Press, partnership, or product questions — we answer every email.
+      </p>
+      <a href="mailto:michal.szarek@dataconceptstudio.com"
+         class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400
+                text-gray-950 font-semibold text-sm transition-all">
+        michal.szarek@dataconceptstudio.com
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="border-t border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6 py-14">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div class="col-span-2 md:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+              </svg>
+            </div>
+            <span class="text-sm text-gray-300 font-semibold">Data Concept Studio</span>
+          </div>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            AI software company — Kraków, Poland.<br>
+            We build and run our own AI products.
+          </p>
+        </div>
+        <div>
+          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Products</div>
+          <ul class="space-y-2.5">
+            <li><a href="/briefcaster" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster</a></li>
+            <li><a href="/maths" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">MATHS</a></li>
+            <li><a href="/pricing" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Company</div>
+          <ul class="space-y-2.5">
+            <li><a href="/about" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">About</a></li>
+            <li><a href="/news" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">News</a></li>
+            <li><a href="/contact" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
+            <li><a href="/press" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Legal</div>
+          <ul class="space-y-2.5">
+            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Privacy</a></li>
+            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Terms</a></li>
+            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-gray-800/40 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-gray-600">© 2026 Data Concept Studio Michał Szarek · Kraków, Poland</div>
+        <a href="mailto:michal.szarek@dataconceptstudio.com"
+           class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
+          michal.szarek@dataconceptstudio.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
