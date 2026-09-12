@@ -26,6 +26,10 @@
         "destination": "/maths.html"
       },
       {
+        "source": "/lumir",
+        "destination": "/lumir.html"
+      },
+      {
         "source": "/contact",
         "destination": "/contact.html"
       },
@@ -52,6 +56,18 @@
       {
         "source": "/briefcaster/delete-account",
         "destination": "/briefcaster-delete-account.html"
+      },
+      {
+        "source": "/lumir/privacy",
+        "destination": "/lumir-privacy.html"
+      },
+      {
+        "source": "/lumir/terms",
+        "destination": "/lumir-terms.html"
+      },
+      {
+        "source": "/lumir/support",
+        "destination": "/lumir-support.html"
       }
     ],
     "headers": [

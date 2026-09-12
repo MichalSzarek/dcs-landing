@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Lumir — Privacy Policy</title>
+ <meta name="description" content="Draft privacy policy for Lumir, the iPhone mirror and screen-light app by Data Concept Studio: what it collects (nothing), what it stores on-device, and what reaches Apple." />
+ <meta property="og:title" content="Lumir — Privacy Policy" />
+ <meta property="og:description" content="What Lumir collects (nothing), what it stores on-device, and what reaches Apple. Draft, provisional." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://dataconceptstudio.com/lumir/privacy" />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+ <style>
+ :root {
+ --bg: #000000;
+ --surface: #15120b;
+ --line: #4a3f26;
+ --ink: #f7f3ea;
+ --ink-muted: #c9c1ae;
+ --ink-dim: #968f7c;
+ --brand: #D4AF37;
+ --brand-deep: #a3801f;
+ }
+ * { box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+ html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+ body {
+ line-height: 1.65;
+ -webkit-font-smoothing: antialiased;
+ background-image:
+ linear-gradient(rgba(212,175,55,0.035) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(212,175,55,0.035) 1px, transparent 1px);
+ background-size: 64px 64px;
+ }.wrap { max-width: 780px; margin: 0 auto; padding: 56px 22px 96px; }.brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }.logo {
+ width: 40px; height: 40px; border-radius: 11px;
+ background: linear-gradient(135deg, #D4AF37 0%, #a3801f 100%);
+ display: flex; align-items: center; justify-content: center;
+ font-weight: 800; color: #000000; font-size: 19px;
+ box-shadow: 0 0 24px rgba(212,175,55,0.25);
+ }.brand-name { font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }.brand-sub { font-size: 12px; color: var(--ink-dim); }
+ h1 {
+ font-size: 34px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em;
+ margin: 8px 0 6px;
+ background: linear-gradient(135deg, #D4AF37 0%, #e8cf7a 55%, #D4AF37 100%);
+ -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+ }.updated { color: var(--ink-dim); font-size: 13px; margin-bottom: 34px; line-height: 1.8; }
+ h2 {
+ font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+ margin: 40px 0 12px; padding-top: 10px;
+ border-top: 1px solid var(--line); color: var(--ink);
+ }
+ h2:first-of-type { border-top: none; padding-top: 0; }
+ h3 { font-size: 15px; font-weight: 600; margin: 22px 0 8px; color: var(--ink); }
+ p, li { color: var(--ink-muted); font-size: 15px; }
+ a { color: var(--brand); text-decoration: none; }
+ a:hover { text-decoration: underline; }
+ ul, ol { padding-left: 20px; margin: 10px 0; }
+ li { margin: 6px 0; }
+ strong { color: var(--ink); font-weight: 600; }
+ em { color: var(--ink); }
+ code { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); word-break: break-word; }
+ table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13.5px; display: block; overflow-x: auto; }
+ th, td { text-align: left; padding: 10px 12px; border: 1px solid var(--line); vertical-align: top; }
+ th { background: var(--surface); color: var(--ink); font-weight: 600; white-space: nowrap; }
+ td { color: var(--ink-muted); }.callout {
+ background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--brand);
+ border-radius: 10px; padding: 14px 16px; margin: 18px 0;
+ }.callout p:first-child { margin-top: 0; }.callout p:last-child { margin-bottom: 0; }.callout ol,.callout ul { margin: 10px 0 0; }.notice { padding: 18px 20px; }.ph {
+ color: var(--brand); border-bottom: 1px dashed var(--brand-deep);
+ padding: 0 2px; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.93em;
+ }.status-badge {
+ display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+ text-transform: uppercase; color: #000; background: var(--brand);
+ border-radius: 5px; padding: 2px 8px; margin-right: 6px;
+ }
+ footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink-dim); font-size: 13px; }
+ footer a { color: var(--ink-muted); }
+ section[id] { scroll-margin-top: 20px; }
+ </style>
+</head>
+<body>
+ <main class="wrap">
+ <div class="brand-row">
+ <div class="logo">L</div>
+ <div>
+ <div class="brand-name">Lumir</div>
+ <div class="brand-sub">by Data Concept Studio</div>
+ </div>
+ </div>
+
+ <h1>Privacy Policy</h1>
+ <p class="updated">
+ <span class="status-badge">Draft — provisional</span> Not published. Not legal advice.<br>
+ Drafted: 2026-09-12 · Task: T710 · Applies to: Lumir for iPhone, version 1.0 (pre-release)<br>
+ Controller / publisher: <span class="ph">[CONTROLLER ENTITY — OC-06]</span>
+ </p>
+
+ <div class="callout notice">
+ <p><strong>Three things a reader of this file must know before anything else.</strong></p>
+ <ol>
+ <li><strong>This is a draft, and it is provisional pending T610.</strong> Every behavioural statement
+ below was verified against Lumir's <strong>source code</strong> in the working tree on 2026-09-12. T610 re-derives the same facts from the
+ <strong>binary that will actually ship</strong>. Until T610 reports, treat this as source-verified,
+ not build-verified. If T610 contradicts anything here, T610 wins and this file changes.</li>
+ <li><strong>The publishing entity is not yet known.</strong>
+ <span class="ph">[CONTROLLER ENTITY — OC-06]</span> is a placeholder for the registered legal seller
+ and data controller of record. It is deliberately not filled in. "Data Concept Studio" is the product
+ brand supplied by the operator, <strong>not</strong> a verified legal entity, and it is not used as
+ one anywhere in this document. No company name, registration number, address or contact address has
+ been invented.</li>
+ <li><strong>This was drafted by an AI agent and is not legal advice.</strong> It is a factual
+ description of what the software does, written so that a qualified lawyer has something accurate to
+ work from. It has not been reviewed by a lawyer. Do not publish it as-is.</li>
+ </ol>
+ </div>
+
+ <h2>1. The short version</h2>
+ <p>Lumir is a mirror and screen-light app. It runs entirely on your iPhone.</p>
+ <p>
+ As of the source checked on 2026-09-12, <strong>the Lumir app contains no networking code at all</strong>
+ — no <code>URLSession</code>, no <code>URLRequest</code>, no <code>dataTask</code>, no
+ <code>NWConnection</code>, no <code>CFNetwork</code>, and no third-party SDK or package dependency of any
+ kind. Every framework it imports is a first-party Apple framework. There is therefore no code path by
+ which Lumir sends your camera preview, your photos, your presets or your settings anywhere.
+ </p>
+ <p>
+ There are three honest qualifications to that, and they are set out in full in
+ <a href="#section-6">section 6</a> rather than buried:
+ </p>
+ <ul>
+ <li><strong>Buying or restoring Lumir Pro involves Apple.</strong> StoreKit — Apple's own framework, not
+ Lumir's code — communicates with the App Store to take payment and to confirm what you own.</li>
+ <li><strong>Photos you capture go into your photo library</strong>, and from there your own iCloud
+ Photos settings apply, not Lumir's.</li>
+ <li><strong>Your Lumir files are included in your device backup</strong>, because they live in
+ Application Support. If you back up to iCloud, they go where your backup goes.</li>
+ </ul>
+ <p>Lumir has no account, no sign-in, no password and no analytics. It asks for nothing about you.</p>
+
+ <h2>2. Who is responsible for this app</h2>
+ <p>The publisher and data controller of record is <span class="ph">[CONTROLLER ENTITY — OC-06]</span>.</p>
+ <p>
+ This is unresolved. See <a href="#unresolved">Unresolved</a>, item 1. Under Article 4(7) of Regulation
+ (EU) 2016/679 the controller is the person or body that determines the purposes and means of processing;
+ naming that entity correctly is a legal fact about the operator's business, not something this draft can
+ supply.
+ </p>
+ <p>
+ Contact for privacy questions: <span class="ph">[CONTACT ADDRESS — OC-06]</span>.<br>
+ Product support: <span class="ph">[SUPPORT CONTACT — OC-09]</span>.
+ </p>
+
+ <h2>3. What Lumir collects</h2>
+ <p><strong>Nothing.</strong></p>
+ <p>
+ Apple's own definition is the useful one here. Apple's <em>App Privacy Details</em> guidance defines
+ "collect" as <em>"transmitting data off the device in a way that allows you and/or your third-party
+ partners to access it for a period longer than what is necessary to service the transmitted request in
+ real time,"</em> and states that <em>"data that is processed only on device is not 'collected' and does
+ not need to be disclosed."</em> (Accessed 2026-09-12 —
+ <a href="https://developer.apple.com/app-store/app-privacy-details/" target="_blank" rel="noopener">developer.apple.com/app-store/app-privacy-details</a>.)
+ </p>
+ <p>
+ By that definition Lumir collects no data, because Lumir transmits no data. This is not a policy
+ commitment that someone has to keep; as of the code checked, it is a property of the binary, because the
+ app contains no mechanism for transmitting anything.
+ </p>
+ <p>
+ <span class="ph">[CONTROLLER ENTITY — OC-06]</span> therefore receives no personal data from the app: no
+ name, no email address, no device identifier, no advertising identifier, no location, no contact list,
+ no usage history, no crash report, no photo and no camera frame.
+ </p>
+
+ <h2>4. What Lumir stores, and where</h2>
+ <p>
+ Lumir writes three JSON files into its own sandboxed
+ <code>~/Library/Application Support/Lumir/</code> directory on your iPhone. Nothing else is written
+ anywhere. They are readable only by Lumir and by you (through a device backup); no other app can reach
+ them.
+ </p>
+ <table>
+ <thead><tr><th>File</th><th>What is in it</th><th>Where it comes from</th></tr></thead>
+ <tbody>
+ <tr>
+ <td><code>presets.json</code></td>
+ <td>Your <strong>custom</strong> presets only: a generated UUID, the name you typed, a colour
+ temperature in kelvin, a brightness value, created/updated timestamps and a revision counter.</td>
+ <td>You, when you create a preset. Built-in presets are compiled into the app and are never written
+ to disk.</td>
+ </tr>
+ <tr>
+ <td><code>settings.json</code></td>
+ <td>Your chosen layout (full / split-top / split-bottom), the id of the last preset you selected,
+ and whether you have allowed Lumir to adjust screen brightness.</td>
+ <td>Your own choices in the app.</td>
+ </tr>
+ <tr>
+ <td><code>entitlement.json</code></td>
+ <td>Whether you own Lumir Pro: the product identifier, the StoreKit original transaction identifier,
+ the purchase date, and when StoreKit last verified it.</td>
+ <td>Apple's StoreKit, after you purchase.</td>
+ </tr>
+ </tbody>
+ </table>
+ <p>
+ <strong>The only free text Lumir ever stores is a preset name you typed yourself.</strong> There is no
+ other field anywhere in which arbitrary text about you could be recorded.
+ </p>
+ <p>
+ <code>entitlement.json</code> deserves a specific statement, because purchase records are where privacy
+ policies usually get vague: it contains <strong>no payment details, no card number, no billing address,
+ no Apple Account identifier and no name</strong>. It holds only the transaction identity that StoreKit
+ itself already placed on the device, and it exists for one narrow reason — so that a temporary StoreKit
+ failure does not silently take Pro away from someone who paid for it.
+ </p>
+ <p>
+ <strong>Backups.</strong> This directory is part of the normal device backup, deliberately, so that
+ restoring your iPhone does not silently lose the presets you made. That means: if you use iCloud Backup,
+ these three files are in your iCloud backup, under your Apple Account and Apple's terms, not Lumir's.
+ This is the one respect in which the phrase "nothing leaves your device" needs qualifying, and it is
+ your backup doing it, at your choice.
+ </p>
+
+ <h2>5. Camera, photos and screen light</h2>
+
+ <h3>5.1 The camera</h3>
+ <p>
+ Lumir asks for camera access so it can show you a mirrored preview of the front camera. iOS shows you
+ the app's stated reason, which is currently: <em>"Lumir shows a mirrored preview from the front camera.
+ Nothing leaves your device."</em>
+ </p>
+ <p>
+ <strong>Traced in the code, because that is a strong claim.</strong> Lumir's capture session has exactly
+ <strong>one</strong> output attached to it: an <code>AVCapturePhotoOutput</code>. There is no
+ <code>AVCaptureVideoDataOutput</code>, no <code>AVCaptureMovieFileOutput</code>, no
+ <code>AVCaptureAudioDataOutput</code> and no sample-buffer delegate anywhere in the app — so there is no
+ code path through which an individual camera frame can even be read by Lumir, let alone stored or sent.
+ The live preview is drawn by <code>AVCaptureVideoPreviewLayer</code>, which renders directly from the
+ capture session to the screen.
+ </p>
+ <p>
+ <strong>No microphone.</strong> Lumir adds only the front video device as an input. It never requests
+ microphone access and records no audio.
+ </p>
+ <p>
+ <strong>Center Stage is left alone.</strong> Lumir neither reads nor writes any Center Stage setting;
+ whatever your own Control Center says stays in force.
+ </p>
+
+ <h3>5.2 Photos</h3>
+ <p>When <em>you</em> tap the shutter, Lumir captures one photo and saves it to your photo library.</p>
+ <ul>
+ <li>The capture happens <strong>only</strong> when you ask for it. Nothing is captured in the
+ background, on a timer, or when the app is not in the foreground.</li>
+ <li>Lumir requests <strong>add-only</strong> photo library permission
+ (<code>NSPhotoLibraryAddUsageDescription</code>). It cannot read, browse, search or delete your
+ existing photos, and it does not ask for permission that would let it.</li>
+ <li>The photo is saved mirrored, matching what you saw on screen.</li>
+ <li>The saved photo is then an ordinary item in your photo library. What happens to it next — iCloud
+ Photos, Shared Albums, anything else — is governed by your own iOS settings, not by Lumir.</li>
+ <li>Lumir keeps only the photo library's local asset identifier in memory for the current session, so it
+ can confirm the save succeeded. It is not written to disk.</li>
+ </ul>
+
+ <h3>5.3 Screen light</h3>
+ <p>
+ The light panel is just the screen. Lumir adjusts screen brightness while you use it, if you allow it.
+ Nothing about that is recorded beyond the on/off preference stored in <code>settings.json</code>.
+ </p>
+
+ <h2 id="section-6">6. What does reach Apple, and why</h2>
+ <p>
+ Lumir sends nothing. Apple, however, is unavoidably involved in two places, and pretending otherwise
+ would make this document false.
+ </p>
+ <p>
+ <strong>6.1 Your purchase.</strong> Lumir Pro is bought through Apple's In-App Purchase, as Apple's App
+ Review Guideline 3.1.1 requires for unlocking features (accessed 2026-09-12 —
+ <a href="https://developer.apple.com/app-store/review/guidelines/" target="_blank" rel="noopener">developer.apple.com/app-store/review/guidelines</a>).
+ Apple takes the payment; <strong>Lumir never sees and never receives your payment details.</strong>
+ Apple Media Services Terms and Conditions (Poland edition, last updated 15 September 2025, accessed
+ 2026-09-12 —
+ <a href="https://www.apple.com/legal/internet-services/itunes/pl/terms.html" target="_blank" rel="noopener">apple.com/legal/internet-services/itunes/pl/terms.html</a>)
+ name <strong>Apple Distribution International Ltd.</strong> as the registered seller of App Store
+ content for customers in Poland. Apple's handling of your purchase is covered by Apple's own privacy
+ policy and terms, not by this one.
+ </p>
+ <p>
+ Concretely: buying, restoring or re-verifying Pro means StoreKit — Apple's framework, running on your
+ device — talking to Apple's servers (<code>Product.products(for:)</code>, <code>product.purchase()</code>,
+ <code>AppStore.sync()</code>, <code>Transaction.currentEntitlements</code>, <code>Transaction.updates</code>).
+ Those are the network exchanges that exist in Lumir's user experience. They are Apple's, they are between
+ you and Apple, and they carry your purchase — not your presets, your settings, your photos or your
+ camera.
+ </p>
+ <p>
+ <strong>6.2 Apple's reporting to the developer.</strong> Separately from the app, Apple provides
+ developers with App Store sales figures and, for those users who have opted in to <em>Share With App
+ Developers</em>, aggregated App Analytics. Apple states that usage data <em>"only include data from
+ users who have agreed to share their diagnostics and usage information with app developers"</em> and
+ applies minimum thresholds and differential privacy to protect individuals (accessed 2026-09-12 —
+ <a href="https://developer.apple.com/app-store/app-analytics/" target="_blank" rel="noopener">developer.apple.com/app-store/app-analytics</a>).
+ This is aggregate reporting produced by Apple, controlled by your iOS settings, and it identifies no
+ individual to <span class="ph">[CONTROLLER ENTITY — OC-06]</span>. Lumir itself contributes nothing to
+ it.
+ </p>
+
+ <h2 id="section-7">7. Third parties, analytics, advertising and tracking</h2>
+ <p><strong>There are none.</strong> Specifically, and each verified by search rather than assumed:</p>
+ <ul>
+ <li><strong>No third-party SDKs.</strong> Lumir has no Swift Package dependencies, no CocoaPods, no
+ Carthage. Every <code>import</code> in the app is an Apple framework: AVFoundation, CoreGraphics,
+ Foundation, Observation, Photos, QuartzCore, StoreKit, SwiftUI, UIKit.</li>
+ <li><strong>No analytics or crash-reporting service.</strong> No PostHog, Mixpanel, Firebase, Amplitude,
+ Segment, Sentry, Crashlytics, AppsFlyer, Bugsnag or Datadog — nothing.</li>
+ <li><strong>No advertising, no advertising identifier, no App Tracking Transparency prompt.</strong>
+ Lumir never reads the advertising identifier or the vendor identifier, and it has no tracking
+ behaviour to ask permission for.</li>
+ <li><strong>No data is shared with anyone</strong>, because none is collected. Apple App Review
+ Guideline 5.1.1(i) requires a privacy policy to confirm that any third party with whom an app shares
+ user data provides equivalent protection. Lumir shares user data with no third party, so there is
+ nothing to confirm.</li>
+ </ul>
+ <p>
+ <strong>One structural detail worth stating, because it is unusual and it is load-bearing.</strong>
+ Lumir contains an internal analytics <em>interface</em> — deliberately switched off — so that if
+ telemetry is ever added it must be added deliberately, reviewed and disclosed, rather than switched on
+ quietly. What ships is <code>NoOpAnalyticsSink</code>, which does nothing at all. More importantly, the
+ event type <code>AnalyticsEvent</code> is a <strong>closed enum in which no case carries a
+ <code>String</code>, <code>Data</code> or image payload</strong>. Every case carries either nothing or a
+ fixed enumerated value. A preset name, a photo or a line of free text has no channel it could travel
+ through, even in a future version — not because a rule forbids it, but because the type system does not
+ permit it. For example, the event for using a custom preset records <em>that</em> a custom preset was
+ used and deliberately carries no way to say <em>which</em>.
+ </p>
+
+ <h2>8. Retention, deletion, and how you get your data out</h2>
+ <p>
+ Apple's App Review Guideline 5.1.1(i) requires a privacy policy to explain data retention and deletion
+ and how a user can revoke consent or request deletion. Here is the whole of it.
+ </p>
+ <p>
+ <strong>Retention.</strong> Your presets and settings stay on your device until you delete them. Nothing
+ expires and nothing is uploaded, so there is no server-side copy with its own retention period.
+ </p>
+ <p><strong>Deletion, and you do not have to ask anyone.</strong></p>
+ <ul>
+ <li><strong>Delete one preset</strong> — delete it in the app. Deleting is never restricted, whether or
+ not you have Lumir Pro. You can always remove something you made.</li>
+ <li><strong>Delete everything</strong> — delete the Lumir app. iOS removes the app's container, which
+ removes <code>presets.json</code>, <code>settings.json</code> and <code>entitlement.json</code> with
+ it.</li>
+ <li><strong>Photos you captured</strong> are yours, in your photo library, and are deleted there like
+ any other photo. Deleting Lumir does not delete them.</li>
+ <li><strong>Withdraw camera or photo access</strong> at any time in <strong>Settings → Privacy &amp;
+ Security</strong>, or in <strong>Settings → Lumir</strong>. Lumir remains usable as a light without
+ camera access; that is a designed mode, not a degraded one.</li>
+ </ul>
+ <p>
+ <strong>There is no deletion request to send</strong>, because
+ <span class="ph">[CONTROLLER ENTITY — OC-06]</span> holds nothing to delete. If that ever stops being
+ true — for example if the optional preset sync described in <a href="#section-11">section 11</a> is
+ ever built — this policy changes first, before the feature ships.
+ </p>
+
+ <h2>9. Your rights</h2>
+ <p>
+ Because Lumir transmits nothing, <span class="ph">[CONTROLLER ENTITY — OC-06]</span> holds no personal
+ data about you obtained through the app, and the practical position is unusual: there is no file to
+ access, no record to correct, no profile to object to and no dataset to port.
+ </p>
+ <p>
+ This document is written to give the information Article 13 of Regulation (EU) 2016/679 requires a
+ controller to provide — the controller's identity and contact details, the purposes and legal basis of
+ processing, recipients, retention, and the rights to access, rectify, erase, restrict, object and
+ complain to a supervisory authority (Regulation (EU) 2016/679 of 27 April 2016; accessed 2026-09-12 —
+ <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu/eli/reg/2016/679/oj/eng</a>).
+ Where an item has no content — recipients, retention by the controller, automated decision-making — this
+ document says so explicitly rather than omitting it.
+ </p>
+ <p>
+ If you are in the EU or the UK and believe your data has been mishandled, you can complain to your
+ national supervisory authority. If you are in California, no personal information is sold or shared,
+ because none is collected or transmitted.
+ </p>
+ <div class="callout">
+ <p>
+ <strong>Deliberately not claimed.</strong> This draft makes no assertion that the app or its publisher
+ complies with the GDPR, the CCPA or any other statute. Compliance is a conclusion about an
+ organisation, reached by its lawyers — not a badge a product description can award itself. What this
+ document does is describe exactly what the software does, so that such an assessment can be made
+ against something true.
+ </p>
+ </div>
+
+ <h2>10. Children</h2>
+ <p>
+ Lumir has no account, collects nothing, contains no advertising, no user-generated content shared with
+ anyone, and no way to contact another person. There is no age gate because there is nothing to gate. The
+ App Store age rating is set separately at submission and is outside this document.
+ </p>
+
+ <h2 id="section-11">11. What is <em>not</em> in this version</h2>
+ <p>
+ Named here because a privacy policy that quietly describes a roadmap is a policy that will be wrong on
+ release day.
+ </p>
+ <ul>
+ <li><strong>No cloud sync.</strong> Optional sync of custom presets is planned for a later version. It
+ does not exist in this one, and this document describes only this one.</li>
+ <li><strong>No account and no sign-in.</strong> There is nothing to register for.</li>
+ <li><strong>No telemetry</strong>, as set out in <a href="#section-7">section 7</a>.</li>
+ </ul>
+ <p>
+ If any of these arrives, this policy is updated <strong>before</strong> the feature ships, and the
+ change is described rather than silently substituted.
+ </p>
+
+ <h2>12. Changes to this policy</h2>
+ <p>
+ Material changes will be reflected in a new dated version of this document, published at the URL given
+ in the App Store listing. The date at the top is the version date.
+ </p>
+ <!-- Internal sections removed from the public page by the coordinator (T700 review).
+ Appendix A (grep-based verification methodology), Appendix B (legislative sources)
+ and the "Unresolved — needs the operator" list are engineering and project-management
+ records, not user-facing privacy information. Publishing the Unresolved list would
+ announce to users and to App Review that the policy is incomplete, has no identified
+ controller and has had no legal review — actively harmful on a live page.
+ The full record is retained in docs/lumir/legal/ in the lumir repository. -->
+
+ <footer>
+ © 2026 <span class="ph">[CONTROLLER ENTITY — OC-06]</span> ·
+ <a href="https://dataconceptstudio.com">dataconceptstudio.com</a> ·
+ <a href="https://dataconceptstudio.com/lumir">Lumir</a> ·
+ <a href="https://dataconceptstudio.com/lumir/terms">Terms of Use</a> ·
+ <a href="https://dataconceptstudio.com/lumir/support">Support</a>
+ </footer>
+ </main>
+</body>
+</html>
