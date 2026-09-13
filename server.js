@@ -25,16 +25,16 @@ const pageRoutes = new Map([
   ["/briefcaster/pl", "briefcaster-pl.html"],
   ["/press", "press.html"],
   ["/maths", "maths.html"],
-  ["/lumir", "lumir.html"],
+  ["/lustre", "lustre.html"],
   ["/pricing", "pricing.html"],
   ["/news", "news.html"],
   ["/contact", "contact.html"],
   ["/briefcaster/privacy", "briefcaster-privacy.html"],
   ["/briefcaster/terms", "briefcaster-terms.html"],
   ["/briefcaster/support", "briefcaster-support.html"],
-  ["/lumir/privacy", "lumir-privacy.html"],
-  ["/lumir/terms", "lumir-terms.html"],
-  ["/lumir/support", "lumir-support.html"],
+  ["/lustre/privacy", "lustre-privacy.html"],
+  ["/lustre/terms", "lustre-terms.html"],
+  ["/lustre/support", "lustre-support.html"],
   // Google Play requires a publicly reachable account-deletion page BEFORE the
   // first app upload, so this route has to exist on whichever of the two
   // serving paths is live — keep it in sync with firebase.json's rewrites.

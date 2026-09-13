@@ -26,8 +26,8 @@
         "destination": "/maths.html"
       },
       {
-        "source": "/lumir",
-        "destination": "/lumir.html"
+        "source": "/lustre",
+        "destination": "/lustre.html"
       },
       {
         "source": "/contact",
@@ -58,16 +58,16 @@
         "destination": "/briefcaster-delete-account.html"
       },
       {
-        "source": "/lumir/privacy",
-        "destination": "/lumir-privacy.html"
+        "source": "/lustre/privacy",
+        "destination": "/lustre-privacy.html"
       },
       {
-        "source": "/lumir/terms",
-        "destination": "/lumir-terms.html"
+        "source": "/lustre/terms",
+        "destination": "/lustre-terms.html"
       },
       {
-        "source": "/lumir/support",
-        "destination": "/lumir-support.html"
+        "source": "/lustre/support",
+        "destination": "/lustre-support.html"
       }
     ],
     "headers": [
