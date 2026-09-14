@@ -13,6 +13,7 @@ Plain hand-authored HTML served by a small Node/Express Cloud Run app. Pages:
 | `/contact` | `contact.html` |
 | `/briefcaster/privacy\|terms\|support` | `briefcaster-*.html` — app legal pages (linked from the iOS app / App Store Connect) |
 | `/briefcaster/delete-account` | `briefcaster-delete-account.html` — account-deletion instructions (PL+EN). **Google Play requires this URL to be live before the first AAB upload.** |
+| `/lustre/privacy\|terms\|support` | `lustre-*.html` — Lustre iOS app legal pages. **The exact URLs are hard-coded in the shipped app** — never rename. `/lustre` itself is intentionally unrouted. |
 | `/voice-study/` | `voice-study/index.html` — password-protected internal blind listening study |
 
 ## Deployment — Cloud Run Node, NOT Firebase
@@ -102,7 +103,7 @@ docker run --rm -d -p 8080:8080 --name dcs-test \
   -e VOICE_STUDY_PASSWORD=local-test \
   -e VOICE_STUDY_BUCKET=briefcaster-audio \
   dcs-landing-test
-for p in / /briefcaster /maths /about /contact /briefcaster/privacy /briefcaster/terms /briefcaster/support /briefcaster/delete-account /robots.txt /sitemap.xml /favicon.svg /_healthz; do
+for p in / /briefcaster /maths /about /contact /briefcaster/privacy /briefcaster/terms /briefcaster/support /briefcaster/delete-account /lustre/privacy /lustre/terms /lustre/support /robots.txt /sitemap.xml /favicon.svg /_healthz; do
   curl -s -o /dev/null -w "%{http_code}  $p\n" "http://localhost:8080$p"
 done
 curl -s -o /dev/null -w "%{http_code}  /voice-study/ unauthenticated (expect 401)\n" http://localhost:8080/voice-study/
