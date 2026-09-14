@@ -34,7 +34,12 @@ const pageRoutes = new Map([
   // Google Play requires a publicly reachable account-deletion page BEFORE the
   // first app upload, so this route has to exist on whichever of the two
   // serving paths is live — keep it in sync with firebase.json's rewrites.
-  ["/briefcaster/delete-account", "briefcaster-delete-account.html"]
+  ["/briefcaster/delete-account", "briefcaster-delete-account.html"],
+  // Hard-coded in the shipped Lustre iOS app (LustreLinks) and App Store Connect:
+  // these three URLs must keep resolving exactly as written.
+  ["/lustre/privacy", "lustre-privacy.html"],
+  ["/lustre/terms", "lustre-terms.html"],
+  ["/lustre/support", "lustre-support.html"]
 ]);
 
 const staticFiles = new Map([

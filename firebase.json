@@ -52,6 +52,18 @@
       {
         "source": "/briefcaster/delete-account",
         "destination": "/briefcaster-delete-account.html"
+      },
+      {
+        "source": "/lustre/privacy",
+        "destination": "/lustre-privacy.html"
+      },
+      {
+        "source": "/lustre/terms",
+        "destination": "/lustre-terms.html"
+      },
+      {
+        "source": "/lustre/support",
+        "destination": "/lustre-support.html"
       }
     ],
     "headers": [
