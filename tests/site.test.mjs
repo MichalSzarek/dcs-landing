@@ -241,6 +241,9 @@ describe("company facts", () => {
     const empty = Object.entries(facts).filter(([, v]) => v === "" || v == null).map(([k]) => k);
     assert.deepEqual(empty, [], `fill in site.json from the official register: ${empty.join(", ")}`);
     assert.match(facts.nip, /^\d{10}$/, "NIP is ten digits");
+    const weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+    const checksum = weights.reduce((sum, w, i) => sum + w * Number(facts.nip[i]), 0) % 11;
+    assert.equal(checksum, Number(facts.nip[9]), "NIP checksum");
     assert.match(facts.regon, /^(\d{9}|\d{14})$/, "REGON is nine or fourteen digits");
   });
 
@@ -256,11 +259,15 @@ describe("company facts", () => {
   test("the registered details are on the about and contact pages", async () => {
     for (const path of ["/about", "/contact"]) {
       const text = visibleText((await page(path)).body);
-      for (const label of ["NIP", "REGON", "Data Concept Studio Michał Szarek", "Kraków"]) {
+      // Must match the Ministry of Finance VAT register for this NIP exactly.
+      for (const label of ["NIP", "9691673171", "REGON", "542296618", "Michał Szarek", "Kraków"]) {
         assert.ok(text.includes(label), `${path} should show ${label}`);
       }
     }
-    assert.ok(visibleText((await page("/about")).body).includes("Michał Jerzy Szarek"), "App Store seller name explained");
+    const about = visibleText((await page("/about")).body);
+    assert.ok(about.includes("MICHAŁ JERZY SZAREK M"), "App Store seller name, exactly as Apple shows it");
+    assert.ok(about.includes("15 September 2025"), "VAT registration date");
+    assert.doesNotMatch(about, /registered in Kraków/i, "the registers do not give Kraków as the registered address");
   });
 });
 

@@ -25,7 +25,9 @@
         "@type": "Organization",
         "@id": "https://dataconceptstudio.com/#organization",
         "name": "Data Concept Studio",
-        "legalName": "Data Concept Studio Michał Szarek",
+        "legalName": "Michał Szarek",
+        "taxID": "9691673171",
+        "identifier": { "@type": "PropertyValue", "propertyID": "REGON", "value": "542296618" },
         "url": "https://dataconceptstudio.com/",
         "logo": "https://dataconceptstudio.com/logo.png",
         "description": "Software company in Kraków, Poland, that builds and operates Briefcaster, a personal audio news app for iPhone.",
@@ -33,8 +35,8 @@
         "numberOfEmployees": { "@type": "QuantitativeValue", "value": 1 },
         "founder": { "@id": "https://dataconceptstudio.com/about#michal-szarek" },
         "address": { "@type": "PostalAddress", "addressLocality": "Kraków", "addressCountry": "PL" },
-        "email": "michal.szarek@dataconceptstudio.com",
-        "contactPoint": { "@type": "ContactPoint", "email": "michal.szarek@dataconceptstudio.com", "contactType": "customer support" },
+        "email": "contact@dataconceptstudio.com",
+        "contactPoint": { "@type": "ContactPoint", "email": "contact@dataconceptstudio.com", "contactType": "customer support" },
         "owns": { "@id": "https://dataconceptstudio.com/briefcaster#app" }
       },
       {
@@ -195,15 +197,15 @@
 
           <p class="text-lg text-gray-300 leading-relaxed mb-6 max-w-xl">
             <strong class="text-white">Data Concept Studio</strong> is a software company in
-            Kraków, Poland, with one product. <strong class="text-white">Briefcaster</strong> is an
+            Kraków, Poland. Its product, <strong class="text-white">Briefcaster</strong>, is an
             iPhone app, live on the App Store since July 2026, that takes the news topics, RSS feeds
             and YouTube channels you follow and turns them into a short audio briefing, written by
             AI and read aloud in a natural voice.
           </p>
 
           <p class="text-base text-gray-400 leading-relaxed mb-8 max-w-xl">
-            We design, build and operate Briefcaster ourselves, end to end, on Google Cloud. It is
-            the whole business: we do not take on client projects, consulting or agency work.
+            We design, build and operate Briefcaster ourselves, end to end, on Google Cloud, and
+            earn from the people who listen to it.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-3">
@@ -434,15 +436,16 @@
         <div class="lg:col-span-2">
           <h2 class="text-3xl md:text-4xl font-bold mb-6">The company behind Briefcaster</h2>
           <p class="text-gray-400 leading-relaxed mb-5">
-            Data Concept Studio was founded in 2025 by <strong class="text-white">Michał Szarek</strong>,
+            Data Concept Studio was founded in 2025 as the sole proprietorship of
+            <strong class="text-white">Michał Szarek</strong>,
             a software engineer with a background in data platforms, cloud infrastructure and machine
             learning. He designs, builds and runs Briefcaster himself, from the iOS app to the
             pipeline that writes and narrates each briefing.
           </p>
           <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-sm mb-8">
             <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
-              <dt class="text-gray-500">Registered name</dt>
-              <dd class="text-gray-200 text-right" data-fact="legalName">Data Concept Studio Michał Szarek</dd>
+              <dt class="text-gray-500">Registered to</dt>
+              <dd class="text-gray-200 text-right" data-fact="registeredTo">Michał Szarek</dd>
             </div>
             <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
               <dt class="text-gray-500">Based in</dt>
@@ -450,11 +453,11 @@
             </div>
             <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
               <dt class="text-gray-500">NIP (tax ID)</dt>
-              <dd class="text-gray-200 text-right" data-fact="nip"></dd>
+              <dd class="text-gray-200 text-right" data-fact="nip">9691673171</dd>
             </div>
             <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
               <dt class="text-gray-500">REGON</dt>
-              <dd class="text-gray-200 text-right" data-fact="regon"></dd>
+              <dd class="text-gray-200 text-right" data-fact="regon">542296618</dd>
             </div>
           </dl>
           <div class="flex flex-wrap items-center gap-3">
@@ -537,13 +540,13 @@
     <div class="relative max-w-3xl mx-auto px-6 text-center">
       <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Questions about Briefcaster?</h2>
       <p class="text-gray-400 mb-10 leading-relaxed">
-        Listeners, press and partners reach the founder directly. We reply within one or two business
+        Listeners, press and partners write to one company inbox, read by the founder. We reply within one or two business
         days.
       </p>
-      <a href="mailto:michal.szarek@dataconceptstudio.com"
+      <a href="mailto:contact@dataconceptstudio.com"
          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95
                 text-gray-950 font-semibold text-sm transition-all glow-emerald">
-        michal.szarek@dataconceptstudio.com
+        contact@dataconceptstudio.com
       </a>
     </div>
   </section>
@@ -597,11 +600,11 @@
       </div>
       <div class="mt-12 pt-8 border-t border-gray-800/40 flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="text-xs text-gray-600 text-center md:text-left">
-          © 2026 <span data-fact="legalName">Data Concept Studio Michał Szarek</span> · NIP <span data-fact="nip"></span> · REGON <span data-fact="regon"></span> · Kraków, Poland
+          © 2026 Data Concept Studio, a sole proprietorship of <span data-fact="registeredTo">Michał Szarek</span> · NIP: <span data-fact="nip">9691673171</span> · REGON: <span data-fact="regon">542296618</span> · Kraków, Poland
         </div>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
+        <a href="mailto:contact@dataconceptstudio.com"
            class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-          michal.szarek@dataconceptstudio.com
+          contact@dataconceptstudio.com
         </a>
       </div>
     </div>
