@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Concept Studio — makers of Briefcaster &amp; MATHS</title>
-  <meta name="description" content="Data Concept Studio is an AI software company in Kraków, Poland. We build and run our own products: Briefcaster, a personalized audio-news iOS app, and MATHS, a multi-agent AI trading platform.">
+  <title>Data Concept Studio — makers of Briefcaster, personal audio news briefings</title>
+  <meta name="description" content="Data Concept Studio is a software company in Kraków, Poland. We build and run Briefcaster, an iPhone app on the App Store that turns the news topics, RSS feeds and YouTube channels you follow into a short personal audio briefing.">
   <link rel="canonical" href="https://dataconceptstudio.com/">
-  <meta property="og:title" content="Data Concept Studio — makers of Briefcaster & MATHS">
-  <meta property="og:description" content="An AI software company in Kraków, Poland. We build and run our own products: Briefcaster (personalized audio news) and MATHS (multi-agent AI trading).">
+  <meta property="og:title" content="Data Concept Studio — makers of Briefcaster">
+  <meta property="og:description" content="A software company in Kraków, Poland, building Briefcaster: your news sources, turned into a short personal audio briefing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dataconceptstudio.com/">
   <meta property="og:site_name" content="Data Concept Studio">
@@ -16,34 +16,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/app.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Data Concept Studio",
-    "legalName": "Data Concept Studio Michał Szarek",
-    "url": "https://dataconceptstudio.com",
-    "logo": "https://dataconceptstudio.com/logo.png",
-    "foundingDate": "2025",
-    "founder": {
-      "@type": "Person",
-      "name": "Michał Szarek",
-      "sameAs": [
-        "https://www.linkedin.com/in/miszu/",
-        "https://github.com/MichalSzarek"
-      ]
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kraków",
-      "addressCountry": "PL"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "michal.szarek@dataconceptstudio.com",
-      "contactType": "customer support"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://dataconceptstudio.com/#organization",
+        "name": "Data Concept Studio",
+        "legalName": "Data Concept Studio Michał Szarek",
+        "url": "https://dataconceptstudio.com/",
+        "logo": "https://dataconceptstudio.com/logo.png",
+        "description": "Software company in Kraków, Poland, that builds and operates Briefcaster, a personal audio news app for iPhone.",
+        "foundingDate": "2025",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "value": 1 },
+        "founder": { "@id": "https://dataconceptstudio.com/about#michal-szarek" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Kraków", "addressCountry": "PL" },
+        "email": "michal.szarek@dataconceptstudio.com",
+        "contactPoint": { "@type": "ContactPoint", "email": "michal.szarek@dataconceptstudio.com", "contactType": "customer support" },
+        "owns": { "@id": "https://dataconceptstudio.com/briefcaster#app" }
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "https://dataconceptstudio.com/briefcaster#app",
+        "name": "Briefcaster",
+        "operatingSystem": "iOS",
+        "applicationCategory": "NewsApplication",
+        "url": "https://dataconceptstudio.com/briefcaster",
+        "installUrl": "https://apps.apple.com/app/id6786799275",
+        "datePublished": "2026-07-24",
+        "inLanguage": ["en", "pl"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://dataconceptstudio.com/#organization" }
+      }
+    ]
   }
   </script>
   <style>
@@ -73,14 +80,6 @@
     .glow-emerald { box-shadow: 0 0 32px rgba(16,185,129,0.25); }
     .glow-blue { box-shadow: 0 0 32px rgba(59,130,246,0.25); }
 
-    .card-hover {
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .card-hover:hover {
-      border-color: rgba(16,185,129,0.3);
-      box-shadow: 0 0 24px rgba(16,185,129,0.08);
-    }
-
     @keyframes pulse-dot {
       0%,100% { opacity: 1; }
       50%      { opacity: 0.35; }
@@ -93,7 +92,6 @@
       -webkit-backdrop-filter: blur(16px);
     }
 
-    /* Phone screenshot frame */
     .phone {
       border-radius: 2rem;
       border: 1px solid rgba(255,255,255,0.08);
@@ -101,7 +99,7 @@
       background: #030712;
     }
 
-    /* ── Living hero (creative-director 2026-07-21): motion layer over real screenshots ── */
+    /* Living hero: a motion layer over the real app screenshots. */
     .bc-stage{position:relative;}
     .bc-bloom{position:absolute;inset:-6% -4%;z-index:0;pointer-events:none;filter:blur(46px);opacity:.85;}
     .bc-bloom span{position:absolute;display:block;border-radius:50%;}
@@ -127,19 +125,19 @@
     @keyframes bc-drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7%,7%) scale(1.08)}}
     @keyframes bc-drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(5%,-8%) scale(1.14)}}
     @media(prefers-reduced-motion:reduce){
-      .bc-phone-wrap,.bc-bloom span,.bc-scan,.bc-played,.bc-playring{animation:none!important;}
+      .gradient-text,.pulse-dot,.bc-phone-wrap,.bc-bloom span,.bc-scan,.bc-played,.bc-playring{animation:none!important;}
       .bc-scan{left:40%;opacity:.6;} .bc-played{width:40%;opacity:.5;} .bc-playring{opacity:.4;}
     }
   </style>
 </head>
 <body class="bg-gray-950 text-white antialiased overflow-x-hidden">
 
-  <!-- ═══════════════ NAV ═══════════════ -->
-  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40">
+  <!-- @nav lang="en" active="/" ct="landing-home" -->
+  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40" aria-label="Main">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
           </svg>
@@ -149,102 +147,98 @@
 
       <div class="hidden md:flex items-center gap-8">
         <a href="/briefcaster" class="text-sm text-gray-400 hover:text-white transition-colors">Briefcaster</a>
-        <a href="/maths" class="text-sm text-gray-400 hover:text-white transition-colors">MATHS</a>
         <a href="/pricing" class="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
         <a href="/news" class="text-sm text-gray-400 hover:text-white transition-colors">News</a>
         <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
         <a href="/contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
-           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25
-                  text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all">
-          Get in touch
+        <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-home&amp;mt=8"
+           class="text-sm px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/25
+                  text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all">
+          Get Briefcaster
         </a>
       </div>
 
       <!-- Mobile -->
-      <div class="md:hidden flex items-center gap-3">
+      <div class="md:hidden flex items-center gap-4">
         <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
-           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
-          Contact
+        <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-home&amp;mt=8"
+           class="text-sm px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/25 text-blue-400">
+          Get the app
         </a>
       </div>
     </div>
   </nav>
+  <!-- @/nav -->
 
-  <!-- ═══════════════ HERO — BRIEFCASTER (FLAGSHIP) ═══════════════ -->
+  <main>
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section class="relative grid-bg pt-32 pb-20 overflow-hidden">
-    <!-- Ambient orbs -->
     <div class="absolute top-1/4 left-1/5 w-[700px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-1/4 right-1/5 w-[500px] h-[400px] bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-6xl mx-auto px-6 relative">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-        <!-- Copy -->
         <div>
           <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full
                       bg-gray-900 border border-gray-700/60 text-sm mb-8">
             <span class="w-2 h-2 rounded-full bg-emerald-400 pulse-dot"></span>
-            <span class="text-gray-300">AI product company</span>
+            <span class="text-gray-300">Software company</span>
             <span class="w-px h-3 bg-gray-700"></span>
-            <span class="text-gray-500">Kraków, Poland · Founded 2025</span>
+            <span class="text-gray-400">Kraków, Poland · Founded 2025</span>
           </div>
 
           <h1 class="text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-6">
-            We build and run<br>
-            <span class="gradient-text">our own AI products</span>
+            We build Briefcaster:
+            <span class="gradient-text">your news, read to you.</span>
           </h1>
 
-          <p class="text-lg text-gray-400 leading-relaxed mb-6 max-w-xl">
-            <strong class="text-white">Data Concept Studio</strong> is a software product company
-            based in Kraków, Poland. We design, own, and operate our own software end to end —
-            we do not take on client projects, consulting, or agency work.
+          <p class="text-lg text-gray-300 leading-relaxed mb-6 max-w-xl">
+            <strong class="text-white">Data Concept Studio</strong> is a software company in
+            Kraków, Poland, with one product. <strong class="text-white">Briefcaster</strong> is an
+            iPhone app, live on the App Store since July 2026, that takes the news topics, RSS feeds
+            and YouTube channels you follow and turns them into a short audio briefing, written by
+            AI and read aloud in a natural voice.
           </p>
 
-          <p class="text-base text-gray-500 leading-relaxed mb-8 max-w-xl">
-            Our flagship product, <strong class="text-gray-300">Briefcaster</strong>, is a
-            consumer iOS app — live on the App Store — that turns your news topics, RSS feeds,
-            and YouTube channels into short, personalized audio briefings, scripted by AI and
-            narrated with natural voices. Our second product,
-            <strong class="text-gray-300">MATHS</strong>, is a multi-agent AI trading platform
-            running in private beta. Everything we ship runs on Google Cloud.
+          <p class="text-base text-gray-400 leading-relaxed mb-8 max-w-xl">
+            We design, build and operate Briefcaster ourselves, end to end, on Google Cloud. It is
+            the whole business: we do not take on client projects, consulting or agency work.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/briefcaster"
+            <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-home&amp;mt=8"
                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-400 active:scale-95
                       text-gray-950 font-semibold text-sm transition-all glow-blue">
-              Explore Briefcaster
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/>
               </svg>
+              Download on the App Store
             </a>
-            <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-home&amp;mt=8"
+            <a href="/briefcaster"
                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-gray-700
                       text-gray-200 hover:bg-white/10 font-semibold text-sm transition-all">
-              Download on the App Store
+              See how Briefcaster works
             </a>
           </div>
 
-          <p class="text-xs text-gray-600 mt-6">
-            Data Concept Studio Michał Szarek · Registered software company · Kraków, Poland
+          <p class="text-xs text-gray-500 mt-6">
+            Free to use · iOS · English and Polish · Android version in development
           </p>
         </div>
 
-        <!-- Screenshots (living hero — motion layer overlaid on real screens) -->
         <div class="bc-stage relative flex justify-center lg:justify-end items-end gap-4">
           <div class="bc-bloom" aria-hidden="true"><span class="bc-b-em"></span><span class="bc-b-bl"></span><span class="bc-b-vi"></span></div>
           <div class="bc-phone-wrap bc-player w-[38%] max-w-[210px] mb-8 hidden sm:block">
             <img src="/screens/bc-player.png" width="462" height="1000"
-                 alt="Briefcaster audio player screen" class="phone" loading="lazy">
+                 alt="Briefcaster player screen, a personal briefing playing" class="phone" loading="lazy">
             <div class="bc-ov bc-waveband" aria-hidden="true"><i class="bc-played"></i><i class="bc-scan"></i></div>
             <span class="bc-ov bc-playring" aria-hidden="true"></span>
             <span class="bc-ov bc-playring b" aria-hidden="true"></span>
           </div>
           <div class="bc-phone-wrap bc-home w-[52%] max-w-[280px]">
             <img src="/screens/bc-home.png" width="462" height="1000"
-                 alt="Briefcaster home feed of personalized audio briefings" class="phone" loading="eager">
+                 alt="Briefcaster home screen listing the listener's personal audio briefings" class="phone" loading="eager">
           </div>
         </div>
 
@@ -252,230 +246,317 @@
     </div>
   </section>
 
-  <!-- ═══════════════ HOW BRIEFCASTER WORKS ═══════════════ -->
+  <!-- ═══════════════ AT A GLANCE ═══════════════ -->
+  <section class="border-t border-gray-800/40" aria-labelledby="glance-heading">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <h2 id="glance-heading" class="sr-only">Briefcaster at a glance</h2>
+      <dl class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div>
+          <dt class="text-xs text-gray-500 mb-1">Available</dt>
+          <dd class="text-sm text-gray-200">On the Apple App Store since July 2026</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-gray-500 mb-1">Languages</dt>
+          <dd class="text-sm text-gray-200">English and Polish briefings</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-gray-500 mb-1">Price today</dt>
+          <dd class="text-sm text-gray-200">Free, with a monthly usage allowance</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-gray-500 mb-1">Next platform</dt>
+          <dd class="text-sm text-gray-200">Android, in development for Google Play</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WHY ═══════════════ -->
+  <section class="py-24 border-t border-gray-800/40 grid-bg">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Most people follow more than they will ever read</h2>
+        <p class="text-gray-400 leading-relaxed mb-5">
+          A blog you trust, a handful of newsletters, three YouTube channels and the news on the
+          subjects that matter to your work: keeping up with your own sources takes longer than most
+          days allow. The usual answer is a feed you scroll, which rewards whatever is loudest, not
+          whatever you chose.
+        </p>
+        <p class="text-gray-400 leading-relaxed">
+          Briefcaster starts from the other end. You say what you follow; it reads the new material,
+          keeps what is worth your time and gives it back as a few minutes of audio you can play on
+          the way to work, at the gym or over coffee. Every briefing is made for one listener and
+          covers nothing that listener did not ask for.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8">
+        <h3 class="text-lg font-semibold mb-5">What a briefing is</h3>
+        <ul class="space-y-4 text-sm text-gray-400 leading-relaxed">
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5" aria-hidden="true">✓</span>
+            <span><strong class="text-gray-200">Minutes long.</strong> A summary of what is new across your sources, not a replay of them.</span></li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5" aria-hidden="true">✓</span>
+            <span><strong class="text-gray-200">Linked to its sources.</strong> Each item points back to the article or video, so you can go deeper.</span></li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5" aria-hidden="true">✓</span>
+            <span><strong class="text-gray-200">Ready when you are.</strong> A fresh briefing every morning, or one on demand, kept in your feed to replay.</span></li>
+          <li class="flex gap-3"><span class="text-emerald-400 mt-0.5" aria-hidden="true">✓</span>
+            <span><strong class="text-gray-200">Clearly labelled as AI-generated.</strong> The script and the voice are produced by AI, and the app says so.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
   <section id="how-it-works" class="py-24 border-t border-gray-800/40">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
-        <div class="text-xs mono text-blue-400 tracking-widest mb-4 uppercase">How Briefcaster works</div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">From your sources to your ears</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">From your sources to your ears, in three steps</h2>
         <p class="text-gray-400 max-w-2xl mx-auto">
-          Pick what you care about, and Briefcaster does the reading for you — then hands you
-          a briefing you can listen to anywhere.
+          Setting up a first briefing takes about a minute. After that, Briefcaster does the reading.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
-        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
-          <div class="text-xs mono text-blue-400 mb-2">01 · SOURCES</div>
+      <ol class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        <li class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
+          <div class="text-xs mono text-blue-400 mb-2">Step 1</div>
           <h3 class="font-semibold mb-2">Pick your sources</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">News topics, RSS feeds, and YouTube channels — your brief covers exactly what you follow.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
-          <div class="text-xs mono text-purple-400 mb-2">02 · AI</div>
-          <h3 class="font-semibold mb-2">AI curates &amp; scripts</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">Briefcaster reads everything new, picks what matters, and writes a tight, conversational script.</p>
-        </div>
-        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
-          <div class="text-xs mono text-emerald-400 mb-2">03 · LISTEN</div>
-          <h3 class="font-semibold mb-2">Listen on your schedule</h3>
-          <p class="text-sm text-gray-400 leading-relaxed">A natural-sounding audio briefing, minutes long, delivered daily or on demand.</p>
-        </div>
-      </div>
+          <p class="text-sm text-gray-400 leading-relaxed">Choose news topics, paste the RSS feeds of blogs and newsletters you read, and add the YouTube channels you follow.</p>
+        </li>
+        <li class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
+          <div class="text-xs mono text-purple-400 mb-2">Step 2</div>
+          <h3 class="font-semibold mb-2">AI reads and writes the script</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Briefcaster collects what is new across your sources, picks what matters and writes a tight, conversational script in your language.</p>
+        </li>
+        <li class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
+          <div class="text-xs mono text-emerald-400 mb-2">Step 3</div>
+          <h3 class="font-semibold mb-2">Press play</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">The script is narrated by a natural-sounding voice, or by two hosts in dialogue, and lands in your feed as an episode.</p>
+        </li>
+      </ol>
 
-      <!-- Screenshot gallery -->
       <div class="grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
-        <img src="/screens/bc-sources.png" width="300" height="648"
-             alt="Briefcaster source picker — choosing news topics and channels"
-             class="phone w-full" loading="lazy">
-        <img src="/screens/bc-feeds.png" width="300" height="648"
-             alt="Briefcaster your-feeds screen listing personalized briefings"
-             class="phone w-full" loading="lazy">
-        <img src="/screens/bc-create.png" width="300" height="648"
-             alt="Briefcaster create-feed screen"
-             class="phone w-full" loading="lazy">
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="/briefcaster"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-500/10 border border-blue-500/25
-                  text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/50 font-semibold text-sm transition-all">
-          See everything Briefcaster does
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
+        <figure>
+          <img src="/screens/bc-sources.png" width="300" height="648"
+               alt="Briefcaster source picker, choosing news topics and channels" class="phone w-full" loading="lazy">
+          <figcaption class="text-xs text-gray-500 text-center mt-3">Choose sources</figcaption>
+        </figure>
+        <figure>
+          <img src="/screens/bc-create.png" width="300" height="648"
+               alt="Briefcaster screen for creating a new briefing feed" class="phone w-full" loading="lazy">
+          <figcaption class="text-xs text-gray-500 text-center mt-3">Create a feed</figcaption>
+        </figure>
+        <figure>
+          <img src="/screens/bc-feeds.png" width="300" height="648"
+               alt="Briefcaster list of the listener's briefing feeds" class="phone w-full" loading="lazy">
+          <figcaption class="text-xs text-gray-500 text-center mt-3">Listen</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ THE COMPANY (business + team) ═══════════════ -->
-  <section id="company" class="py-28 border-t border-gray-800/40 grid-bg">
+  <!-- ═══════════════ WHO IT IS FOR ═══════════════ -->
+  <section class="py-24 border-t border-gray-800/40 grid-bg">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="flex justify-center lg:justify-start order-2 lg:order-1">
-          <div class="relative">
-            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-blue-500/10 to-purple-500/20 blur-lg"></div>
-            <img
-              src="/me.PNG"
-              alt="Michał Szarek — Founder, Data Concept Studio"
-              class="relative w-64 h-auto rounded-3xl object-cover border border-gray-800"
-              loading="lazy"
-            >
-          </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-10">Who uses Briefcaster</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
+          <h3 class="font-semibold mb-2">People with a commute</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Time in the car or on a train is time you cannot read. A briefing turns it into the part of the day you catch up on your field.</p>
         </div>
-        <div class="order-1 lg:order-2">
-          <div class="text-xs mono text-emerald-400 tracking-widest mb-4 uppercase">The company</div>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Built by Data Concept Studio</h2>
-          <p class="text-gray-400 leading-relaxed mb-5">
-            Data Concept Studio is an AI software company based in Kraków, Poland, founded in 2025.
-            We are a product company — we build, own, and operate our own software, not client
-            projects — running everything on Google Cloud.
-          </p>
-          <p class="text-gray-400 leading-relaxed mb-8">
-            Founded and led by <strong class="text-white">Michał Szarek</strong>: a decade across
-            financial services, software engineering, and AI, first as a practitioner inside
-            institutions, then building tools for them.
-          </p>
-          <div class="flex flex-wrap items-center gap-3">
-            <a href="/about"
-               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25
-                      text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 font-semibold text-sm transition-all">
-              About the company
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/miszu/" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 text-sm transition-all">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11 0-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-              LinkedIn
-            </a>
-            <a href="https://github.com/MichalSzarek" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 text-sm transition-all">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0024 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-              GitHub
-            </a>
-          </div>
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
+          <h3 class="font-semibold mb-2">Readers of niche sources</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Specialist blogs and long YouTube videos rarely make it into a news app. RSS and channel support bring them into the same briefing as the headlines.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ SECOND PRODUCT — MATHS ═══════════════ -->
-  <section id="maths" class="py-28 border-t border-gray-800/40">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-xs mono text-emerald-400 tracking-widest mb-4 uppercase text-center">Also from Data Concept Studio</div>
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 md:p-12 card-hover">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div class="lg:col-span-2">
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-2xl font-bold">MATHS</h3>
-                <span class="inline-flex items-center gap-2 text-xs text-emerald-400">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
-                  Live in production · Private beta
-                </span>
-              </div>
-            </div>
-            <p class="text-gray-400 leading-relaxed">
-              Our second product: a systematic trading process, run as software. Four independent
-              models — technical, fundamentals, sentiment and macro — each form a view, a fixed rule
-              combines them, and every candidate position passes an independent risk gate that no
-              model can override. Private beta, on our own capital.
-            </p>
-          </div>
-          <div class="lg:text-right">
-            <a href="/maths"
-               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25
-                      text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 font-semibold text-sm transition-all">
-              Explore MATHS
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-          </div>
+        <div class="p-6 rounded-2xl bg-gray-900/60 border border-gray-800">
+          <h3 class="font-semibold mb-2">Polish-speaking listeners</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Few audio news products speak Polish well. Briefcaster writes and narrates briefings in Polish as a first-class language, not a translation.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════ BUSINESS MODEL ═══════════════ -->
-  <section id="business-model" class="py-20 border-t border-gray-800/40 grid-bg">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="rounded-2xl bg-gray-900/50 border border-gray-800 p-8 md:p-12">
-        <div class="text-xs mono text-purple-400 tracking-widest mb-4 uppercase">Business model</div>
-        <h2 class="text-2xl md:text-3xl font-bold mb-6">Digital-native by design</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="flex items-start gap-4">
-            <div class="w-2 h-2 mt-2 rounded-full bg-blue-400 flex-shrink-0"></div>
-            <p class="text-gray-400 leading-relaxed text-sm">
-              <strong class="text-white">Briefcaster</strong> is free to download and free to use
-              today. Our planned revenue stream is a consumer subscription raising usage allowances
-              and unlocking longer briefs, more sources, and additional voices — not live yet.
-            </p>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="w-2 h-2 mt-2 rounded-full bg-emerald-400 flex-shrink-0"></div>
-            <p class="text-gray-400 leading-relaxed text-sm">
-              <strong class="text-white">MATHS</strong> will be offered as subscription
-              access to the platform once it graduates from private beta — systematic,
-              auditable trading intelligence as a service.
-            </p>
-          </div>
-        </div>
-        <p class="text-gray-500 text-sm mt-8 leading-relaxed">
-          Both products are fully digital services we own and operate on Google Cloud —
-          serverless compute, managed databases, and AI services — with no physical
-          footprint beyond the people building them. The company is bootstrapped and
-          founder-funded, with no institutional investment.
+  <section id="business-model" class="py-24 border-t border-gray-800/40">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">How the company makes money</h2>
+        <p class="text-gray-400 leading-relaxed mb-5">
+          Briefcaster is a consumer subscription business in the making. Today the app is free to
+          download and free to use, with a monthly allowance that covers everyday listening, and there
+          is no paywall.
         </p>
-        <a href="/pricing"
-           class="inline-flex items-center gap-2 mt-7 text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
-          See pricing &amp; business model
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
+        <p class="text-gray-400 leading-relaxed mb-5">
+          The revenue we are building towards is a paid tier sold through the App Store and, once the
+          Android version ships, Google Play: a larger allowance for heavy listeners, more sources per
+          feed, longer briefings and more voices. It is not live yet and no price has been set; the
+          tiers will be published on our pricing page before anyone is charged. We may also offer an
+          optional way to unlock extra briefings by watching an ad; if we do, it will be opt-in and
+          described in the privacy policy, which already provides for it.
+        </p>
+        <p class="text-gray-400 leading-relaxed">
+          Our running costs are the AI models that write each script, the speech synthesis that reads
+          it and the cloud infrastructure that stores and serves the audio. They grow with listening,
+          not with headcount. The company is bootstrapped and funded by its founder.
+        </p>
+        <a href="/pricing" class="inline-flex items-center gap-2 mt-7 text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+          Pricing and business model in detail
         </a>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8">
+        <h3 class="text-lg font-semibold mb-5">Built and run on Google Cloud</h3>
+        <p class="text-sm text-gray-400 leading-relaxed mb-5">
+          Briefcaster runs entirely on Google Cloud, which is where we are growing it:
+        </p>
+        <ul class="space-y-3 text-sm text-gray-400 leading-relaxed">
+          <li><strong class="text-gray-200">Gemini on Vertex AI</strong> reads the collected material and writes each briefing script.</li>
+          <li><strong class="text-gray-200">Cloud Text-to-Speech</strong> narrates it, alongside a second speech provider for some voices.</li>
+          <li><strong class="text-gray-200">Serverless containers, a managed database and object storage</strong> run the service and keep every episode ready to replay.</li>
+          <li><strong class="text-gray-200">Infrastructure as code and automated tests</strong> gate every change before it reaches listeners.</li>
+        </ul>
+        <p class="text-xs text-gray-500 leading-relaxed mt-6">
+          Every briefing is generated by AI end to end, and the app says so, in line with Article 50 of
+          the EU AI Act.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ CONTACT CTA ═══════════════ -->
-  <section id="contact" class="py-28 border-t border-gray-800/40 relative overflow-hidden">
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <div class="w-[900px] h-[500px] bg-emerald-500/4 rounded-full blur-3xl"></div>
+  <!-- ═══════════════ COMPANY ═══════════════ -->
+  <section id="company" class="py-24 border-t border-gray-800/40 grid-bg">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div class="flex justify-center lg:justify-start">
+          <div class="relative">
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-blue-500/10 to-purple-500/20 blur-lg"></div>
+            <img src="/me.PNG" alt="Michał Szarek, founder of Data Concept Studio"
+                 class="relative w-60 h-auto rounded-3xl object-cover border border-gray-800" loading="lazy">
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">The company behind Briefcaster</h2>
+          <p class="text-gray-400 leading-relaxed mb-5">
+            Data Concept Studio was founded in 2025 by <strong class="text-white">Michał Szarek</strong>,
+            a software engineer with a background in data platforms, cloud infrastructure and machine
+            learning. He designs, builds and runs Briefcaster himself, from the iOS app to the
+            pipeline that writes and narrates each briefing.
+          </p>
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-sm mb-8">
+            <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
+              <dt class="text-gray-500">Registered name</dt>
+              <dd class="text-gray-200 text-right" data-fact="legalName">Data Concept Studio Michał Szarek</dd>
+            </div>
+            <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
+              <dt class="text-gray-500">Based in</dt>
+              <dd class="text-gray-200 text-right">Kraków, Poland</dd>
+            </div>
+            <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
+              <dt class="text-gray-500">NIP (tax ID)</dt>
+              <dd class="text-gray-200 text-right" data-fact="nip"></dd>
+            </div>
+            <div class="flex justify-between gap-4 border-b border-gray-800/60 pb-3">
+              <dt class="text-gray-500">REGON</dt>
+              <dd class="text-gray-200 text-right" data-fact="regon"></dd>
+            </div>
+          </dl>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="/about"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/25
+                      text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 font-semibold text-sm transition-all">
+              About the company
+            </a>
+            <a href="https://www.linkedin.com/in/miszu/" target="_blank" rel="noopener me"
+               class="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-gray-700 text-gray-300 hover:bg-white/5 text-sm transition-all">
+              Michał Szarek on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- ═══════════════ QUESTIONS ═══════════════ -->
+  <section id="questions" class="py-24 border-t border-gray-800/40">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-10">Common questions</h2>
+      <div class="space-y-4">
+        <details class="group rounded-2xl bg-gray-900/60 border border-gray-800 p-6" open>
+          <summary class="cursor-pointer font-semibold">Does Briefcaster cost anything?</summary>
+          <p class="text-sm text-gray-400 leading-relaxed mt-3">
+            No. The app is free to download and free to use, with a monthly allowance that covers
+            everyday listening. A paid tier with a larger allowance, more sources and more voices is
+            planned; its price will be published before anyone is charged.
+          </p>
+        </details>
+        <details class="rounded-2xl bg-gray-900/60 border border-gray-800 p-6">
+          <summary class="cursor-pointer font-semibold">Which languages does it speak?</summary>
+          <p class="text-sm text-gray-400 leading-relaxed mt-3">
+            Briefings are written and narrated in English and Polish, including a two-host
+            conversation format. The app's interface is available in six languages: English, Polish,
+            German, Spanish, French and Ukrainian.
+          </p>
+        </details>
+        <details class="rounded-2xl bg-gray-900/60 border border-gray-800 p-6">
+          <summary class="cursor-pointer font-semibold">Can I listen without opening the app?</summary>
+          <p class="text-sm text-gray-400 leading-relaxed mt-3">
+            Yes. Every episode has a share link that plays in a web browser, and each listener gets a
+            private RSS feed, so briefings can also be played in any podcast app.
+          </p>
+        </details>
+        <details class="rounded-2xl bg-gray-900/60 border border-gray-800 p-6">
+          <summary class="cursor-pointer font-semibold">Is a person writing the briefings?</summary>
+          <p class="text-sm text-gray-400 leading-relaxed mt-3">
+            No. Each briefing is selected, written and narrated by AI with no editor in the loop, and
+            the app labels it as AI-generated. Items link back to their sources so a listener can check
+            the original.
+          </p>
+        </details>
+        <details class="rounded-2xl bg-gray-900/60 border border-gray-800 p-6">
+          <summary class="cursor-pointer font-semibold">What happens to my data?</summary>
+          <p class="text-sm text-gray-400 leading-relaxed mt-3">
+            Briefcaster keeps an account, the sources you chose and the briefings made for you, stored
+            on Google Cloud in the European Union, and does not sell personal data. An
+            account can be deleted from inside the app at any time; the
+            <a href="/briefcaster/privacy" class="underline underline-offset-2 hover:text-gray-200">privacy policy</a>
+            lists every provider involved.
+          </p>
+        </details>
+        <details class="rounded-2xl bg-gray-900/60 border border-gray-800 p-6">
+          <summary class="cursor-pointer font-semibold">Is there an Android version?</summary>
+          <p class="text-sm text-gray-400 leading-relaxed mt-3">
+            It is in development. The account management and links that Google Play requires are
+            already live; we will announce a release date once the app is through review. The
+            <a href="/briefcaster" class="underline underline-offset-2 hover:text-gray-200">Briefcaster page</a>
+            has a form to be told when it ships.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section id="contact" class="py-24 border-t border-gray-800/40 relative overflow-hidden">
     <div class="relative max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Let's talk</h2>
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Questions about Briefcaster?</h2>
       <p class="text-gray-400 mb-10 leading-relaxed">
-        Interested in Briefcaster, curious how MATHS works, or writing about us?
-        We typically reply within 1–2 business days.
+        Listeners, press and partners reach the founder directly. We reply within one or two business
+        days.
       </p>
       <a href="mailto:michal.szarek@dataconceptstudio.com"
          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95
                 text-gray-950 font-semibold text-sm transition-all glow-emerald">
         michal.szarek@dataconceptstudio.com
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
       </a>
     </div>
   </section>
+  </main>
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <!-- @footer lang="en" -->
   <footer class="border-t border-gray-800/40">
     <div class="max-w-6xl mx-auto px-6 py-14">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
         <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
               </svg>
@@ -483,26 +564,17 @@
             <span class="text-sm text-gray-300 font-semibold">Data Concept Studio</span>
           </div>
           <p class="text-xs text-gray-500 leading-relaxed">
-            AI software company — Kraków, Poland.<br>
-            We build and run our own AI products.
+            Software company in Kraków, Poland.<br>
+            Makers of Briefcaster, personal audio news briefings for iPhone.
           </p>
-          <div class="flex items-center gap-3 mt-4">
-            <a href="https://www.linkedin.com/in/miszu/" target="_blank" rel="noopener" aria-label="Founder on LinkedIn"
-               class="text-gray-500 hover:text-gray-300 transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 11 0-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            </a>
-            <a href="https://github.com/MichalSzarek" target="_blank" rel="noopener" aria-label="Founder on GitHub"
-               class="text-gray-500 hover:text-gray-300 transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0024 12.5C24 5.87 18.63.5 12 .5z"/></svg>
-            </a>
-          </div>
         </div>
         <div>
-          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Products</div>
+          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Product</div>
           <ul class="space-y-2.5">
             <li><a href="/briefcaster" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster</a></li>
-            <li><a href="/maths" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">MATHS</a></li>
+            <li><a href="/briefcaster/pl" lang="pl" hreflang="pl" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster po polsku</a></li>
             <li><a href="/pricing" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Pricing</a></li>
+            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
           </ul>
         </div>
         <div>
@@ -510,21 +582,23 @@
           <ul class="space-y-2.5">
             <li><a href="/about" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">About</a></li>
             <li><a href="/news" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">News</a></li>
-            <li><a href="/contact" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
             <li><a href="/press" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Press</a></li>
+            <li><a href="/contact" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
           </ul>
         </div>
         <div>
           <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Legal</div>
           <ul class="space-y-2.5">
-            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Privacy</a></li>
-            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Terms</a></li>
-            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Support</a></li>
+            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a></li>
+            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</a></li>
+            <li><a href="/briefcaster/delete-account" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Delete your account</a></li>
           </ul>
         </div>
       </div>
       <div class="mt-12 pt-8 border-t border-gray-800/40 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-xs text-gray-600">© 2026 Data Concept Studio Michał Szarek · Kraków, Poland</div>
+        <div class="text-xs text-gray-600 text-center md:text-left">
+          © 2026 <span data-fact="legalName">Data Concept Studio Michał Szarek</span> · NIP <span data-fact="nip"></span> · REGON <span data-fact="regon"></span> · Kraków, Poland
+        </div>
         <a href="mailto:michal.szarek@dataconceptstudio.com"
            class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
           michal.szarek@dataconceptstudio.com
@@ -532,6 +606,7 @@
       </div>
     </div>
   </footer>
+  <!-- @/footer -->
 
 </body>
 </html>

@@ -2,16 +2,24 @@
   "name": "dcs-landing",
   "version": "1.0.0",
   "private": true,
-  "description": "Data Concept Studio landing site and private Briefcaster voice study.",
+  "description": "Data Concept Studio company website (Briefcaster) and private Briefcaster voice study.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js"
+    "check": "node --check server.js && node --check scripts/sync.mjs",
+    "sync": "node scripts/sync.mjs",
+    "sync:check": "node scripts/sync.mjs --check",
+    "build:css": "tailwindcss -c tailwind.config.js -i styles/tailwind.css -o app.css --minify",
+    "build": "npm run sync:check && npm run build:css",
+    "test": "npm run build && node --test tests/site.test.mjs"
   },
   "dependencies": {
     "express": "^4.21.2"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
   }
 }

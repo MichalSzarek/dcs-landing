@@ -22,10 +22,6 @@
         "destination": "/briefcaster.html"
       },
       {
-        "source": "/maths",
-        "destination": "/maths.html"
-      },
-      {
         "source": "/contact",
         "destination": "/contact.html"
       },
