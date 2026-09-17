@@ -15,6 +15,8 @@ real software company with **one** product it owns. So:
 - **Facts come from `site.json`.** Legal name, NIP, REGON and the App Store seller name are
   written into every element carrying `data-fact="<key>"`. An empty value fails the build, so
   the image cannot be built with a missing registration number. Never guess one.
+  VAT registration is not the business start date. Do not publish a founding year or
+  JSON-LD `foundingDate` until the actual business start date is verified in CEIDG.
 - **Nav and footer come from `partials/`** (EN and PL). Pages mark the spot with
   `<!-- @nav lang="en" active="/about" ct="landing-about" alt="" -->` … `<!-- @/nav -->` and
   `<!-- @footer lang="en" -->` … `<!-- @/footer -->`; `npm run sync` rewrites them in place.
