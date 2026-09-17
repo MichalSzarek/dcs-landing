@@ -130,7 +130,7 @@ describe("pages", () => {
     const h1 = visibleText(body.match(/<h1[\s\S]*?<\/h1>/)[0]);
     assert.match(h1, /Briefcaster/);
     const opening = visibleText(body).slice(0, 1500);
-    for (const fact of ["Data Concept Studio", "software company", "Kraków", "App Store", "Briefcaster"]) {
+    for (const fact of ["Data Concept Studio", "consumer AI company", "Kraków", "App Store", "Briefcaster", "own and operate"]) {
       assert.ok(opening.includes(fact), `first screen should say "${fact}"`);
     }
     assert.match(body, /https:\/\/apps\.apple\.com\/app\/apple-store\/id6786799275/);
