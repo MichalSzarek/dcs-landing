@@ -9,6 +9,8 @@ const app = express();
 
 const PORT = Number(process.env.PORT || 8080);
 const ROOT = __dirname;
+const CANONICAL_HOST = "dataconceptstudio.com";
+const CANONICAL_ORIGIN = `https://${CANONICAL_HOST}`;
 const STUDY_ID = "briefcaster-voice-profiles-v1";
 const STUDY_VERSION = "2026-07-15";
 const VOICE_STUDY_USERNAME = process.env.VOICE_STUDY_USERNAME || "";
@@ -24,7 +26,6 @@ const pageRoutes = new Map([
   ["/briefcaster", "briefcaster.html"],
   ["/briefcaster/pl", "briefcaster-pl.html"],
   ["/press", "press.html"],
-  ["/maths", "maths.html"],
   ["/pricing", "pricing.html"],
   ["/news", "news.html"],
   ["/contact", "contact.html"],
@@ -41,6 +42,34 @@ const pageRoutes = new Map([
   ["/lustre/terms", "lustre-terms.html"],
   ["/lustre/support", "lustre-support.html"]
 ]);
+
+// The company has one product. These are the paths a reviewer or an old link is
+// likely to try; each lands on the page that answers it instead of a 404.
+const redirects = new Map([
+  ["/maths", "/"],
+  ["/home", "/"],
+  ["/index.html", "/"],
+  ["/product", "/briefcaster"],
+  ["/products", "/briefcaster"],
+  ["/app", "/briefcaster"],
+  ["/team", "/about#founder"],
+  ["/founder", "/about#founder"],
+  ["/company", "/about#company-facts"],
+  ["/legal", "/about#company-facts"],
+  ["/imprint", "/about#company-facts"],
+  ["/business-model", "/pricing"],
+  ["/blog", "/news"],
+  ["/updates", "/news"],
+  ["/privacy", "/briefcaster/privacy"],
+  ["/terms", "/briefcaster/terms"],
+  ["/support", "/briefcaster/support"],
+  ["/help", "/briefcaster/support"]
+]);
+
+// Legal pages of a separate app that link here from inside that app. They must
+// keep resolving, but they are not part of this site: kept out of the sitemap
+// and out of search.
+const unlistedRoutes = new Set(["/lustre/privacy", "/lustre/terms", "/lustre/support"]);
 
 const staticFiles = new Map([
   ["/robots.txt", "robots.txt"],
@@ -78,6 +107,31 @@ app.get(["/_healthz", "/healthz"], (req, res) => {
   res.status(200).type("text/plain").send("ok\n");
 });
 
+// One public address. www is domain-mapped to the same service, so without this
+// it would serve every page a second time under a different host.
+app.use((req, res, next) => {
+  if (req.hostname === `www.${CANONICAL_HOST}`) {
+    res.redirect(301, `${CANONICAL_ORIGIN}${req.originalUrl}`);
+    return;
+  }
+  next();
+});
+
+app.use((req, res, next) => {
+  const target = redirects.get(req.path) || (req.path.startsWith("/maths/") ? "/" : null);
+  if (target) {
+    res.redirect(301, target);
+    return;
+  }
+  // A trailing slash would otherwise serve the same page under a second URL.
+  if (req.path.length > 1 && req.path.endsWith("/") && !req.path.startsWith("/voice-study/")) {
+    const query = req.originalUrl.slice(req.path.length);
+    res.redirect(301, req.path.replace(/\/+$/, "") + query);
+    return;
+  }
+  next();
+});
+
 app.use((req, res, next) => {
   if (req.path === "/voice-study") {
     res.redirect(302, "/voice-study/");
@@ -104,8 +158,14 @@ studyRouter.get("/", (req, res) => {
 app.use("/voice-study", studyRouter);
 
 for (const [route, file] of pageRoutes) {
-  app.get(route, (req, res) => sendNoCacheFile(res, file));
+  app.get(route, (req, res) => {
+    if (unlistedRoutes.has(route)) res.setHeader("X-Robots-Tag", "noindex");
+    sendNoCacheFile(res, file);
+  });
 }
+// Built by `npm run build:css`; revalidated rather than cached for a year
+// because its URL does not change between deploys.
+app.get("/app.css", (req, res) => sendNoCacheFile(res, "app.css"));
 for (const [route, file] of staticFiles) {
   app.get(route, (req, res) => sendStaticFile(res, file));
 }

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Data Concept Studio</title>
-  <meta name="description" content="Contact Data Concept Studio — the AI product studio behind Briefcaster and MATHS. Registered in Poland.">
+  <title>Contact Data Concept Studio, makers of Briefcaster</title>
+  <meta name="description" content="Contact Data Concept Studio, the Kraków software company behind Briefcaster: email, registered company details and app support.">
   <link rel="canonical" href="https://dataconceptstudio.com/contact">
-  <meta property="og:title" content="Contact — Data Concept Studio">
-  <meta property="og:description" content="Get in touch with the studio behind Briefcaster and MATHS.">
+  <meta property="og:title" content="Contact Data Concept Studio">
+  <meta property="og:description" content="Reach the company behind Briefcaster.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dataconceptstudio.com/contact">
   <meta property="og:site_name" content="Data Concept Studio">
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/app.css">
   <style>
     * { font-family: 'Inter', system-ui, sans-serif; }
     .mono { font-family: 'JetBrains Mono', monospace; }
@@ -55,12 +55,12 @@
 </head>
 <body class="bg-gray-950 text-white antialiased overflow-x-hidden">
 
-  <!-- NAV -->
-  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40">
+  <!-- @nav lang="en" active="/contact" ct="landing-contact" -->
+  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40" aria-label="Main">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
           </svg>
@@ -70,28 +70,28 @@
 
       <div class="hidden md:flex items-center gap-8">
         <a href="/briefcaster" class="text-sm text-gray-400 hover:text-white transition-colors">Briefcaster</a>
-        <a href="/maths" class="text-sm text-gray-400 hover:text-white transition-colors">MATHS</a>
         <a href="/pricing" class="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
         <a href="/news" class="text-sm text-gray-400 hover:text-white transition-colors">News</a>
         <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
-        <a href="/contact" class="text-sm text-white font-medium">Contact</a>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
-           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25
-                  text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50 transition-all">
-          Get in touch
+        <a href="/contact" class="text-sm text-white font-medium" aria-current="page">Contact</a>
+        <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-contact&amp;mt=8"
+           class="text-sm px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/25
+                  text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all">
+          Get Briefcaster
         </a>
       </div>
 
       <!-- Mobile -->
-      <div class="md:hidden flex items-center gap-3">
+      <div class="md:hidden flex items-center gap-4">
         <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
-           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
-          Contact
+        <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-contact&amp;mt=8"
+           class="text-sm px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/25 text-blue-400">
+          Get the app
         </a>
       </div>
     </div>
   </nav>
+  <!-- @/nav -->
 
   <!-- CONTACT -->
   <section class="relative min-h-screen flex items-center grid-bg pt-24">
@@ -104,14 +104,14 @@
         Let's <span class="gradient-text">talk</span>
       </h1>
       <p class="text-gray-400 leading-relaxed mb-10 max-w-xl mx-auto">
-        Briefcaster launch updates, MATHS beta access, partnerships, or anything else —
-        one email reaches the studio directly. We typically reply within 1–2 business days.
+        Questions about Briefcaster, press requests, partnerships or anything else: one email
+        reaches the founder directly. We reply within one or two business days.
       </p>
 
-      <a href="mailto:michal.szarek@dataconceptstudio.com"
+      <a href="mailto:contact@dataconceptstudio.com"
          class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:scale-95
                 text-gray-950 font-semibold transition-all glow-emerald">
-        michal.szarek@dataconceptstudio.com
+        contact@dataconceptstudio.com
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
         </svg>
@@ -121,8 +121,20 @@
         <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3">Company details</div>
         <dl class="space-y-2 text-sm">
           <div class="flex justify-between gap-4">
-            <dt class="text-gray-500">Registered as</dt>
-            <dd class="text-gray-300 text-right">Data Concept Studio Michał Szarek</dd>
+            <dt class="text-gray-500">Registered to</dt>
+            <dd class="text-gray-300 text-right" data-fact="registeredTo">Michał Szarek</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-gray-500">Legal form</dt>
+            <dd class="text-gray-300 text-right">Sole proprietorship, Poland</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-gray-500">NIP</dt>
+            <dd class="text-gray-300 text-right mono" data-fact="nip">9691673171</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-gray-500">REGON</dt>
+            <dd class="text-gray-300 text-right mono" data-fact="regon">542296618</dd>
           </div>
           <div class="flex justify-between gap-4">
             <dt class="text-gray-500">Location</dt>
@@ -132,28 +144,30 @@
             <dt class="text-gray-500">Founded</dt>
             <dd class="text-gray-300 text-right">2025</dd>
           </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-gray-500">Product</dt>
+            <dd class="text-gray-300 text-right">Briefcaster (iOS, App Store)</dd>
+          </div>
         </dl>
       </div>
 
       <p class="text-gray-600 text-xs mt-10">
         Looking for app support?
-        <a href="/briefcaster/support" class="text-gray-400 hover:text-gray-300 transition-colors underline underline-offset-2">Briefcaster Support</a>
+        <a href="/briefcaster/support" class="text-gray-400 hover:text-gray-300 transition-colors underline underline-offset-2">Briefcaster support</a>
         ·
         <a href="/briefcaster" class="text-gray-400 hover:text-gray-300 transition-colors underline underline-offset-2">Briefcaster</a>
-        ·
-        <a href="/maths" class="text-gray-400 hover:text-gray-300 transition-colors underline underline-offset-2">MATHS</a>
       </p>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- @footer lang="en" -->
   <footer class="border-t border-gray-800/40">
     <div class="max-w-6xl mx-auto px-6 py-14">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
         <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
               </svg>
@@ -161,16 +175,17 @@
             <span class="text-sm text-gray-300 font-semibold">Data Concept Studio</span>
           </div>
           <p class="text-xs text-gray-500 leading-relaxed">
-            AI product studio — Kraków, Poland.<br>
-            Building consumer and fintech AI products.
+            Software company in Kraków, Poland.<br>
+            Makers of Briefcaster, personal audio news briefings for iPhone.
           </p>
         </div>
         <div>
-          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Products</div>
+          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Product</div>
           <ul class="space-y-2.5">
             <li><a href="/briefcaster" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster</a></li>
-            <li><a href="/maths" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">MATHS</a></li>
+            <li><a href="/briefcaster/pl" lang="pl" hreflang="pl" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster po polsku</a></li>
             <li><a href="/pricing" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Pricing</a></li>
+            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
           </ul>
         </div>
         <div>
@@ -178,27 +193,31 @@
           <ul class="space-y-2.5">
             <li><a href="/about" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">About</a></li>
             <li><a href="/news" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">News</a></li>
+            <li><a href="/press" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Press</a></li>
             <li><a href="/contact" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
           </ul>
         </div>
         <div>
           <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Legal</div>
           <ul class="space-y-2.5">
-            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Privacy</a></li>
-            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Terms</a></li>
-            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Support</a></li>
+            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a></li>
+            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</a></li>
+            <li><a href="/briefcaster/delete-account" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Delete your account</a></li>
           </ul>
         </div>
       </div>
       <div class="mt-12 pt-8 border-t border-gray-800/40 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-xs text-gray-600">© 2026 Data Concept Studio Michał Szarek · Kraków, Poland</div>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
+        <div class="text-xs text-gray-600 text-center md:text-left">
+          © 2026 Data Concept Studio, a sole proprietorship of <span data-fact="registeredTo">Michał Szarek</span> · NIP: <span data-fact="nip">9691673171</span> · REGON: <span data-fact="regon">542296618</span> · Kraków, Poland
+        </div>
+        <a href="mailto:contact@dataconceptstudio.com"
            class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-          michal.szarek@dataconceptstudio.com
+          contact@dataconceptstudio.com
         </a>
       </div>
     </div>
   </footer>
+  <!-- @/footer -->
 
 </body>
 </html>

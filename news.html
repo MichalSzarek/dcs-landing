@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News &amp; product updates — Data Concept Studio</title>
-  <meta name="description" content="What we shipped and when: Briefcaster's App Store launch, global daily briefings, faster generation, more voices, and progress on MATHS — from Data Concept Studio in Kraków, Poland.">
+  <title>Briefcaster news and product updates — Data Concept Studio</title>
+  <meta name="description" content="What Data Concept Studio has shipped in Briefcaster and when: the App Store launch, faster briefings, shared previews, daily briefings in Polish and English, and the Android version in progress.">
   <link rel="canonical" href="https://dataconceptstudio.com/news">
   <meta property="og:title" content="News & product updates — Data Concept Studio">
-  <meta property="og:description" content="A running log of what we ship across Briefcaster and MATHS.">
+  <meta property="og:description" content="A running log of what we ship in Briefcaster.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dataconceptstudio.com/news">
   <meta property="og:site_name" content="Data Concept Studio">
@@ -16,13 +16,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/app.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Data Concept Studio",
-    "legalName": "Data Concept Studio Michał Szarek",
+    "legalName": "Michał Szarek",
+    "taxID": "9691673171",
     "url": "https://dataconceptstudio.com",
     "logo": "https://dataconceptstudio.com/logo.png",
     "foundingDate": "2025",
@@ -54,12 +55,12 @@
 </head>
 <body class="bg-gray-950 text-white antialiased overflow-x-hidden">
 
-  <!-- ═══════════════ NAV ═══════════════ -->
-  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40">
+  <!-- @nav lang="en" active="/news" ct="landing-news" -->
+  <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-800/40" aria-label="Main">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
           </svg>
@@ -69,22 +70,28 @@
 
       <div class="hidden md:flex items-center gap-8">
         <a href="/briefcaster" class="text-sm text-gray-400 hover:text-white transition-colors">Briefcaster</a>
-        <a href="/maths" class="text-sm text-gray-400 hover:text-white transition-colors">MATHS</a>
         <a href="/pricing" class="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
-        <a href="/news" class="text-sm text-white font-medium">News</a>
+        <a href="/news" class="text-sm text-white font-medium" aria-current="page">News</a>
         <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
         <a href="/contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a>
+        <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-news&amp;mt=8"
+           class="text-sm px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/25
+                  text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all">
+          Get Briefcaster
+        </a>
       </div>
 
-      <div class="md:hidden flex items-center gap-3">
+      <!-- Mobile -->
+      <div class="md:hidden flex items-center gap-4">
         <a href="/about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
-           class="text-sm px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
-          Contact
+        <a href="https://apps.apple.com/app/apple-store/id6786799275?pt=129115726&amp;ct=landing-news&amp;mt=8"
+           class="text-sm px-4 py-2 rounded-xl bg-blue-500/10 border border-blue-500/25 text-blue-400">
+          Get the app
         </a>
       </div>
     </div>
   </nav>
+  <!-- @/nav -->
 
   <!-- ═══════════════ HEADER ═══════════════ -->
   <section class="relative grid-bg pt-32 pb-16">
@@ -98,8 +105,8 @@
         What we've <span class="gradient-text">shipped</span>
       </h1>
       <p class="text-lg text-gray-400 leading-relaxed max-w-2xl">
-        A running log of the work coming out of Data Concept Studio. We are a small company —
-        this page is the honest record of what actually reached users, newest first.
+        A running log of what Data Concept Studio has shipped in Briefcaster. We are a small
+        company, so this page is the plain record of what actually reached listeners, newest first.
       </p>
     </div>
   </section>
@@ -189,33 +196,16 @@
           </a>
         </article>
 
-        <!-- MATHS -->
-        <article class="rounded-2xl border border-gray-800 bg-gray-900/40 p-7 card-hover">
-          <div class="flex items-center gap-3 mb-3 flex-wrap">
-            <span class="mono text-xs text-emerald-400">2026</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-300">MATHS</span>
-          </div>
-          <h2 class="text-xl font-bold mb-3">MATHS runs continuously in private beta</h2>
-          <p class="text-gray-400 leading-relaxed text-sm">
-            Our second product operates in production as a private beta. Four independent models —
-            technical, fundamentals, sentiment and macro — each form a view; a fixed rule combines
-            them, and every candidate position has to clear an independent risk gate before anything
-            is acted on. It runs on the firm's own capital and is not offered to anyone. Through 2026 we have concentrated on the
-            parts that are unglamorous and decisive: reconciliation between our records and the
-            broker's, auditable decision trails, and automated checks that notice when the process has gone quiet.
-          </p>
-        </article>
-
         <!-- Founding -->
         <article class="rounded-2xl border border-gray-800 bg-gray-900/40 p-7 card-hover">
           <div class="flex items-center gap-3 mb-3 flex-wrap">
             <span class="mono text-xs text-emerald-400">2025</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-gray-800 border border-gray-700 text-gray-400">Company</span>
           </div>
-          <h2 class="text-xl font-bold mb-3">Data Concept Studio is founded in Kraków</h2>
+          <h2 class="text-xl font-bold mb-3">Data Concept Studio is founded</h2>
           <p class="text-gray-400 leading-relaxed text-sm">
-            The company is registered in Poland as a product business: software we build, own, and
-            operate ourselves, rather than client work. Everything we run is hosted on Google Cloud.
+            Michał Szarek registers the business in Poland as a sole proprietorship trading as Data
+            Concept Studio, set up to build, own and operate its own software.
           </p>
         </article>
 
@@ -230,22 +220,22 @@
       <p class="text-gray-400 leading-relaxed mb-8">
         Email us and we'll keep you posted on what ships next.
       </p>
-      <a href="mailto:michal.szarek@dataconceptstudio.com"
+      <a href="mailto:contact@dataconceptstudio.com"
          class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400
                 text-gray-950 font-semibold text-sm transition-all">
-        michal.szarek@dataconceptstudio.com
+        contact@dataconceptstudio.com
       </a>
     </div>
   </section>
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <!-- @footer lang="en" -->
   <footer class="border-t border-gray-800/40">
     <div class="max-w-6xl mx-auto px-6 py-14">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
         <div class="col-span-2 md:col-span-1">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center">
-              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
               </svg>
@@ -253,16 +243,17 @@
             <span class="text-sm text-gray-300 font-semibold">Data Concept Studio</span>
           </div>
           <p class="text-xs text-gray-500 leading-relaxed">
-            AI software company — Kraków, Poland.<br>
-            We build and run our own AI products.
+            Software company in Kraków, Poland.<br>
+            Makers of Briefcaster, personal audio news briefings for iPhone.
           </p>
         </div>
         <div>
-          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Products</div>
+          <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Product</div>
           <ul class="space-y-2.5">
             <li><a href="/briefcaster" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster</a></li>
-            <li><a href="/maths" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">MATHS</a></li>
+            <li><a href="/briefcaster/pl" lang="pl" hreflang="pl" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster po polsku</a></li>
             <li><a href="/pricing" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Pricing</a></li>
+            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
           </ul>
         </div>
         <div>
@@ -270,28 +261,31 @@
           <ul class="space-y-2.5">
             <li><a href="/about" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">About</a></li>
             <li><a href="/news" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">News</a></li>
-            <li><a href="/contact" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
             <li><a href="/press" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Press</a></li>
+            <li><a href="/contact" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
           </ul>
         </div>
         <div>
           <div class="text-xs font-semibold text-gray-300 uppercase tracking-wider mb-4">Legal</div>
           <ul class="space-y-2.5">
-            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Privacy</a></li>
-            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Terms</a></li>
-            <li><a href="/briefcaster/support" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Briefcaster Support</a></li>
+            <li><a href="/briefcaster/privacy" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Privacy Policy</a></li>
+            <li><a href="/briefcaster/terms" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Terms of Service</a></li>
+            <li><a href="/briefcaster/delete-account" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Delete your account</a></li>
           </ul>
         </div>
       </div>
       <div class="mt-12 pt-8 border-t border-gray-800/40 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-xs text-gray-600">© 2026 Data Concept Studio Michał Szarek · Kraków, Poland</div>
-        <a href="mailto:michal.szarek@dataconceptstudio.com"
+        <div class="text-xs text-gray-600 text-center md:text-left">
+          © 2026 Data Concept Studio, a sole proprietorship of <span data-fact="registeredTo">Michał Szarek</span> · NIP: <span data-fact="nip">9691673171</span> · REGON: <span data-fact="regon">542296618</span> · Kraków, Poland
+        </div>
+        <a href="mailto:contact@dataconceptstudio.com"
            class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
-          michal.szarek@dataconceptstudio.com
+          contact@dataconceptstudio.com
         </a>
       </div>
     </div>
   </footer>
+  <!-- @/footer -->
 
 </body>
 </html>

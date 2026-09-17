@@ -5,3 +5,4 @@ npm-debug.log
 .voice-study.htpasswd
 .voice-study.htpasswd.*
 .env
+app.css
