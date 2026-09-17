@@ -11,7 +11,9 @@ real software company with **one** product it owns. So:
 - **One product.** Briefcaster is the only product presented. `/maths` 301s to `/`; the
   previous version lives on the branch `archive/two-products-2026-09-16`.
 - **Never "studio" as a description.** The word appears only inside the company name; the
-  company is a *software company*. No client-work, consulting or agency language.
+  company is an *independent consumer AI company* that owns and operates Briefcaster.
+  Describe its product, ownership and planned subscription revenue, rather than offering
+  engineering capabilities or development services. Founder experience supports the product.
 - **Facts come from `site.json`.** Legal name, NIP, REGON and the App Store seller name are
   written into every element carrying `data-fact="<key>"`. An empty value fails the build, so
   the image cannot be built with a missing registration number. Never guess one.
