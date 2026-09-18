@@ -154,7 +154,7 @@ describe("pages", () => {
     }
     for (const type of ["Organization", "Person", "MobileApplication"]) assert.ok(types.has(type), type);
     const about = (await page("/about")).body;
-    assert.match(about, /"sameAs": \["https:\/\/www\.linkedin\.com\/in\/miszu\/"\]/);
+    assert.match(about, /"sameAs": \["https:\/\/www\.linkedin\.com\/in\/miszu"\]/);
   });
 
   test("the stylesheet is served by the site, not built in the browser", async () => {
