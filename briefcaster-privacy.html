@@ -89,7 +89,7 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 22 September 2026</p>
+    <p class="updated">Last updated: 2 October 2026</p>
 
     <p>
       This Privacy Policy explains how <strong>Data Concept Studio</strong> ("we", "us", "our")
@@ -163,6 +163,28 @@
     </p>
 
     <h2>3. How we use your information</h2>
+    <h3>Optional AI voice feed configuration</h3>
+    <p>
+      The experimental voice assistant is available only to invited accounts. It identifies itself
+      as AI before requesting microphone access. When you choose to start, Briefcaster sends your
+      voice to OpenAI for transcription and sends the resulting text and proposed feed settings to
+      OpenAI for safety checks and configuration. Google Cloud Text-to-Speech receives the checked
+      response text to speak the assistant's questions and summary. This conversation configures a
+      draft; you choose when to generate an episode with <strong>Generate now</strong>.
+    </p>
+    <p>
+      Microphone capture stops when you close the panel, sign out or put the app in the background.
+      Briefcaster keeps conversation content temporarily in memory and does not save voice
+      recordings or full transcripts in its storage, logs or analytics. Only the accepted feed
+      configuration and session metadata needed for access limits, cost accounting and operation
+      are stored. New feeds created through this pilot have Popular sharing switched off.
+    </p>
+    <p>
+      These limits describe Briefcaster's own storage. Provider processing and retention follow
+      their API terms and account settings. Disabling response storage does not establish zero
+      provider retention; see <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI's API data controls</a>.
+      You can use the ordinary form without granting microphone access.
+    </p>
     <ul>
       <li>To create your account and authenticate you.</li>
       <li>To generate personalized audio briefs from your chosen sources.</li>
@@ -254,6 +276,8 @@
       </thead>
       <tbody>
         <tr><td>Google Cloud Platform</td><td>Hosting, database, audio file storage (region: europe-west1)</td></tr>
+        <tr><td>OpenAI API</td><td>Optional experimental voice feed configuration: voice transcription, text safety checks and interpretation of feed settings</td></tr>
+        <tr><td>Google Cloud Text-to-Speech</td><td>Speaking checked questions and summaries in the optional voice feed assistant</td></tr>
         <tr><td>Google &amp; Apple</td><td>Social sign-in (only if you use it)</td></tr>
         <tr><td>Google Cloud (Vertex AI / Gemini, Cloud Text-to-Speech) &amp; ElevenLabs</td><td>Writing and voicing your briefs</td></tr>
         <tr><td>Resend</td><td>Sending account emails (password reset, verification)</td></tr>
