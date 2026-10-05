@@ -89,7 +89,7 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 2 October 2026</p>
+    <p class="updated">Last updated: 5 October 2026</p>
 
     <p>
       This Privacy Policy explains how <strong>Data Concept Studio</strong> ("we", "us", "our")
@@ -104,7 +104,9 @@
         create so we can generate your briefs. We do not sell your personal data. You can delete
         your feeds and your account at any time from within the App. Popular briefs may be shown
         anonymously to other listeners in the "Popular" section — never with your name or account —
-        and you can switch this off at any time (see section 5).
+        and you can switch this off at any time (see section 5). If you choose the optional voice
+        setup assistant, your voice is streamed live to OpenAI for the conversation, which is not
+        recorded by us (see section 3).
       </p>
     </div>
 
@@ -162,28 +164,63 @@
       ads or none at all, and the App remains fully usable. Advertising is off by default.
     </p>
 
+    <h3>2.6 Voice conversation (optional)</h3>
+    <ul>
+      <li><strong>Your voice</strong> — only if you tap "Start conversation" in the optional voice
+        setup assistant and allow microphone access. Your voice is streamed live from your phone to
+        OpenAI for the duration of the conversation (see section 3). Our servers do not receive
+        your voice audio, and Briefcaster does not record or store audio.</li>
+      <li><strong>Feed settings you accept</strong> — the topic, description, schedule and format
+        discussed in the conversation are saved to your draft feed, like settings entered in the
+        form.</li>
+      <li><strong>Session records</strong> — when a conversation started and ended, its length, its
+        outcome or error code, its estimated cost and numeric technical measurements such as response
+        delay. These records contain no audio and no transcript.</li>
+    </ul>
+
     <h2>3. How we use your information</h2>
-    <h3>Optional AI voice feed configuration</h3>
+    <h3>Optional voice setup assistant (AI)</h3>
     <p>
-      The experimental voice assistant is available only to invited accounts. It identifies itself
-      as AI before requesting microphone access. When you choose to start, Briefcaster sends your
-      voice to OpenAI for transcription and sends the resulting text and proposed feed settings to
-      OpenAI for safety checks and configuration. Google Cloud Text-to-Speech receives the checked
-      response text to speak the assistant's questions and summary. This conversation configures a
-      draft; you choose when to generate an episode with <strong>Generate now</strong>.
+      Briefcaster can let you set up a feed by talking to an AI assistant. You are talking to an AI,
+      not a person, and the App tells you so, and tells you where your voice is sent, before the
+      conversation starts. The assistant may be rolled out gradually and may be available only to
+      some accounts.
     </p>
     <p>
-      Microphone capture stops when you close the panel, sign out or put the app in the background.
-      Briefcaster keeps conversation content temporarily in memory and does not save voice
-      recordings or full transcripts in its storage, logs or analytics. Only the accepted feed
-      configuration and session metadata needed for access limits, cost accounting and operation
-      are stored. New feeds created through this pilot have Popular sharing switched off.
+      The microphone is switched on only after you tap "Start conversation" and allow microphone
+      access in iOS. From then on your voice is streamed live from your phone to OpenAI, which
+      transcribes it and generates the assistant's spoken replies. While the conversation runs, our
+      servers receive the text of what is said, in order to fill in your draft feed's settings and
+      to show live captions on your screen. Language models operated by OpenAI process that text, and
+      OpenAI's moderation service checks the topic and description that are saved. The conversation
+      configures a draft only; you choose when to generate an episode.
     </p>
     <p>
-      These limits describe Briefcaster's own storage. Provider processing and retention follow
-      their API terms and account settings. Disabling response storage does not establish zero
-      provider retention; see <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI's API data controls</a>.
-      You can use the ordinary form without granting microphone access.
+      The conversation ends when you end or save it, close the screen or leave the App, after a
+      period of silence, or after a maximum length (currently 3 minutes). You can use the ordinary
+      form without ever allowing microphone access.
+    </p>
+    <p>
+      Briefcaster does not record the conversation and does not save voice recordings or
+      transcripts in its storage, logs or analytics; the text our servers see is held in memory
+      only while the conversation runs. We save only the feed settings you accept and the session
+      records described in section 2.6. We switch off OpenAI's optional storage of the session.
+      Popular sharing is switched off for feeds created this way.
+    </p>
+    <p>
+      OpenAI acts as our processor. The limits above describe Briefcaster's own storage. OpenAI
+      states that it keeps abuse-monitoring logs of API usage for up to 30 days (longer only where
+      the law requires it) and that data sent through its API is not used to train its models unless
+      the API customer opts in; see
+      <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI's API data controls</a>.
+      We cannot delete those logs before OpenAI's own retention period ends. Voice conversations are
+      processed in the United States (see section 11).
+    </p>
+    <p>
+      Our legal basis for processing your voice is your consent (Article 6(1)(a) GDPR), which you
+      give by tapping "Start conversation" and allowing microphone access. You can withdraw it at
+      any time by ending the conversation, or by turning off microphone access for Briefcaster in
+      iOS Settings.
     </p>
     <ul>
       <li>To create your account and authenticate you.</li>
@@ -276,8 +313,7 @@
       </thead>
       <tbody>
         <tr><td>Google Cloud Platform</td><td>Hosting, database, audio file storage (region: europe-west1)</td></tr>
-        <tr><td>OpenAI API</td><td>Optional experimental voice feed configuration: voice transcription, text safety checks and interpretation of feed settings</td></tr>
-        <tr><td>Google Cloud Text-to-Speech</td><td>Speaking checked questions and summaries in the optional voice feed assistant</td></tr>
+        <tr><td>OpenAI API</td><td>Optional voice setup assistant: live speech recognition and spoken replies, language-model processing of the conversation text to fill in feed settings, and text safety checks. Processed in the United States</td></tr>
         <tr><td>Google &amp; Apple</td><td>Social sign-in (only if you use it)</td></tr>
         <tr><td>Google Cloud (Vertex AI / Gemini, Cloud Text-to-Speech) &amp; ElevenLabs</td><td>Writing and voicing your briefs</td></tr>
         <tr><td>Resend</td><td>Sending account emails (password reset, verification)</td></tr>
@@ -306,6 +342,11 @@
       Popular are deleted after at most 4 days. Your sharing preference is kept while your account is
       active.
     </p>
+    <p>
+      Voice conversations: Briefcaster stores no audio and no transcripts. The session records
+      described in section 2.6 follow the account retention rules above. OpenAI keeps abuse-monitoring
+      logs for up to 30 days (section 3).
+    </p>
 
     <h2>8. Your rights &amp; choices</h2>
     <ul>
@@ -320,6 +361,10 @@
         Transparency prompt or in Settings → Privacy &amp; Security → Tracking. On Android, go to
         Settings → Google → Ads to delete or reset your advertising ID.</li>
       <li><strong>YouTube</strong> — you can disconnect your YouTube connection at any time.</li>
+      <li><strong>Voice conversation</strong> — you give your consent each time you start one, and
+        you can withdraw it at any moment by ending the conversation or by turning off microphone
+        access for Briefcaster in iOS Settings. The form works without the microphone. To have
+        session records deleted, delete your account or email us.</li>
       <li><strong>Popular (anonymous sharing)</strong> — you can object to, and stop, anonymous
         sharing of your briefs at any time: Account → "Share my briefs anonymously in Popular" for all
         your briefs, or the sharing switch in a brief's settings for a single one. Switching it off
@@ -349,7 +394,8 @@
     <p>
       We process and store data on Google Cloud infrastructure located in the European Union
       (europe-west1). Some service providers may process data in other countries under appropriate
-      safeguards.
+      safeguards. In particular, voice and conversation text from the optional voice setup assistant
+      are processed by OpenAI in the United States.
     </p>
 
     <h2>12. Changes to this policy</h2>
