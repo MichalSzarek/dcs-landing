@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lustre — Privacy Policy</title>
-  <meta name="description" content="Privacy Policy for Lustre: Mirror and Light, the iPhone app by Data Concept Studio." />
+  <meta name="description" content="Privacy Policy for Lustre, the iPhone and Android app by Data Concept Studio." />
   <meta property="og:title" content="Lustre — Privacy Policy" />
-  <meta property="og:description" content="Lustre has no account, no ads and no analytics. Your camera image stays on your device." />
+  <meta property="og:description" content="Lustre has no account and no ads, and its own code has no analytics. Your camera image stays on your device." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dataconceptstudio.com/lustre/privacy" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -88,21 +88,26 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 14 September 2026</p>
+    <p class="updated">Last updated: 20 October 2026<br />
+      Applies to: Lustre for iPhone (App Store ID 6811636658, bundle
+      <code>com.dataconceptstudio.lustre</code>) and Lustre for Android (Google Play, package
+      <code>com.dataconceptstudio.lustre</code>)</p>
 
     <p>
-      This Privacy Policy explains how the iPhone app <strong>Lustre: Mirror and Light</strong>
-      (the "App") handles information. Lustre is published by <strong>Data Concept Studio Michał
-      Szarek</strong> ("we", "us", "our"). The App is a mirror (a mirrored front-camera preview) and
-      uses your screen as an adjustable light.
+      This Privacy Policy explains how the app <strong>Lustre</strong> (the "App"), for iPhone and for
+      Android, handles information. Lustre is published by <strong>Data Concept Studio Michał
+      Szarek</strong> ("we", "us", "our"). The App uses your screen as an adjustable light for your
+      face, with a mirrored front-camera preview. Where the two versions differ, this policy says so.
     </p>
 
     <div class="callout">
       <p>
-        <strong>In short:</strong> Lustre has no account, no sign-in, no ads, no analytics and no
-        third-party SDKs. The App's own code makes no network requests. Your camera image is processed
-        on your device only and is never recorded, stored or uploaded. We receive no personal data
-        from the App.
+        <strong>In short:</strong> Lustre has no account, no sign-in and no ads, and Lustre's own code
+        contains no analytics and makes no network requests. Your camera image is processed on your
+        device only and is never recorded, stored or uploaded. We receive no personal data from the
+        App. On Android, the optional face-lighting hint (off by default) uses Google's ML Kit, which
+        sends Google technical usage metrics — never images or face data — once you turn the hint on
+        (section 3.4).
       </p>
     </div>
 
@@ -111,25 +116,34 @@
       The publisher of Lustre, and the data controller for any email you send us, is
       <strong>Data Concept Studio Michał Szarek</strong>, a sole proprietorship
       (<span lang="pl">jednoosobowa działalność gospodarcza</span>) registered in Poland and based in
-      Kraków, Poland. For any privacy question or request, contact us at
+      Kraków, Poland. For any privacy question or request, contact
       <a href="mailto:contact@dataconceptstudio.com">contact@dataconceptstudio.com</a>.
     </p>
 
     <h2>2. What Lustre collects</h2>
     <p>
       <strong>Nothing is sent to us.</strong> Lustre has no account and no sign-in, shows no ads, and
-      contains no analytics, tracking or third-party SDKs. The App's own code makes no network
-      requests. The only communication with a server is Apple's StoreKit talking to Apple for the
-      trial check, the price, a purchase and restoring a purchase (see section 5).
+      Lustre's own code contains no analytics or tracking and makes no network requests. The only
+      communication with a server is:
     </p>
+    <ul>
+      <li><strong>iPhone:</strong> Apple's StoreKit talking to Apple for the trial check, the price, a
+        purchase and restoring a purchase (section 5).</li>
+      <li><strong>Android:</strong> Google Play Billing talking to Google Play for the price, a
+        purchase and restoring a purchase (section 5); and, only after you turn on the face-lighting
+        hint, Google's ML Kit sending Google usage metrics (section 3.4).</li>
+    </ul>
 
     <h2>3. Camera, photos and on-device features</h2>
 
     <h3>3.1 Camera</h3>
     <p>
       Lustre asks for camera access to show a mirrored preview from the front camera. The permission
-      text iOS shows you is: <em>"Lustre shows a mirrored preview from the front camera. Your camera
-      image stays on your device and is never uploaded."</em>
+      text iOS shows is: <em>"Lustre shows a mirrored preview from the front camera. Your camera image
+      stays on your device and is never uploaded."</em>
+    </p>
+    <p>
+      On Android the system shows its standard camera permission prompt.
     </p>
     <p>
       The live preview is processed on your device only. It is never recorded, stored or uploaded.
@@ -138,35 +152,55 @@
 
     <h3>3.2 Photos</h3>
     <p>
-      Lustre asks only for permission to <strong>add</strong> photos to your library. A photo is saved
-      to your Photos library only when you take one. The App never reads your photo library. Once
-      saved, a photo is an ordinary item in your library, and your own iOS and iCloud Photos settings
-      apply to it.
+      A photo is saved only when you take one, and the App never reads your photo library or gallery.
     </p>
+    <ul>
+      <li><strong>iPhone:</strong> Lustre asks only for permission to <strong>add</strong> photos to
+        your library (permission text: <em>"Lustre saves the photos you choose to capture to your photo
+        library."</em>). Your own iOS and iCloud Photos settings apply to saved photos.</li>
+      <li><strong>Android:</strong> Lustre asks for no storage or photo permission. It adds the photo to
+        your device's shared Pictures/Lustre folder through Android's MediaStore, which needs no
+        permission for an app's own photos. Your own gallery and backup settings apply to saved
+        photos.</li>
+    </ul>
 
-    <h3>3.3 Room preset suggestion</h3>
+    <h3>3.3 Room preset suggestion (iPhone only)</h3>
     <p>
-      To suggest a preset that matches the light in your room, Lustre reads the camera's own
-      white-balance estimate (a colour temperature) in memory. This is an estimate, not a measurement.
-      Nothing about it is stored or sent.
+      The Android version does not include this feature. On iPhone, to suggest a preset that matches
+      the light in your room, Lustre reads the camera's own white-balance estimate (a colour
+      temperature) in memory. This is an estimate, not a measurement. Nothing about it is stored or
+      sent.
     </p>
 
     <h3>3.4 Face-lighting hint (off by default)</h3>
     <p>
       The face-lighting hint is <strong>off by default</strong>. You can turn it on in Settings
-      ("Uneven light on your face"). When it is on, Lustre uses Apple's on-device Vision face-rectangle
-      detection and compares the brightness of the two cheek areas. The only result is which side, if
-      any, is darker.
+      ("Uneven light on your face"). When it is on, Lustre finds the rectangle around your face on the
+      device and compares the brightness of the two cheek areas. The only result is which side, if any,
+      is darker.
     </p>
+    <ul>
+      <li><strong>iPhone:</strong> face detection uses Apple's on-device Vision framework.</li>
+      <li><strong>Android:</strong> face detection uses <strong>Google ML Kit</strong> with its model
+        built into the App. The camera image and the detection results are processed on your device and
+        are not sent to Google. ML Kit does, however, send Google <strong>technical usage
+        metrics</strong> about the detector — device and app information, a per-installation identifier
+        that is not intended to identify you or your device, performance figures, the feature's version
+        and error codes — which Google uses for diagnostics and usage analytics, encrypted in transit.
+        ML Kit only starts after you turn the hint on; until then it does not run at all. Google's
+        handling of this data is described in the
+        <a href="https://developers.google.com/ml-kit/terms">ML Kit terms</a> and
+        <a href="https://developers.google.com/ml-kit/android-data-disclosure">data disclosure</a>.</li>
+    </ul>
     <p>
-      No face data, image, measurement or biometric identifier is stored or transmitted. This feature
-      is not face recognition: it does not identify who you are.
+      No face image, face measurement or biometric identifier is stored by the App or sent to us or to
+      Google. This feature is not face recognition: it does not identify who you are.
     </p>
 
     <h2>4. What Lustre stores on your device</h2>
     <p>
-      Lustre keeps a few small files inside its own app container on your iPhone. None of them contain
-      personal data, and none of them are sent anywhere by the App.
+      Lustre keeps a few small files in its own private app storage. None of them are sent anywhere by
+      the App.
     </p>
     <table>
       <thead>
@@ -175,28 +209,42 @@
       <tbody>
         <tr><td><code>settings.json</code></td><td>Your app settings.</td></tr>
         <tr><td><code>presets.json</code></td><td>Custom presets you create.</td></tr>
-        <tr><td><code>trial-clock.json</code></td><td>The date the App first ran. Used only in Apple test environments such as TestFlight and the sandbox.</td></tr>
-        <tr><td><code>trial-start.json</code></td><td>The trial start date Apple last confirmed, so the trial is not reopened when Apple cannot be reached.</td></tr>
+        <tr><td><code>trial-clock.json</code></td><td>iPhone: the date the App first ran. Used only in Apple test environments such as TestFlight and the sandbox.</td></tr>
+        <tr><td><code>trial-start.json</code></td><td>iPhone: the trial start date Apple last confirmed, so the trial is not reopened when Apple cannot be reached. Android: the date the App first ran, from which the 14-day trial is counted.</td></tr>
+        <tr><td><code>purchase.json</code></td><td>Android only: the Google Play purchase token of your full-version purchase, so the purchase stays unlocked when Google Play cannot be reached.</td></tr>
       </tbody>
     </table>
     <p>
-      Deleting the App deletes these files. Standard iOS backups (for example iCloud Backup) may
-      include them, under your own backup settings.
+      Deleting the App deletes these files. Your device's own backups may include them under your
+      backup settings: iCloud Backup on iPhone, and Android's backup to your Google account on Android
+      (Lustre lets Android back up exactly these files, so that reinstalling on the same account keeps
+      your settings, presets and trial date).
     </p>
 
-    <h2>5. Apple, the free trial and purchases</h2>
+    <h2>5. The free trial and purchases</h2>
+    <ul>
+      <li><strong>iPhone:</strong> Lustre uses Apple's StoreKit to check your free trial, show the
+        price, make a purchase and restore a purchase. StoreKit communicates with Apple for these
+        purposes. Apple's handling of this information is covered by Apple's own privacy policy and
+        terms.</li>
+      <li><strong>Android:</strong> Lustre uses the Google Play Billing Library to show the price, make
+        a purchase and restore a purchase. It communicates with Google Play for these purposes. The
+        free trial is counted on your device from the date the App first ran (section 4) and involves
+        no server. Google's handling of this information is covered by Google's own privacy policy and
+        Google Play terms.</li>
+    </ul>
     <p>
-      Lustre uses Apple's StoreKit to check your free trial, show the price, make a purchase and
-      restore a purchase. StoreKit communicates with Apple for these purposes. Purchases and payment
-      are handled by Apple, and we do not receive your payment details. Apple's handling of this
-      information is covered by Apple's own privacy policy and terms.
+      Purchases and payment are handled by Apple or Google, and we do not receive your payment details.
     </p>
 
     <h2>6. Third parties, analytics, advertising and tracking</h2>
     <ul>
-      <li><strong>No third-party SDKs.</strong></li>
-      <li><strong>No analytics or tracking.</strong> Lustre does not track you across apps or
-        websites.</li>
+      <li><strong>iPhone:</strong> no third-party SDKs.</li>
+      <li><strong>Android:</strong> Google ML Kit (only for the optional face-lighting hint, section
+        3.4) and the Google Play Billing Library (purchases, section 5). The other libraries in the App
+        are Android's own Jetpack libraries, which collect nothing.</li>
+      <li><strong>No analytics or tracking in Lustre's own code.</strong> Lustre does not track you
+        across apps or websites.</li>
       <li><strong>No advertising.</strong></li>
       <li>We do <strong>not</strong> sell or share personal data, because the App does not collect
         any.</li>
@@ -207,8 +255,9 @@
       If you write to <a href="mailto:contact@dataconceptstudio.com">contact@dataconceptstudio.com</a>,
       we receive your email address and whatever you put in the message. The "Contact us" row in the
       App's Settings opens your own mail app with a draft that already contains the App version, your
-      iOS version and your device model, to help us answer. The App sends nothing itself: the draft
-      stays in your mail app until you send it, and you can edit or delete any part of it first.
+      iOS or Android version and your device model, to help us answer. The App sends nothing itself:
+      the draft stays in your mail app until you send it, and you can edit or delete any part of it
+      first.
     </p>
     <p>
       We use your email only to answer you, and keep the correspondence only as long as needed for that.
@@ -222,7 +271,10 @@
       <li><strong>Photos you took</strong> stay in your Photos library, and you delete them there like
         any other photo.</li>
       <li><strong>Camera and Photos access</strong> can be withdrawn at any time in iOS Settings →
-        Lustre, or Settings → Privacy &amp; Security.</li>
+        Lustre, or Settings → Privacy &amp; Security; on Android, in Settings → Apps → Lustre →
+        Permissions.</li>
+      <li><strong>ML Kit usage metrics (Android)</strong> stop when you turn the face-lighting hint
+        off; the per-installation identifier is reset when you delete the App.</li>
     </ul>
 
     <h2>9. Your rights</h2>
@@ -238,7 +290,8 @@
 
     <h2>10. Children</h2>
     <p>
-      Lustre has no account and collects no personal data from anyone, including children.
+      Lustre has no account and we collect no personal data from anyone, including children. Lustre is
+      not directed at children.
     </p>
 
     <h2>11. Changes to this policy</h2>
