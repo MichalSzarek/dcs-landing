@@ -21,6 +21,7 @@ COPY index.html about.html briefcaster.html briefcaster-pl.html press.html conta
 COPY pricing.html news.html ./
 COPY briefcaster-privacy.html briefcaster-terms.html briefcaster-support.html briefcaster-delete-account.html ./
 COPY lustre-privacy.html lustre-terms.html lustre-support.html ./
+COPY briefcaster-wczesny-dostep-nisza.html briefcaster-wczesny-dostep-newslettery.html briefcaster-wczesny-dostep-youtube.html ./
 COPY robots.txt sitemap.xml favicon.svg ./
 COPY me.PNG logo.png logo-background.png ./
 COPY --from=build /src/app.css ./

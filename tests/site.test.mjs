@@ -235,6 +235,61 @@ describe("what the site says", () => {
   });
 });
 
+describe("early-access demand-validation pages", () => {
+  const variants = [
+    ["/briefcaster/wczesny-dostep/nisza", "niche"],
+    ["/briefcaster/wczesny-dostep/newslettery", "news"],
+    ["/briefcaster/wczesny-dostep/youtube", "yt"]
+  ];
+
+  test("each page resolves, is noindex, unlisted and has one h1 and a self canonical", async () => {
+    const listed = sitemapPaths();
+    for (const [path] of variants) {
+      const res = await get(path);
+      assert.equal(res.status, 200, path);
+      assert.match(res.headers["x-robots-tag"] || "", /noindex/, path);
+      assert.match(res.body, /<meta name="robots" content="noindex, nofollow">/, path);
+      assert.equal((res.body.match(/<h1[\s>]/g) || []).length, 1, `${path} must have exactly one h1`);
+      assert.match(res.body, new RegExp(`<link rel="canonical" href="${CANONICAL}${path}">`), path);
+      assert.ok(!listed.includes(path), `${path} must not be in the sitemap`);
+    }
+  });
+
+  test("the form uses the existing waitlist endpoint and tags the audience", async () => {
+    for (const [path, seg] of variants) {
+      const { body } = await get(path);
+      assert.match(body, /<form id="early-access" method="POST" action="https:\/\/briefcaster\.dataconceptstudio\.com\/waitlist"/, path);
+      assert.match(body, new RegExp(`name="source" value="fd-${seg}"`), path);
+      assert.match(body, /name="locale" value="pl"/, path);
+      assert.match(body, /name="website"[^>]*tabindex="-1"/, `${path} keeps the honeypot`);
+      assert.match(body, /type="email" name="email" required/, path);
+      // The CTA wording is fixed by the pre-registered spec.
+      assert.match(visibleText(body), /Zapisz się na wczesny dostęp/, path);
+    }
+  });
+
+  test("the price is shown honestly: planned, no paid plan today, no payment taken", async () => {
+    for (const [path] of variants) {
+      const text = visibleText((await get(path)).body);
+      assert.match(text, /Planowana cena/, path);
+      assert.match(text, /19 zł \/ miesiąc/, path);
+      assert.match(text, /cena testowa/i, path);
+      assert.match(text, /płatnego planu jeszcze nie ma/, path);
+      assert.match(text, /nic nie kupujesz i nie podajesz karty/, path);
+      assert.doesNotMatch(text, /\b(kup teraz|zamów|zapłać|odblokuj|subskrybuj)\b/i, `${path} must not sell a plan that does not exist`);
+    }
+  });
+
+  test("the e-mail notice names the controller, purpose, basis, retention and contact", async () => {
+    for (const [path] of variants) {
+      const text = visibleText((await get(path)).body);
+      for (const part of ["Administratorem danych", "MICHAŁ SZAREK DATA CONCEPT STUDIO", "art. 6 ust. 1 lit. a RODO", "31 stycznia 2027", "UODO", "contact@dataconceptstudio.com"]) {
+        assert.ok(text.includes(part), `${path} should mention ${part}`);
+      }
+    }
+  });
+});
+
 describe("company facts", () => {
   test("site.json has every fact the pages show", () => {
     const facts = JSON.parse(readFileSync(join(ROOT, "site.json"), "utf8"));
