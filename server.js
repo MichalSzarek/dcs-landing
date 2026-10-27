@@ -40,7 +40,13 @@ const pageRoutes = new Map([
   // these three URLs must keep resolving exactly as written.
   ["/lustre/privacy", "lustre-privacy.html"],
   ["/lustre/terms", "lustre-terms.html"],
-  ["/lustre/support", "lustre-support.html"]
+  ["/lustre/support", "lustre-support.html"],
+  // Demand-validation "early access" pages (PL), one per audience. Reached only from our own
+  // posts and messages: noindex, unlinked, out of the sitemap. Spec: briefcaster-backend
+  // docs/research/2026-10-demand-validation/05-fake-door-spec.md. Remove after the 2026-11-16 readout.
+  ["/briefcaster/wczesny-dostep/nisza", "briefcaster-wczesny-dostep-nisza.html"],
+  ["/briefcaster/wczesny-dostep/newslettery", "briefcaster-wczesny-dostep-newslettery.html"],
+  ["/briefcaster/wczesny-dostep/youtube", "briefcaster-wczesny-dostep-youtube.html"]
 ]);
 
 // The company has one product. These are the paths a reviewer or an old link is
@@ -66,10 +72,17 @@ const redirects = new Map([
   ["/help", "/briefcaster/support"]
 ]);
 
-// Legal pages of a separate app that link here from inside that app. They must
-// keep resolving, but they are not part of this site: kept out of the sitemap
-// and out of search.
-const unlistedRoutes = new Set(["/lustre/privacy", "/lustre/terms", "/lustre/support"]);
+// Routes that resolve but are not part of the public site: kept out of the sitemap and out
+// of search. Legal pages of a separate app that link here from inside that app, and the
+// early-access demand-validation pages.
+const unlistedRoutes = new Set([
+  "/lustre/privacy",
+  "/lustre/terms",
+  "/lustre/support",
+  "/briefcaster/wczesny-dostep/nisza",
+  "/briefcaster/wczesny-dostep/newslettery",
+  "/briefcaster/wczesny-dostep/youtube"
+]);
 
 const staticFiles = new Map([
   ["/robots.txt", "robots.txt"],
